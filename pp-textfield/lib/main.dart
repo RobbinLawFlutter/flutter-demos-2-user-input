@@ -16,7 +16,7 @@ const kTextFieldInputDecoration = InputDecoration(
   filled: true,
   fillColor: Colors.white,
   icon: Icon(
-    Icons.location_city,
+    Icons.thumb_up,
     color: Colors.white,
   ),
   hintText: 'Enter Your Name',
@@ -38,7 +38,7 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   List<String> listItems = [];
-  final TextEditingController eCtrl = TextEditingController();
+  final TextEditingController textEditingController = TextEditingController();
   @override
   Widget build(BuildContext ctxt) {
     return MaterialApp(
@@ -46,13 +46,14 @@ class _AppState extends State<App> {
           backgroundColor: Colors.blueGrey,
           appBar: AppBar(
             title: Text("TextField and ListView.builder Demo"),
+            backgroundColor: Colors.blueGrey[900],
           ),
           body: Column(
             children: <Widget>[
               Container(
                 padding: EdgeInsets.all(20.0),
                 child: TextField(
-                  controller: eCtrl,
+                  controller: textEditingController,
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 30,
@@ -63,7 +64,7 @@ class _AppState extends State<App> {
                   },
                   onSubmitted: (text) {
                     listItems.add(text);
-                    eCtrl.clear();
+                    textEditingController.clear();
                     setState(() {});
                   },
                 ),
