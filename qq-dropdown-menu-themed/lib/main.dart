@@ -25,27 +25,36 @@ class DropdownMenuDemo extends StatelessWidget {
             icon: Icon(Icons.more_vert),
             itemBuilder: (BuildContext context) => <PopupMenuEntry>[
               const PopupMenuItem(
+                value: 1,
                 child: ListTile(
                   leading: Icon(Icons.add),
                   title: Text('Item 1'),
                 ),
               ),
               const PopupMenuItem(
+                value: 2,
                 child: ListTile(
                   leading: Icon(Icons.anchor),
                   title: Text('Item 2'),
                 ),
               ),
               const PopupMenuItem(
+                value: 3,
                 child: ListTile(
-                  leading: Icon(Icons.article),
+                  leading: Icon(Icons.menu),
                   title: Text('Item 3'),
                 ),
               ),
               const PopupMenuDivider(),
-              const PopupMenuItem(child: Text('Item A')),
-              const PopupMenuItem(child: Text('Item B')),
+              const PopupMenuItem(value: 4, child: Text('Item A')),
+              const PopupMenuItem(value: 5, child: Text('Item B')),
             ],
+            onCanceled: () {
+              print("You have canceled the menu.");
+            },
+            onSelected: (value) {
+              print("value:$value");
+            },
           ),
         ],
       ),
