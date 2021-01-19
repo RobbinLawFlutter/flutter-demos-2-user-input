@@ -69,6 +69,9 @@ class _AppState extends State<App> {
                     ),
                   ),
                 ),
+                SizedBox(
+                  height: 20,
+                ),
                 TextFormField(
                   controller: textEditingController1,
                   onChanged: (value) {
@@ -92,7 +95,7 @@ class _AppState extends State<App> {
                     helperText: 'min 8 characters',
                     //errorText: 'Error message',
                     suffixIcon: Icon(
-                      Icons.error,
+                      Icons.handyman_sharp,
                     ),
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(
