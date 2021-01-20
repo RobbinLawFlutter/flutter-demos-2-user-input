@@ -93,9 +93,9 @@ class _AppState extends State<App> {
                     labelText: 'password',
                     helperText: 'min 8 characters',
                     //errorText: 'Error message',
-                    suffixIcon: Icon(
-                      Icons.handyman_sharp,
-                    ),
+                    // suffixIcon: Icon(
+                    //   Icons.handyman_sharp,
+                    // ),
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(
                           //color: Color(0xFF6200EE),
