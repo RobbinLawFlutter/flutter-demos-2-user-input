@@ -22,10 +22,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.blue.shade900,
+        backgroundColor: Colors.blueGrey,
         appBar: AppBar(
           title: Text("Statefull Widgets"),
-          backgroundColor: Colors.blue.shade400,
+          backgroundColor: Colors.blueGrey[900],
         ),
         body: Dice(),
       ),
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
 }
 
 class Dice extends StatelessWidget {
-  //We cannot put vars here (unless we mark them final)
+  //We cannot put variables here (unless we mark them final)
   //because a stateless widget is imutable (can't change)
   //int myLeftDiceNumber = 1;
 
@@ -44,31 +44,34 @@ class Dice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //We can put local variables inside the build method but
+    //their scope is only inside the method.
     //If we change these numbers and hotreload the images will update
     int leftDiceNumber = 2;
-    var rightDiceNumber = 1;
+    var rightDiceNumber = 3;
     return Center(
       child: Row(
         children: <Widget>[
           Expanded(
             flex: 1,
             child: FlatButton(
-              //This will not work as it is trying to call the method
-              //when flutter is building the UI.
+              //This will not work as it is trying to call and run
+              //the named method when flutter is building the UI.
               //onPressed: reactToButtonPress(),
 
-              //This will work as it is a pointer to the named method
+              //This will work as it is a pointer to the named method.
               //This method has to return void and cannot take args.
               // onPressed: reactToButtonPress,
 
-              //Signature for a voidcallback also called in some
-              //languages anonymous functions.
-              //A function with no name and in this case no parms
-              //When flutter builds the UI
-              //it does not run the function but attaches a pointer
+              //The structure below is the signature
+              //for a voidcallback also called in some
+              //languages an anonymous function (no name).
+              //A function with no name and in this case no parms.
+              //When flutter builds the UI it does not run
+              //the function but attaches the pointer
               //to the function to the onPressed property.
               //The code inside the anonymous function is run
-              //only when the button is pressed.
+              //only when the onPressed event is triggered.
               onPressed: () {
                 print('Left button got pressed');
                 print('leftDiceNumber = $leftDiceNumber');

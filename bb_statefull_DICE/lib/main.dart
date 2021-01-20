@@ -14,10 +14,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.blue.shade900,
+        backgroundColor: Colors.blueGrey,
         appBar: AppBar(
           title: Text("Statefull Widgets"),
-          backgroundColor: Colors.blue.shade400,
+          backgroundColor: Colors.blueGrey[900],
         ),
         body: Dice(),
       ),
@@ -46,7 +46,7 @@ class _DiceState extends State<Dice> {
                 setState(() {
                   //setState takes as a parm an anonomous function.
                   //Inside this function setState will mark DIRTY
-                  //any variable that changes well as anything that uses
+                  //any variable that changes as well as anything that uses
                   //that DIRTY variable anywhere inside the nearest build
                   //method.
 
