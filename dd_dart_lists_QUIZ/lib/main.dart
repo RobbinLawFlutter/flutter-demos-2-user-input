@@ -1,9 +1,11 @@
 //This app as well as the next shows why
 //it is good to modularize, abstract, and
 //encapsulate code.
-//four pillars of OOP
-//Abstraction by using classes and instanciating objects from the class template.
-//Encapsulation "_" make members private to the class.
+//The four pillars of OOP:
+//Abstraction by using classes and instanciating
+//objects from the class template.
+//Encapsulation "_" make members private and therefore only
+//accessable to the members of the class.
 //Inheritance "extends" the base class template.
 //Polymorphism "@override" changes methods of the base class.
 
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.grey.shade900,
+        backgroundColor: Colors.blueGrey[900],
         body: SafeArea(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.0),
@@ -46,47 +48,6 @@ class _MyFirstPageState extends State<MyFirstPage> {
 
   int questionNumber = 0;
   int loopNumber = 0;
-
-  void checkAnswer(bool userAnswer) {
-    setState(() {
-      if (loopNumber < questions.length) {
-        bool correctAnswer = answers[questionNumber];
-        if (userAnswer == correctAnswer) {
-          print('got it right');
-          scoreKeeper.add(
-            Icon(
-              Icons.check,
-              color: Colors.green,
-            ),
-          );
-        } else {
-          print('got it wrong');
-          scoreKeeper.add(
-            Icon(
-              Icons.close,
-              color: Colors.red,
-            ),
-          );
-        }
-        if (questionNumber < questions.length - 1) {
-          questionNumber++;
-        }
-        loopNumber++;
-        print('loopnumber is $loopNumber');
-        print('questionnumber is $questionNumber');
-      }
-    });
-  }
-
-  void startOver() {
-    setState(() {
-      questionNumber = 0;
-      loopNumber = 0;
-      print('loopnumber is $loopNumber');
-      print('questionnumber is $questionNumber');
-      scoreKeeper = [];
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -170,5 +131,46 @@ class _MyFirstPageState extends State<MyFirstPage> {
         ),
       ],
     );
+  }
+
+  void checkAnswer(bool userAnswer) {
+    setState(() {
+      if (loopNumber < questions.length) {
+        bool correctAnswer = answers[questionNumber];
+        if (userAnswer == correctAnswer) {
+          print('got it right');
+          scoreKeeper.add(
+            Icon(
+              Icons.check,
+              color: Colors.green,
+            ),
+          );
+        } else {
+          print('got it wrong');
+          scoreKeeper.add(
+            Icon(
+              Icons.close,
+              color: Colors.red,
+            ),
+          );
+        }
+        if (questionNumber < questions.length - 1) {
+          questionNumber++;
+        }
+        loopNumber++;
+        print('loopnumber is $loopNumber');
+        print('questionnumber is $questionNumber');
+      }
+    });
+  }
+
+  void startOver() {
+    setState(() {
+      questionNumber = 0;
+      loopNumber = 0;
+      print('loopnumber is $loopNumber');
+      print('questionnumber is $questionNumber');
+      scoreKeeper = [];
+    });
   }
 }

@@ -2,8 +2,7 @@
 // go to pub.dev/flutter and download
 // the "english_words" package
 // and the "audioPlayers" package.
-// This app also shows some of the sutilties of dart methods
-// which are very similar to C# methods.
+// This app also shows some of the sutilties of dart methods.
 // The app shows methods with no parameters and that return nothing,
 // methods with positional parameters,
 // methods with named parameters,
@@ -20,10 +19,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.blue.shade900,
+        backgroundColor: Colors.blueGrey,
         appBar: AppBar(
           title: Text("Using Packages Widget"),
-          backgroundColor: Colors.blue.shade400,
+          backgroundColor: Colors.blueGrey[900],
         ),
         body: BodyOfApp(),
       ),

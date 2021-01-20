@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.grey.shade900,
+        backgroundColor: Colors.blueGrey[900],
         body: SafeArea(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.0),
@@ -39,39 +39,6 @@ class MyFirstPage extends StatefulWidget {
 
 class _MyFirstPageState extends State<MyFirstPage> {
   List<Icon> scoreKeeper = [];
-
-  void checkAnswer(bool userAnswer) {
-    setState(() {
-      if (quizMaster.isNotFinished() == true) {
-        bool correctAnswer = quizMaster.getQuestionAnswer();
-        if (userAnswer == correctAnswer) {
-          print('got it right');
-          scoreKeeper.add(
-            Icon(
-              Icons.check,
-              color: Colors.green,
-            ),
-          );
-        } else {
-          print('got it wrong');
-          scoreKeeper.add(
-            Icon(
-              Icons.close,
-              color: Colors.red,
-            ),
-          );
-        }
-        quizMaster.nextQuestion();
-      }
-    });
-  }
-
-  void startOver() {
-    setState(() {
-      quizMaster.reset();
-      scoreKeeper = [];
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -155,5 +122,38 @@ class _MyFirstPageState extends State<MyFirstPage> {
         ),
       ],
     );
+  }
+
+  void checkAnswer(bool userAnswer) {
+    setState(() {
+      if (quizMaster.isNotFinished() == true) {
+        bool correctAnswer = quizMaster.getQuestionAnswer();
+        if (userAnswer == correctAnswer) {
+          print('got it right');
+          scoreKeeper.add(
+            Icon(
+              Icons.check,
+              color: Colors.green,
+            ),
+          );
+        } else {
+          print('got it wrong');
+          scoreKeeper.add(
+            Icon(
+              Icons.close,
+              color: Colors.red,
+            ),
+          );
+        }
+        quizMaster.nextQuestion();
+      }
+    });
+  }
+
+  void startOver() {
+    setState(() {
+      quizMaster.reset();
+      scoreKeeper = [];
+    });
   }
 }
