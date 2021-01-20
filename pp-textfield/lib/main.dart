@@ -4,12 +4,11 @@
 //TextEditingController Widget
 //https://api.flutter.dev/flutter/widgets/TextEditingController-class.html
 
-//TextField Widget
-//https://api.flutter.dev/flutter/material/TextField-class.html
+//TextFormField Widget
+//https://api.flutter.dev/flutter/material/TextFormField-class.html
 
 import 'package:flutter/material.dart';
 
-// This app does
 void main() => runApp(App());
 
 class App extends StatefulWidget {
@@ -31,7 +30,7 @@ class _AppState extends State<App> {
       home: Scaffold(
         //backgroundColor: Colors.blueGrey,
         appBar: AppBar(
-          title: Text("TextField and ListView.builder Demo"),
+          title: Text("TextFormField and ListView.builder Demo"),
           //backgroundColor: Colors.blueGrey[900],
         ),
         body: Card(
