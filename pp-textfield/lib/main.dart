@@ -87,7 +87,7 @@ class _AppState extends State<App> {
                   obscureText: true,
                   cursorColor: Theme.of(context).cursorColor,
                   //initialValue: 'Input text',
-                  maxLength: 10,
+                  maxLength: 20,
                   decoration: InputDecoration(
                     icon: Icon(Icons.emoji_emotions),
                     labelText: 'password',
