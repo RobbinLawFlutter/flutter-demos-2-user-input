@@ -7,7 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Dropdown Menu Themed Demo',
+      title: 'Snackbar Themed Demo',
       debugShowCheckedModeBanner: false,
       home: MyPage(),
       theme: buildShrineTheme(),
@@ -20,7 +20,7 @@ class MyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Top AppBar'),
+        title: Text('Snackbar Themed Demo'),
         actions: [SnackbarButton()],
       ),
       body: Center(),
@@ -30,7 +30,7 @@ class MyPage extends StatelessWidget {
 
 class SnackbarButton extends StatelessWidget {
   Widget build(BuildContext context) {
-    return RaisedButton(
+    return ElevatedButton(
       onPressed: () {
         final snackBar = SnackBar(
           behavior: SnackBarBehavior.floating,

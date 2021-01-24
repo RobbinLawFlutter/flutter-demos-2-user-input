@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 ThemeData buildShrineTheme() {
   final ThemeData base = ThemeData.light();
+  //final ThemeData base = ThemeData.dark();
   return base.copyWith(
     colorScheme: _shrineColorScheme,
     accentColor: shrineBrown900,
@@ -37,7 +38,7 @@ TextTheme _buildShrineTextTheme(TextTheme base) {
         ),
         button: base.button.copyWith(
           fontWeight: FontWeight.w500,
-          fontSize: 14,
+          fontSize: 20,
           letterSpacing: defaultLetterSpacing,
         ),
       )
