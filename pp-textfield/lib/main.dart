@@ -47,15 +47,13 @@ class _AppState extends State<App> {
                     print(value);
                   },
                   onFieldSubmitted: (text) {
-                    listItems.add(text);
-                    //textEditingController.clear();
+                    print('Submitted Email Text = $text');
                     setState(() {});
                   },
                   validator: (input) =>
                       input.contains('@') ? null : 'must include @',
                   onSaved: (input) => _email = input,
                   cursorColor: Theme.of(context).cursorColor,
-                  //initialValue: 'Input text',
                   maxLength: 20,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
@@ -76,29 +74,20 @@ class _AppState extends State<App> {
                     print(value);
                   },
                   onFieldSubmitted: (text) {
-                    listItems.add(text);
-                    //textEditingController1.clear();
+                    print('Submitted Password Text = $text');
                     setState(() {});
                   },
-                  validator: (input) =>
-                      input.length < 8 ? 'min 8 characters' : null,
+                  validator: (input) => input.length < 8 ? 'min 8 chars' : null,
                   onSaved: (input) => _password = input,
                   obscureText: true,
                   cursorColor: Theme.of(context).cursorColor,
-                  //initialValue: 'Input text',
                   maxLength: 20,
                   decoration: InputDecoration(
                     icon: Icon(Icons.emoji_emotions),
                     labelText: 'password',
-                    helperText: 'min 8 characters',
-                    //errorText: 'Error message',
-                    // suffixIcon: Icon(
-                    //   Icons.handyman_sharp,
-                    // ),
+                    helperText: 'min 8, max 20',
                     enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                          //color: Color(0xFF6200EE),
-                          ),
+                      borderSide: BorderSide(),
                     ),
                   ),
                 ),
@@ -114,47 +103,20 @@ class _AppState extends State<App> {
                     )
                   ],
                 ),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: listItems.length,
+                    itemBuilder: (BuildContext ctxt, int index) {
+                      return Text(
+                        listItems[index],
+                      );
+                    },
+                  ),
+                ),
               ]),
             ),
           ),
         ),
-
-        // Column(
-        //   children: <Widget>[
-        //     Container(
-        //       padding: EdgeInsets.all(20.0),
-        //       child: TextField(
-        //         controller: textEditingController,
-        //         style: TextStyle(
-        //           color: Colors.black,
-        //           fontSize: 30,
-        //         ),
-        //         decoration: kTextFieldInputDecoration,
-        //         onChanged: (value) {
-        //           print(value);
-        //         },
-        //         onSubmitted: (text) {
-        //           listItems.add(text);
-        //           textEditingController.clear();
-        //           setState(() {});
-        //         },
-        //       ),
-        //     ),
-        //     Expanded(
-        //       child: ListView.builder(
-        //         itemCount: listItems.length,
-        //         itemBuilder: (BuildContext ctxt, int index) {
-        //           return Text(
-        //             listItems[index],
-        //             style: TextStyle(
-        //               fontSize: 30,
-        //             ),
-        //           );
-        //         },
-        //       ),
-        //     ),
-        //   ],
-        // ),
       ),
     );
   }
@@ -162,29 +124,10 @@ class _AppState extends State<App> {
   void _submit() {
     if (formKey.currentState.validate()) {
       formKey.currentState.save();
-      print(_email);
-      print(_password);
+      listItems.add('email = $_email , password = $_password');
       textEditingController.clear();
       textEditingController1.clear();
+      setState(() {});
     }
   }
 }
-
-const kTextFieldInputDecoration = InputDecoration(
-  filled: true,
-  fillColor: Colors.white,
-  icon: Icon(
-    Icons.thumb_up,
-    color: Colors.white,
-  ),
-  hintText: 'Enter Your Name',
-  hintStyle: TextStyle(
-    color: Colors.grey,
-  ),
-  border: OutlineInputBorder(
-    borderRadius: BorderRadius.all(
-      Radius.circular(10),
-    ),
-    borderSide: BorderSide.none,
-  ),
-);
