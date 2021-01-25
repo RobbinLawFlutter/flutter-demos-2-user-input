@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:robbinlaw/themes/shrinetheme.dart';
+import 'first_page.dart';
+//import 'second_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Switch Themed Demo',
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
+      home: MyFirstPage(),
       theme: buildShrineTheme(),
     );
   }
