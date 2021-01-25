@@ -8,6 +8,7 @@
 //https://api.flutter.dev/flutter/material/TextFormField-class.html
 
 import 'package:flutter/material.dart';
+import 'package:robbinlaw/themes/shrinetheme.dart';
 
 void main() => runApp(App());
 
@@ -26,12 +27,10 @@ class _AppState extends State<App> {
   Widget build(BuildContext ctxt) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: _buildShrineTheme(),
+      theme: buildShrineTheme(),
       home: Scaffold(
-        //backgroundColor: Colors.blueGrey,
         appBar: AppBar(
           title: Text("TextFormField and ListView.builder Demo"),
-          //backgroundColor: Colors.blueGrey[900],
         ),
         body: Card(
           child: Padding(
@@ -53,7 +52,7 @@ class _AppState extends State<App> {
                     setState(() {});
                   },
                   validator: (input) =>
-                      !input.contains('@') ? 'must include @' : null,
+                      input.contains('@') ? null : 'must include @',
                   onSaved: (input) => _email = input,
                   cursorColor: Theme.of(context).cursorColor,
                   //initialValue: 'Input text',
@@ -108,7 +107,7 @@ class _AppState extends State<App> {
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: RaisedButton(
+                      child: ElevatedButton(
                         onPressed: _submit,
                         child: Text('Sign in'),
                       ),
@@ -189,104 +188,3 @@ const kTextFieldInputDecoration = InputDecoration(
     borderSide: BorderSide.none,
   ),
 );
-
-IconThemeData _customIconTheme(IconThemeData original) {
-  return original.copyWith(color: shrineBrown900);
-}
-
-ThemeData _buildShrineTheme() {
-  final ThemeData base = ThemeData.light();
-  return base.copyWith(
-    colorScheme: _shrineColorScheme,
-    accentColor: shrineBrown900,
-    primaryColor: shrinePink100,
-    buttonColor: shrinePink100,
-    scaffoldBackgroundColor: shrineBackgroundWhite,
-    cardColor: shrineBackgroundWhite,
-    textSelectionColor: shrinePink100,
-    errorColor: shrineErrorRed,
-    buttonTheme: const ButtonThemeData(
-      colorScheme: _shrineColorScheme,
-      textTheme: ButtonTextTheme.normal,
-    ),
-    primaryIconTheme: _customIconTheme(base.iconTheme),
-    textTheme: _buildShrineTextTheme(base.textTheme),
-    primaryTextTheme: _buildShrineTextTheme(base.primaryTextTheme),
-    accentTextTheme: _buildShrineTextTheme(base.accentTextTheme),
-    iconTheme: _customIconTheme(base.iconTheme),
-  );
-}
-
-TextTheme _buildShrineTextTheme(TextTheme base) {
-  return base
-      .copyWith(
-        headline: base.headline.copyWith(
-          fontWeight: FontWeight.w500,
-          letterSpacing: defaultLetterSpacing,
-        ),
-        title: base.title.copyWith(
-          fontSize: 18,
-          letterSpacing: defaultLetterSpacing,
-        ),
-        caption: base.caption.copyWith(
-          fontWeight: FontWeight.w400,
-          fontSize: 14,
-          letterSpacing: defaultLetterSpacing,
-        ),
-        body2: base.body2.copyWith(
-          fontWeight: FontWeight.w500,
-          fontSize: 16,
-          letterSpacing: defaultLetterSpacing,
-        ),
-        body1: base.body1.copyWith(
-          letterSpacing: defaultLetterSpacing,
-        ),
-        subhead: base.subhead.copyWith(
-          letterSpacing: defaultLetterSpacing,
-        ),
-        display1: base.display1.copyWith(
-          letterSpacing: defaultLetterSpacing,
-        ),
-        button: base.button.copyWith(
-          fontWeight: FontWeight.w500,
-          fontSize: 14,
-          letterSpacing: defaultLetterSpacing,
-        ),
-      )
-      .apply(
-        fontFamily: 'Rubik',
-        displayColor: shrineBrown900,
-        bodyColor: shrineBrown900,
-      );
-}
-
-const ColorScheme _shrineColorScheme = ColorScheme(
-  primary: shrinePink100,
-  primaryVariant: shrineBrown900,
-  secondary: shrinePink50,
-  secondaryVariant: shrineBrown900,
-  surface: shrineSurfaceWhite,
-  background: shrineBackgroundWhite,
-  error: shrineErrorRed,
-  onPrimary: shrineBrown900,
-  onSecondary: shrineBrown900,
-  onSurface: shrineBrown900,
-  onBackground: shrineBrown900,
-  onError: shrineSurfaceWhite,
-  brightness: Brightness.light,
-);
-
-const Color shrinePink50 = Color(0xFFFEEAE6);
-const Color shrinePink100 = Color(0xFFFEDBD0);
-const Color shrinePink300 = Color(0xFFFBB8AC);
-const Color shrinePink400 = Color(0xFFEAA4A4);
-
-const Color shrineBrown900 = Color(0xFF442B2D);
-const Color shrineBrown600 = Color(0xFF7D4F52);
-
-const Color shrineErrorRed = Color(0xFFC5032B);
-
-const Color shrineSurfaceWhite = Color(0xFFFFFBFA);
-const Color shrineBackgroundWhite = Colors.white;
-
-const defaultLetterSpacing = 0.03;
