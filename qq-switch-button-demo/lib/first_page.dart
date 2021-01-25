@@ -7,25 +7,15 @@ class MyFirstPage extends StatefulWidget {
 
 class _MyFirstPageState extends State<MyFirstPage> {
   bool _enabled = false;
-  String _msg1 = '';
+  String _msg1 = 'Disabled';
 
   @override
   Widget build(BuildContext context) {
-    Object onPressed1() {
-      if (_enabled) {
-        return () {
-          print('Button Pressed');
-        };
-      } else {
-        return null;
-      }
-    }
-
     return Scaffold(
       appBar: AppBar(
-        title: Text('App2-User-Input'),
+        title: Text('Switch to Enable/Disable Button'),
       ),
-      body: Container(
+      body: Center(
         child: Column(
           children: <Widget>[
             Row(
@@ -41,7 +31,7 @@ class _MyFirstPageState extends State<MyFirstPage> {
                           _msg1 = 'Enabled';
                           print('_enabled is true');
                         } else {
-                          _msg1 = '';
+                          _msg1 = 'Disabled';
                           print('_enabled is false');
                         }
                       });
@@ -51,20 +41,13 @@ class _MyFirstPageState extends State<MyFirstPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Container(
-                  margin: EdgeInsets.all(20),
-                  child: MaterialButton(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    elevation: 8,
-                    textColor: Colors.red.shade100,
-                    color: Colors.redAccent,
-                    highlightColor: Colors.blue,
-                    splashColor: Colors.green.shade300,
-                    padding: EdgeInsets.all(20.0),
-                    onPressed: onPressed1(),
-                    child: Text(_msg1),
-                  ),
+                ElevatedButton(
+                  onPressed: _enabled
+                      ? () {
+                          print('Button Pressed');
+                        }
+                      : null,
+                  child: Text(_msg1),
                 ),
               ],
             ),
