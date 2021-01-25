@@ -36,8 +36,6 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               title: Text(
                 'Switch $i',
-                style: Theme.of(context).textTheme.subtitle1.copyWith(
-                    color: i == count ? Colors.black38 : Colors.black),
               ),
               leading: Switch(
                 value: _values[i],
