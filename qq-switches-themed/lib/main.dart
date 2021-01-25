@@ -44,10 +44,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 onChanged: i == count
                     ? null
                     : (bool value) {
-                        setState(() {
-                          _values[i] = value;
-                          print(_values);
-                        });
+                        _values[i] = value;
+                        print(_values);
+                        setState(() {});
                       },
               ),
             ),
