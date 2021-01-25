@@ -40,7 +40,7 @@ class _DiceState extends State<Dice> {
         children: <Widget>[
           Expanded(
             flex: 1,
-            child: FlatButton(
+            child: TextButton(
               onPressed: () {
                 print('Just entered onPressed anonomous function');
                 setState(() {
@@ -67,7 +67,7 @@ class _DiceState extends State<Dice> {
           ),
           Expanded(
             flex: 1,
-            child: FlatButton(
+            child: TextButton(
               onPressed: () {
                 //changeBothDiceFace();
                 print('Right button got pressed');
