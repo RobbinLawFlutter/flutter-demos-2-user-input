@@ -7,7 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Switch Themed Demo',
+      title: 'Switch Demo',
       debugShowCheckedModeBanner: false,
       home: MyHomePage(),
       theme: buildShrineTheme(),
@@ -28,7 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Switch Themed Demo'),
+        title: Text('Switch Demo'),
       ),
       body: Column(
         children: <Widget>[

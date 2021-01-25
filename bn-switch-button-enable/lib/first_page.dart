@@ -13,7 +13,7 @@ class _MyFirstPageState extends State<MyFirstPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Switch to Enable/Disable Button'),
+        title: Text('Switch to Enable/Disable Button Demo'),
       ),
       body: Center(
         child: Column(
@@ -21,7 +21,7 @@ class _MyFirstPageState extends State<MyFirstPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text('enable functionality'),
+                Text('Enable Button'),
                 Switch(
                     value: _enabled,
                     onChanged: (bool value) {
