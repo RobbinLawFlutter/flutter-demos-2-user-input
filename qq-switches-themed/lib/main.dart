@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
           for (int i = 0; i <= count; i++)
             ListTile(
               title: Text(
-                'Switch ${i + 1}',
+                'Switch $i',
                 style: Theme.of(context).textTheme.subtitle1.copyWith(
                     color: i == count ? Colors.black38 : Colors.black),
               ),
@@ -46,6 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     : (bool value) {
                         setState(() {
                           _values[i] = value;
+                          print(_values);
                         });
                       },
               ),
