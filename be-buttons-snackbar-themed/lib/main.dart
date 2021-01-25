@@ -7,7 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Buttons Themed Demo',
+      title: 'Buttons Snackbar Demo',
       debugShowCheckedModeBanner: false,
       home: MyPage(),
       theme: buildShrineTheme(),
@@ -19,7 +19,7 @@ class MyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Buttons Snackbar Themed Demo'),
+        title: Text('Buttons Snackbar Demo'),
       ),
       body: Center(
         child: Column(
@@ -28,6 +28,7 @@ class MyPage extends StatelessWidget {
             TextButton(
               onPressed: () {
                 // Respond to button press
+                print('You Clicked the Text Button');
               },
               child: Text(
                 'TEXT BUTTON',
@@ -37,6 +38,7 @@ class MyPage extends StatelessWidget {
             OutlinedButton(
               onPressed: () {
                 // Respond to button press
+                print('You Clicked the Outlined Button');
               },
               child: Text("OUTLINED BUTTON"),
             ),
@@ -44,6 +46,7 @@ class MyPage extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 // Respond to button press
+                print('You Clicked the Contained Button');
               },
               child: Text("CONTAINED BUTTON"),
             ),
@@ -61,9 +64,17 @@ class SnackbarButton extends StatelessWidget {
       onPressed: () {
         final snackBar = SnackBar(
           behavior: SnackBarBehavior.floating,
-          content: Text('Text label'),
+          content: Row(
+            children: [
+              Icon(Icons.favorite),
+              SizedBox(
+                width: 10,
+              ),
+              Text('Hey There'),
+            ],
+          ),
           action: SnackBarAction(
-            label: 'Action',
+            label: 'Click Me',
             onPressed: () {
               print('hey you clicked on the snackbar Action');
             },
@@ -74,7 +85,7 @@ class SnackbarButton extends StatelessWidget {
         // it to show a SnackBar.
         Scaffold.of(context).showSnackBar(snackBar);
       },
-      child: Text('Show SnackBar'),
+      child: Text('SHOW SNACKBAR'),
     );
   }
 }
