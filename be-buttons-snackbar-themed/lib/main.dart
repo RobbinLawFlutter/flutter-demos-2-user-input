@@ -32,6 +32,7 @@ class MyPage extends StatelessWidget {
               },
               child: Text(
                 'TEXT BUTTON',
+                //style: TextStyle(color: Colors.green),
               ),
             ),
             SizedBox(height: 8.0),
