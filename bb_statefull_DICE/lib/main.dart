@@ -56,7 +56,7 @@ class _DiceState extends State<Dice> {
                   print('Left button got pressed');
                   print('leftDiceNumber = $leftDiceNumber');
 
-                  //At the end of the setState anonomous function
+                  //At the end of the setState anonymous function
                   //setState triggers the nearest build method
                   //which in turn updates or rerenders the screen
                   //to reflect changes from anything labeled DIRTY.

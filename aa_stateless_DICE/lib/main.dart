@@ -14,6 +14,7 @@ import 'package:flutter/material.dart';
 //myDynamic = 'Hello';
 //var myDynamic2;
 //This produces a dynamic type as no initiaizaiton has occured.
+//This would not be possible in C#.
 
 void main() => runApp(MyApp());
 
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
 }
 
 class Dice extends StatelessWidget {
-  //We cannot put variables here (unless we mark them final)
+  //We cannot put fields here (unless we mark them final)
   //because a stateless widget is imutable (can't change)
   //int myLeftDiceNumber = 1;
 
@@ -48,13 +49,13 @@ class Dice extends StatelessWidget {
     //their scope is only inside the method.
     //If we change these numbers and hotreload the images will update
     int leftDiceNumber = 2;
-    var rightDiceNumber = 3;
+    var rightDiceNumber = 4;
     return Center(
       child: Row(
         children: <Widget>[
           Expanded(
             flex: 1,
-            child: FlatButton(
+            child: TextButton(
               //This will not work as it is trying to call and run
               //the named method when flutter is building the UI.
               //onPressed: reactToButtonPress(),
@@ -83,7 +84,7 @@ class Dice extends StatelessWidget {
           ),
           Expanded(
             flex: 1,
-            child: FlatButton(
+            child: TextButton(
               onPressed: () {
                 print('Right button got pressed');
                 print('rightDiceNumber = $rightDiceNumber');
