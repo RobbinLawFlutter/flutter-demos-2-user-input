@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 //Dart is a Statically Typed Language
 //int myInt = 123;
@@ -34,20 +35,31 @@ class MyApp extends StatelessWidget {
   }
 }
 
+//With a StatelessWidget we do not have a mechanism to
+//update the UI After the one initial build, unless we hot
+//restart the program with new variable values.
 class Dice extends StatelessWidget {
-  //We cannot put fields here (unless we mark them final)
+  //We cannot put class fields here (unless we mark them final)
   //because a stateless widget is imutable (can't change)
-  //int myLeftDiceNumber = 1;
+  //int myInt = 1;
+  //If we do mark a field as final it must be initialized.
+  //final int myInt;
+  final int myInt = 1;
 
-  void reactToButtonPress() {
-    print('Our left button was pressed');
-  }
+  //We also cannot mark a class field as const unless
+  //we also mark it as static and then it will become
+  //a variable that all objects instanciated from this class
+  //will share and not get thier own copy of it.
+  //const int myInt1 = 2;
+  static const int myInt1 = 2;
 
   @override
   Widget build(BuildContext context) {
     //We can put local variables inside the build method but
     //their scope is only inside the method.
-    //If we change these numbers and hotreload the images will update
+    //If we change these numbers and hot restart the images will update.
+    //We can hot restart by pressing ctrl+s
+    //It will NOT work if we hot reload.
     int leftDiceNumber = 2;
     var rightDiceNumber = 4;
     return Center(
@@ -56,26 +68,35 @@ class Dice extends StatelessWidget {
           Expanded(
             flex: 1,
             child: TextButton(
-              //This will not work as it is trying to call and run
-              //the named method when flutter is building the UI.
-              //onPressed: reactToButtonPress(),
+              //This will not work as expected because flutter will call and run
+              //the named method as it is building the UI.
+              //The result is that the method will only happen
+              //once when the build is called at program restart.
+              //Pressing the TextButton will NOT cause the method
+              //to run.
+              //onPressed: reactToButtonPress1(),
 
-              //This will work as it is a pointer to the named method.
-              //This method has to return void and cannot take args.
-              // onPressed: reactToButtonPress,
+              //This will work as expeced because it is a pointer
+              //to the named method.
+              //This method must return type dynamic (nothing) and cannot take args.
+              //onPressed: reactToButtonPress1,
 
               //The structure below is the signature
               //for a voidcallback also called in some
               //languages an anonymous function (no name).
               //A function with no name and in this case no parms.
+              //It is the only way to call a function that may
+              //return something and that has parms.
               //When flutter builds the UI it does not run
-              //the function but attaches the pointer
+              //the anonymous function but attaches the pointer
               //to the function to the onPressed property.
               //The code inside the anonymous function is run
               //only when the onPressed event is triggered.
               onPressed: () {
-                print('Left button got pressed');
-                print('leftDiceNumber = $leftDiceNumber');
+                //Random number between 0 and 5 then add 1
+                leftDiceNumber = Random().nextInt(6) + 1;
+                var returnValue = reactToButtonPress2(leftDiceNumber);
+                print('ReturnValue = $returnValue');
               },
 
               //string interpolation with $
@@ -95,5 +116,14 @@ class Dice extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  dynamic reactToButtonPress1() {
+    print('Our left button was pressed');
+  }
+
+  bool reactToButtonPress2(int dice) {
+    print('leftDiceNumber = $dice');
+    return true;
   }
 }
