@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
 //createState method which instanciates a class that inherits from the
 //State<> widget which is the mutable part.
 class Dice extends StatefulWidget {
+  final int myInt = 2;
   @override
   _DiceState createState() => _DiceState();
 }
@@ -77,7 +78,7 @@ class _DiceState extends State<Dice> {
               onPressed: () {
                 print('Right button got pressed');
                 print('rightDiceNumber = $_rightDiceNumber');
-                //changeBothDiceFace();
+                changeBothDiceFace();
               },
               child: Image.asset('images/dice$_rightDiceNumber.png'),
             ),
@@ -94,6 +95,8 @@ class _DiceState extends State<Dice> {
   }
 
   void changeBothDiceFace() {
+    //_leftDiceNumber = Random().nextInt(6) + 1;
+    //_rightDiceNumber = Random().nextInt(6) + 1;
     setState(() {
       //Here we are changing the class fields inside
       //of the setState anonymous function.
@@ -101,6 +104,7 @@ class _DiceState extends State<Dice> {
       //inside the method before the call to setState as we have seen before.
       _leftDiceNumber = Random().nextInt(6) + 1;
       _rightDiceNumber = Random().nextInt(6) + 1;
+      print('rightDiceNumber = $_rightDiceNumber');
     });
   }
 }
