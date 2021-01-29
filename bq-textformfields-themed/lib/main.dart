@@ -55,11 +55,14 @@ class _AppState extends State<App> {
                     return input.contains('@') ? null : 'must include @';
                   },
                   onSaved: (input) {
+                    print('onSaved email = $input');
                     _email = input;
                   },
                   cursorColor: Theme.of(context).cursorColor,
                   maxLength: 20,
                   decoration: InputDecoration(
+                    //The border property is what makes a outlined
+                    //textformfield instead of a filled one.
                     border: OutlineInputBorder(),
                     icon: Icon(Icons.email),
                     labelText: 'email',
@@ -81,8 +84,13 @@ class _AppState extends State<App> {
                     print('Submitted Password Text = $text');
                     setState(() {});
                   },
-                  validator: (input) => input.length < 8 ? 'min 8 chars' : null,
-                  onSaved: (input) => _password = input,
+                  validator: (input) {
+                    return input.length < 8 ? 'min 8 chars' : null;
+                  },
+                  onSaved: (input) {
+                    _password = input;
+                    print('onSaved password = $input');
+                  },
                   obscureText: true,
                   cursorColor: Theme.of(context).cursorColor,
                   maxLength: 20,
@@ -90,8 +98,8 @@ class _AppState extends State<App> {
                     icon: Icon(Icons.emoji_emotions),
                     labelText: 'password',
                     helperText: 'min 8, max 20',
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(),
+                    suffixIcon: Icon(
+                      Icons.check_circle,
                     ),
                   ),
                 ),
