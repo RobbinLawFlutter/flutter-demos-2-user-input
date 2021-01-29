@@ -11,7 +11,6 @@ class MyApp extends StatelessWidget {
       title: 'App2',
       debugShowCheckedModeBanner: false,
       home: MyFirstPage(),
-      //home: MySecondPage(),
       theme: buildShrineTheme(),
     );
   }
