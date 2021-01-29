@@ -8,12 +8,13 @@ class MyFirstPage extends StatefulWidget {
 class _MyFirstPageState extends State<MyFirstPage> {
   bool _enabled = false;
   String _msg1 = 'Disabled';
+  //String _msg1 = '';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Switch to Enable/Disable Button Demo'),
+        title: Text('Enable Button Demo'),
       ),
       body: Center(
         child: Column(
@@ -24,14 +25,15 @@ class _MyFirstPageState extends State<MyFirstPage> {
                 Text('Enable Button'),
                 Switch(
                     value: _enabled,
-                    onChanged: (bool value) {
+                    onChanged: (bool onChangedValue) {
                       setState(() {
-                        _enabled = value;
+                        _enabled = onChangedValue;
                         if (_enabled) {
                           _msg1 = 'Enabled';
                           print('_enabled is true');
                         } else {
                           _msg1 = 'Disabled';
+                          //_msg1 = '';
                           print('_enabled is false');
                         }
                       });
@@ -51,6 +53,15 @@ class _MyFirstPageState extends State<MyFirstPage> {
                 ),
               ],
             ),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Hey This Is Fun'),
+              ],
+            )
           ],
         ),
       ),
