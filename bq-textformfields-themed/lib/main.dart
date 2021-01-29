@@ -33,7 +33,6 @@ class _AppState extends State<App> {
           title: Text("TextFormField and ListView.builder Demo"),
         ),
         body: Container(
-          height: 400,
           child: Form(
             key: formKey,
             child: Padding(
@@ -49,11 +48,13 @@ class _AppState extends State<App> {
                   },
                   onFieldSubmitted: (text) {
                     print('Submitted Email Text = $text');
-                    setState(() {});
                   },
-                  validator: (input) =>
-                      input.contains('@') ? null : 'must include @',
-                  onSaved: (input) => _email = input,
+                  validator: (input) {
+                    return input.contains('@') ? null : 'must include @';
+                  },
+                  onSaved: (input) {
+                    _email = input;
+                  },
                   cursorColor: Theme.of(context).cursorColor,
                   maxLength: 20,
                   decoration: InputDecoration(
