@@ -12,17 +12,19 @@ import 'package:robbinlaw/themes/shrinetheme.dart';
 
 void main() => runApp(App());
 
+final formKey = GlobalKey<FormState>();
+final TextEditingController textEditingController = TextEditingController();
+final TextEditingController textEditingController1 = TextEditingController();
+
 class App extends StatefulWidget {
   @override
   _AppState createState() => _AppState();
 }
 
 class _AppState extends State<App> {
-  final formKey = GlobalKey<FormState>();
   String _email, _password;
   List<String> listItems = [];
-  final TextEditingController textEditingController = TextEditingController();
-  final TextEditingController textEditingController1 = TextEditingController();
+
   @override
   Widget build(BuildContext ctxt) {
     return MaterialApp(
@@ -99,7 +101,16 @@ class _AppState extends State<App> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ElevatedButton(
-                        onPressed: _submit,
+                        onPressed: () {
+                          if (formKey.currentState.validate()) {
+                            formKey.currentState.save();
+                            listItems
+                                .add('email = $_email , password = $_password');
+                            textEditingController.clear();
+                            textEditingController1.clear();
+                            setState(() {});
+                          }
+                        },
                         child: Text('Sign in'),
                       ),
                     )
@@ -121,15 +132,5 @@ class _AppState extends State<App> {
         ),
       ),
     );
-  }
-
-  void _submit() {
-    if (formKey.currentState.validate()) {
-      formKey.currentState.save();
-      listItems.add('email = $_email , password = $_password');
-      textEditingController.clear();
-      textEditingController1.clear();
-      setState(() {});
-    }
   }
 }

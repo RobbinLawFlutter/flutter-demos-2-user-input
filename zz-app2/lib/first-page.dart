@@ -96,7 +96,6 @@ class _MyFirstPageState extends State<MyFirstPage> {
             height: 5,
           ),
           Container(
-            //height: 200,
             child: Form(
               key: formKey,
               child: Padding(
@@ -110,12 +109,11 @@ class _MyFirstPageState extends State<MyFirstPage> {
                       },
                       onFieldSubmitted: (text) {
                         print('Submitted Name Text = $text');
-                        //setState(() {});
                       },
                       validator: (input) =>
                           input.length < 1 ? 'min 1 chars' : null,
                       onSaved: (input) => firstName = input,
-                      //cursorColor: Theme.of(context).cursorColor,
+                      cursorColor: Theme.of(context).cursorColor,
                       maxLength: 20,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
@@ -162,7 +160,7 @@ class SnackbarButton extends StatelessWidget {
                 SizedBox(
                   width: 10,
                 ),
-                Text('Hey There'),
+                Text('Hey There, Your name is $firstName'),
               ],
             ),
             action: SnackBarAction(
@@ -172,13 +170,9 @@ class SnackbarButton extends StatelessWidget {
               },
             ),
           );
-
-          // Find the Scaffold in the widget tree and use
-          // it to show a SnackBar.
           Scaffold.of(context).showSnackBar(snackBar);
         }
       },
-      //child: Text('Show SnackBar'),
       child: Text('Submit'),
     );
   }
