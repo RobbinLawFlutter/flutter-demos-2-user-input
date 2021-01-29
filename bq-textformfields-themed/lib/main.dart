@@ -32,11 +32,12 @@ class _AppState extends State<App> {
         appBar: AppBar(
           title: Text("TextFormField and ListView.builder Demo"),
         ),
-        body: Card(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Form(
-              key: formKey,
+        body: Container(
+          height: 400,
+          child: Form(
+            key: formKey,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
               child: Column(children: [
                 SizedBox(
                   height: 20,

@@ -33,7 +33,7 @@ TextTheme _buildShrineTextTheme(TextTheme base) {
       .copyWith(
         caption: base.caption.copyWith(
           fontWeight: FontWeight.w400,
-          fontSize: 20,
+          fontSize: 14,
           letterSpacing: defaultLetterSpacing,
         ),
         button: base.button.copyWith(
