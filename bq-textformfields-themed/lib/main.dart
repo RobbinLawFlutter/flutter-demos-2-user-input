@@ -59,7 +59,7 @@ class _AppState extends State<App> {
                     _email = input;
                   },
                   cursorColor: Theme.of(context).cursorColor,
-                  maxLength: 20,
+                  maxLength: 30,
                   decoration: InputDecoration(
                     //The border property is what makes a outlined
                     //textformfield instead of a filled one.
