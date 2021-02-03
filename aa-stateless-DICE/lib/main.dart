@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-//Dart is a Statically Typed Language
+//Dart is a Statically Typed Language but can also be Dynamically Typed.
 //int myInt = 123;
 //string myString = 'Hello'; notice single quotes in dart
 //double myDouble = 12.3;
