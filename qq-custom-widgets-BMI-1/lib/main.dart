@@ -57,6 +57,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       //.dark() gives the material app dark theme
       //.copyWith() allows us to change only certain
       //dark theme defaults.
