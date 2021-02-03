@@ -42,7 +42,7 @@ class _BodyOfAppState extends State<BodyOfApp> {
       child: Column(
         children: <Widget>[
           Expanded(
-            child: FlatButton(
+            child: TextButton(
               onPressed: () {
                 playSound1();
               },
@@ -61,7 +61,7 @@ class _BodyOfAppState extends State<BodyOfApp> {
             ),
           ),
           Expanded(
-            child: FlatButton(
+            child: TextButton(
               onPressed: () {
                 playSound2(4);
               },
@@ -124,7 +124,7 @@ class _BodyOfAppState extends State<BodyOfApp> {
     //an object of type Exapanded
     //Note that all named parameters are optional.
     return Expanded(
-      child: FlatButton(
+      child: TextButton(
         onPressed: () {
           playSound2(soundToPlay);
         },
