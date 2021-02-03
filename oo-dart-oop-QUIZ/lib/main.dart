@@ -19,6 +19,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      //theme: buildShrineTheme(),
       home: Scaffold(
         backgroundColor: Colors.blueGrey[900],
         body: SafeArea(

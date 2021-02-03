@@ -27,18 +27,18 @@ class MyApp extends StatelessWidget {
           title: Text("Using Packages Widget"),
           backgroundColor: Colors.blueGrey[900],
         ),
-        body: BodyOfApp(),
+        body: MyFirstPage(),
       ),
     );
   }
 }
 
-class BodyOfApp extends StatefulWidget {
+class MyFirstPage extends StatefulWidget {
   @override
-  _BodyOfAppState createState() => _BodyOfAppState();
+  _MyFirstPageState createState() => _MyFirstPageState();
 }
 
-class _BodyOfAppState extends State<BodyOfApp> {
+class _MyFirstPageState extends State<MyFirstPage> {
   @override
   Widget build(BuildContext context) {
     return Center(
