@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
             print("You have canceled the menu.");
           },
           onSelected: (value) {
-            print("value:$value");
+            print("top left value:$value");
           },
         ),
         title: Text('Top AppBar'),
@@ -101,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
               print("You have canceled the menu.");
             },
             onSelected: (value) {
-              print("value:$value");
+              print("top right value:$value");
             },
           ),
         ],
