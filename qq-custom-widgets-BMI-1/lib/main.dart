@@ -4,11 +4,6 @@
 //Themes documentation from flutter
 //https://flutter.dev/docs/cookbook/design/themes
 
-//Go to dribbble.com and search for 'simple bmi'.
-//Go to colorzilla.com and download the color picker into Chrome.
-//Use the picker to get the code for the primary
-//and background color of the app.
-
 import 'package:flutter/material.dart';
 
 //This MyFirstPage demonstrates the tree
