@@ -160,8 +160,8 @@ class _MyFirstPageState extends State<MyFirstPage> {
           questionNumber++;
         }
         loopNumber++;
-        print('loopnumber is $loopNumber');
         print('questionnumber is $questionNumber');
+        print('loopnumber is $loopNumber');
       }
     });
   }
@@ -170,8 +170,8 @@ class _MyFirstPageState extends State<MyFirstPage> {
     setState(() {
       questionNumber = 0;
       loopNumber = 0;
-      print('loopnumber is $loopNumber');
       print('questionnumber is $questionNumber');
+      print('loopnumber is $loopNumber');
       scoreKeeper = [];
     });
   }

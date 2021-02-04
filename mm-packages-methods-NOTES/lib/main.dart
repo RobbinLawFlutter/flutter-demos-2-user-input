@@ -7,6 +7,7 @@
 // methods with positional parameters,
 // methods with named parameters,
 // methods that return something like basic types or objects.
+//Also this shows the importance of code REUSE by using methods.
 
 import 'package:flutter/material.dart';
 import 'package:robbinlaw/themes/shrinetheme.dart';
@@ -66,7 +67,7 @@ class _MyFirstPageState extends State<MyFirstPage> {
           Expanded(
             child: TextButton(
               onPressed: () {
-                playSound2(4);
+                playSound2(4, 'hey man');
               },
               child: Text(
                 nouns.last,
@@ -114,14 +115,15 @@ class _MyFirstPageState extends State<MyFirstPage> {
     }
   }
 
-  void playSound2(int sound) {
+  void playSound2(int sound, String myString) {
     //medium function that has
     //one positional input parmeter and returns nothing
     final player = AudioCache();
     player.play('note$sound.wav');
+    print(myString);
   }
 
-  Expanded makeKey({String textToShow, int soundToPlay}) {
+  Expanded makeKey({String textToShow = 'yes man', int soundToPlay = 1}) {
     //most complicated function that has named
     //input parameters {}, and returns
     //an object of type Exapanded
@@ -129,7 +131,7 @@ class _MyFirstPageState extends State<MyFirstPage> {
     return Expanded(
       child: TextButton(
         onPressed: () {
-          playSound2(soundToPlay);
+          playSound2(soundToPlay, textToShow);
         },
         child: Text(
           textToShow,
