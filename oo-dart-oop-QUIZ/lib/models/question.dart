@@ -9,24 +9,24 @@ class Question {
 
 //In this default constructor it will work because
 //the names in the parameter list (q and a) are different
-//then the class property names qText and qAnswer
+//then the class field names qText and qAnswer
   Question(String q, bool a) {
     qText = q;
     qAnswer = a;
   }
 
-//In this constructor we have to use the
+//In this constructor we should use the
 //key word "this" as both the parameter
-//and property names are the same.
+//and field names are the same.
   Question.usingThis(String qText, bool qAnswer) {
     this.qText = qText;
     this.qAnswer = qAnswer;
   }
 
 //In this constructor we use a short cut
-//to place whatever args are passed directly
-//into the properties. The parameter name has
-//to be the same as the property name and using this keyword.
+//to place whatever args are passed, directly
+//into the fields. The parameter name has
+//to be the same as the field name and using this keyword.
 //Notice also no {} just ; at end of (parms).
 
   Question.positionalParameters(this.qText, this.qAnswer);
@@ -36,7 +36,7 @@ class Question {
 
 //We could also use named parameters.
 //This is the preferred way if lots of parms.
-//Also notice @required means that these args have to
+//Also notice @required decorator means that these args have to
 //be included in the constructor.
 //@required is a flutter decorator NOT dart, so we need
 //to import the flutter package here.
