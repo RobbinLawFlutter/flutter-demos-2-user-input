@@ -1,4 +1,4 @@
-import 'question.dart';
+import 'package:robbinlaw/models/question.dart';
 
 // ENCAPSULATION
 //Making the variables and list PRIVATE "_"

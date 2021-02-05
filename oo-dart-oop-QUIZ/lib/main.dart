@@ -9,7 +9,7 @@
 //Challenge: Make the scoreKeeper list part of the quizMaster class.
 
 import 'package:flutter/material.dart';
-import 'quizMaster.dart';
+import 'package:robbinlaw/controllers/quizMaster.dart';
 
 QuizMaster quizMaster = QuizMaster();
 
