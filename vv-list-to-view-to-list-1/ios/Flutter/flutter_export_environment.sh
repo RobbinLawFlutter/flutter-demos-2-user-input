@@ -1,7 +1,7 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
 export "FLUTTER_ROOT=C:\FlutterDev\FlutterSDK\flutter"
-export "FLUTTER_APPLICATION_PATH=C:\FlutterDev\MyAppRepos\flutter-demos-2\au_list_to_view_to_list"
+export "FLUTTER_APPLICATION_PATH=C:\FlutterDev\FlutterRepos\flutter-demos\flutter-demos-2-user-input\vv-list-to-view-to-list-1"
 export "FLUTTER_TARGET=lib\main.dart"
 export "FLUTTER_BUILD_DIR=build"
 export "SYMROOT=${SOURCE_ROOT}/../build\ios"
