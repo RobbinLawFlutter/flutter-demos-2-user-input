@@ -7,7 +7,7 @@ class Question {
   String qText;
   bool qAnswer;
 
-//In this default constructor it will work because
+//In this default gready constructor it will work because
 //the names in the parameter list (q and a) are different
 //then the class field names qText and qAnswer
   Question(String q, bool a) {
@@ -15,7 +15,7 @@ class Question {
     qAnswer = a;
   }
 
-//In this constructor we should use the
+//In this named gready constructor we should use the
 //key word "this" as both the parameter
 //and field names are the same.
   Question.usingThis(String qText, bool qAnswer) {

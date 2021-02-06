@@ -25,7 +25,7 @@ class QuizMaster {
     Question.namedParamters(
         qText: 'Programming in flutter is fun.', qAnswer: true)
   ];
-
+  //An example of a non-gready default constructor.
   QuizMaster() {
     _questionNumber = 0;
     _loopNumber = 0;
