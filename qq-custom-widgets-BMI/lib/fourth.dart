@@ -2,7 +2,6 @@
 //but as another "custom widget"
 //inside the ReuseableCard custom widget.
 //No functionality yet.
-//Also the icon text pairs are now centered in the ReuesableCard widget.
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

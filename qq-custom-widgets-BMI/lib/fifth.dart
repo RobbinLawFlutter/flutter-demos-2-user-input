@@ -2,7 +2,6 @@
 //but now they are both modularized into their own
 //my-icon.dart and reusable-card.dart files.
 //Also shows the use of enums
-//and the Ternary Operator.
 //Also functionality with GestureDetector and setSate.
 
 import 'package:flutter/material.dart';
@@ -28,28 +27,8 @@ class MyFifthPage extends StatefulWidget {
 
 class _MyFifthPageState extends State<MyFifthPage> {
   Gender selectedGender;
-
   Color maleCardColor = inactiveCardColor;
   Color femaleCardColor = inactiveCardColor;
-
-  void updateColor(Gender selectedGender) {
-    if (selectedGender == Gender.male) {
-      if (maleCardColor == inactiveCardColor) {
-        maleCardColor = activeCardColor;
-        femaleCardColor = inactiveCardColor;
-      } else {
-        maleCardColor = inactiveCardColor;
-      }
-    }
-    if (selectedGender == Gender.female) {
-      if (femaleCardColor == inactiveCardColor) {
-        femaleCardColor = activeCardColor;
-        maleCardColor = inactiveCardColor;
-      } else {
-        femaleCardColor = inactiveCardColor;
-      }
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -135,5 +114,26 @@ class _MyFifthPageState extends State<MyFifthPage> {
         ],
       ),
     );
+  }
+
+  void updateColor(Gender selectedGender) {
+    if (selectedGender == Gender.male) {
+      if (maleCardColor == inactiveCardColor) {
+        maleCardColor = activeCardColor;
+        femaleCardColor = inactiveCardColor;
+      } else {
+        //maleCardColor = inactiveCardColor;
+        //print('it ran');
+      }
+    }
+    if (selectedGender == Gender.female) {
+      if (femaleCardColor == inactiveCardColor) {
+        femaleCardColor = activeCardColor;
+        maleCardColor = inactiveCardColor;
+      } else {
+        //femaleCardColor = inactiveCardColor;
+        //print('it ran');
+      }
+    }
   }
 }

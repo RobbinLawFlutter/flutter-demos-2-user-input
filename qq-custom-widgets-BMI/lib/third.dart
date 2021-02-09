@@ -30,6 +30,7 @@ class _MyThirdPageState extends State<MyThirdPage> {
                   child: ReuseableCard(
                     myColor: activeCardColor,
                     reusableCardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Icon(
                           FontAwesomeIcons.mars,
@@ -53,6 +54,7 @@ class _MyThirdPageState extends State<MyThirdPage> {
                   child: ReuseableCard(
                     myColor: activeCardColor,
                     reusableCardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Icon(
                           FontAwesomeIcons.venus,
