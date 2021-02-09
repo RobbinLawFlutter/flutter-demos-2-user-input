@@ -1,17 +1,20 @@
-//This MySixthPage demonstrates passing functions as args
-//as the ReuseableCard class has been enhanced to include
-//the GestureDetector and its onpressed property as a parm.
-//Also the use of a slider.
-//Also all constants are modularized into their own file.
-
-//Flutter Slider Widget of the Week
-//https://www.youtube.com/watch?v=ufb4gIPDmEs&list=PLjxrf2q8roU23XGwz3Km7sQZFTdB996iG&index=58
+//This MySixthPage demonstrates the use of both custom widgets
+//but now they are both modularized into their own
+//my-icon.dart and reusable-card.dart files.
+//Also shows the use of enums
+//and the Ternary Operator.
+//Also functionality with GestureDetector and setSate.
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'reusable-card-enhanced.dart';
+import 'reusable-card.dart';
 import 'my-icon.dart';
-import 'constants.dart';
+
+const bottomContainerHeight = 80.0;
+const activeCardColor = Color(0xFF1D1E33);
+//const inactiveCardColor = Color(0xFF111328);
+const inactiveCardColor = Color(0xff424242);
+const bottomContainerColor = Color(0xFFEB1555);
 
 enum Gender {
   male,
@@ -25,7 +28,8 @@ class MySixthPage extends StatefulWidget {
 
 class _MySixthPageState extends State<MySixthPage> {
   Gender selectedGender;
-  int height = 180;
+  Color maleCardColor = inactiveCardColor;
+  Color femaleCardColor = inactiveCardColor;
 
   @override
   Widget build(BuildContext context) {
@@ -34,40 +38,51 @@ class _MySixthPageState extends State<MySixthPage> {
         title: Text('BMI Calculator'),
       ),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Expanded(
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: ReuseableCard(
-                    onPress: () {
+                  child: GestureDetector(
+                    onTap: () {
                       setState(() {
+                        //Second way directly selecting gender.
                         selectedGender = Gender.male;
                       });
+                      print('Male card was pressed');
                     },
-                    myColor: selectedGender == Gender.male
-                        ? kActiveCardColor
-                        : kInactiveCardColor,
-                    reusableCardChild: MyIcon(
-                      icon: FontAwesomeIcons.mars,
-                      label: 'MALE',
+                    child: ReuseableCard(
+                      //Second way using terinary operator.
+                      myColor: selectedGender == Gender.male
+                          ? activeCardColor
+                          : inactiveCardColor,
+
+                      reusableCardChild: MyIcon(
+                        icon: FontAwesomeIcons.mars,
+                        label: 'MALE',
+                      ),
                     ),
                   ),
                 ),
                 Expanded(
-                  child: ReuseableCard(
-                    onPress: () {
+                  child: GestureDetector(
+                    onTap: () {
                       setState(() {
+                        //Second way
                         selectedGender = Gender.female;
                       });
+                      print('Female card was pressed');
                     },
-                    myColor: selectedGender == Gender.female
-                        ? kActiveCardColor
-                        : kInactiveCardColor,
-                    reusableCardChild: MyIcon(
-                      icon: FontAwesomeIcons.venus,
-                      label: 'FEMALE',
+                    child: ReuseableCard(
+                      //Second way
+                      myColor: selectedGender == Gender.female
+                          ? activeCardColor
+                          : inactiveCardColor,
+
+                      reusableCardChild: MyIcon(
+                        icon: FontAwesomeIcons.venus,
+                        label: 'FEMALE',
+                      ),
                     ),
                   ),
                 ),
@@ -76,52 +91,7 @@ class _MySixthPageState extends State<MySixthPage> {
           ),
           Expanded(
             child: ReuseableCard(
-              myColor: kActiveCardColor,
-              reusableCardChild: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    'HEIGHT',
-                    style: kLabelTextStyle,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
-                    textBaseline: TextBaseline.alphabetic,
-                    children: <Widget>[
-                      Text(
-                        height.toString(),
-                        style: kNumberTextStyle,
-                      ),
-                      Text(
-                        'cm',
-                        style: kLabelTextStyle,
-                      ),
-                    ],
-                  ),
-                  SliderTheme(
-                    data: SliderTheme.of(context).copyWith(
-                      activeTrackColor: Colors.white,
-                      inactiveTrackColor: Color(0xFF8D8E98),
-                      thumbColor: Color(0xFFEB1555),
-                      overlayColor: Color(0x15EB11555),
-                      thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15),
-                      overlayShape: RoundSliderOverlayShape(overlayRadius: 30),
-                    ),
-                    child: Slider(
-                      value: height.toDouble(),
-                      min: 120,
-                      max: 220,
-                      onChanged: (double newValue) {
-                        setState(() {
-                          height = newValue.round();
-                        });
-                        print(newValue);
-                      },
-                    ),
-                  ),
-                ],
-              ),
+              myColor: activeCardColor,
             ),
           ),
           Expanded(
@@ -129,22 +99,22 @@ class _MySixthPageState extends State<MySixthPage> {
               children: <Widget>[
                 Expanded(
                   child: ReuseableCard(
-                    myColor: kActiveCardColor,
+                    myColor: activeCardColor,
                   ),
                 ),
                 Expanded(
                   child: ReuseableCard(
-                    myColor: kActiveCardColor,
+                    myColor: activeCardColor,
                   ),
                 ),
               ],
             ),
           ),
           Container(
-            color: kBottomContainerColor,
+            color: bottomContainerColor,
             margin: EdgeInsets.only(top: 10),
             width: double.infinity,
-            height: kBottomContainerHeight,
+            height: bottomContainerHeight,
           ),
         ],
       ),

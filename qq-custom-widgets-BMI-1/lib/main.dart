@@ -33,18 +33,26 @@ import 'fourth.dart';
 //Also functionality with GestureDetector and setSate.
 import 'fifth.dart';
 
-//This MySixthPage demonstrates passing functions as args
+//This MySixthPage demonstrates the use of both custom widgets
+//but now they are both modularized into their own
+//my-icon.dart and reusable-card.dart files.
+//Also shows the use of enums
+//and the Ternary Operator.
+//Also functionality with GestureDetector and setSate.
+import 'sixth.dart';
+
+//This MySeventhPage demonstrates passing functions as args
 //as the ReuseableCard class has been enhanced to include
 //the GestureDetector and its onpressed property as a parm.
 //Also the use of a slider.
 //Also all constants are modularized into their own file.
-import 'sixth.dart';
+import 'seventh.dart';
 
-//This MySeventhPage demonstrates yet another custom
+//This MyEighthPage demonstrates yet another custom
 //widget called RoundIconButton which makes use
 //of RawMaterialButton to compose a new widget from
 //basic components.
-import 'seventh.dart';
+import 'eighth.dart';
 
 void main() => runApp(MyApp());
 
@@ -65,13 +73,14 @@ class MyApp extends StatelessWidget {
         //scaffoldBackgroundColor: Color(0xFF0B1034),
         scaffoldBackgroundColor: Colors.blueGrey[800],
       ),
-      //home: MyFirstPage(),
+      home: MyFirstPage(),
       //home: MySecondPage(),
       //home: MyThirdPage(),
       //home: MyFourthPage(),
-      home: MyFifthPage(),
+      //home: MyFifthPage(),
       //home: MySixthPage(),
       //home: MySeventhPage(),
+      //home: MyEighthPage(),
     );
   }
 }
