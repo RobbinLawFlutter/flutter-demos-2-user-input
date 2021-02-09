@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:robbinlaw/screens/seventh.dart';
+import 'package:robbinlaw/views/seventh.dart';
 
 void main() => runApp(MyApp());
 

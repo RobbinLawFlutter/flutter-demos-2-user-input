@@ -4,12 +4,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:robbinlaw/components/reusable-card.dart';
-import 'package:robbinlaw/components/round-icon-button.dart';
-import 'package:robbinlaw/components/my-icon.dart';
-import 'package:robbinlaw/components/bottom-button.dart';
+import 'package:robbinlaw/widgets/reusable-card.dart';
+import 'package:robbinlaw/widgets/round-icon-button.dart';
+import 'package:robbinlaw/widgets/my-icon.dart';
+import 'package:robbinlaw/widgets/bottom-button.dart';
 import 'package:robbinlaw/constants.dart';
-import 'package:robbinlaw/screens/results.dart';
+import 'package:robbinlaw/views/results.dart';
 import 'package:robbinlaw/calculator.dart';
 
 enum Gender {
