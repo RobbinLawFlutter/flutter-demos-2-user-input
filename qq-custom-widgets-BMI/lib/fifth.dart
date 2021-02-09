@@ -121,18 +121,12 @@ class _MyFifthPageState extends State<MyFifthPage> {
       if (maleCardColor == inactiveCardColor) {
         maleCardColor = activeCardColor;
         femaleCardColor = inactiveCardColor;
-      } else {
-        //maleCardColor = inactiveCardColor;
-        //print('it ran');
       }
     }
     if (selectedGender == Gender.female) {
       if (femaleCardColor == inactiveCardColor) {
         femaleCardColor = activeCardColor;
         maleCardColor = inactiveCardColor;
-      } else {
-        //femaleCardColor = inactiveCardColor;
-        //print('it ran');
       }
     }
   }
