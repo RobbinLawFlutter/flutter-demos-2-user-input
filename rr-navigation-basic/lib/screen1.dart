@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:aqb_push_pop_navigation/screen2.dart';
+import 'package:robbinlaw/screen2.dart';
 
 class Screen1 extends StatelessWidget {
   @override

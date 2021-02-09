@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:aqc_navigation_BMI/screens/seventh.dart';
+import 'package:robbinlaw/screens/seventh.dart';
 
 void main() => runApp(MyApp());
 

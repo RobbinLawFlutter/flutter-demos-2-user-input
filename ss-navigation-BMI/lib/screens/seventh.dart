@@ -4,13 +4,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:aqc_navigation_BMI/components/reusable-card.dart';
-import 'package:aqc_navigation_BMI/components/round-icon-button.dart';
-import 'package:aqc_navigation_BMI/components/my-icon.dart';
-import 'package:aqc_navigation_BMI/components/bottom-button.dart';
-import 'package:aqc_navigation_BMI/constants.dart';
-import 'package:aqc_navigation_BMI/screens/results.dart';
-import 'package:aqc_navigation_BMI/calculator.dart';
+import 'package:robbinlaw/components/reusable-card.dart';
+import 'package:robbinlaw/components/round-icon-button.dart';
+import 'package:robbinlaw/components/my-icon.dart';
+import 'package:robbinlaw/components/bottom-button.dart';
+import 'package:robbinlaw/constants.dart';
+import 'package:robbinlaw/screens/results.dart';
+import 'package:robbinlaw/calculator.dart';
 
 enum Gender {
   male,
