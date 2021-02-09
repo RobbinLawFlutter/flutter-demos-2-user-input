@@ -68,22 +68,22 @@ class _MyFifthPageState extends State<MyFifthPage> {
                       setState(() {
                         //First way using a method to
                         //update the card color.
-                        //updateColor(Gender.male);
+                        updateColor(Gender.male);
 
                         //Second way directly selecting gender.
-                        selectedGender = Gender.male;
+                        //selectedGender = Gender.male;
                       });
                       print('Male card was pressed');
                     },
                     child: ReuseableCard(
                       //First way updating color via
                       //variable that was changed in method.
-                      //myColor: maleCardColor,
+                      myColor: maleCardColor,
 
                       //Second way using terinary operator.
-                      myColor: selectedGender == Gender.male
-                          ? activeCardColor
-                          : inactiveCardColor,
+                      // myColor: selectedGender == Gender.male
+                      //     ? activeCardColor
+                      //     : inactiveCardColor,
 
                       reusableCardChild: MyIcon(
                         icon: FontAwesomeIcons.mars,
@@ -97,21 +97,21 @@ class _MyFifthPageState extends State<MyFifthPage> {
                     onTap: () {
                       setState(() {
                         //First way
-                        //updateColor(Gender.female);
+                        updateColor(Gender.female);
 
                         //Second way
-                        selectedGender = Gender.female;
+                        //selectedGender = Gender.female;
                       });
                       print('Female card was pressed');
                     },
                     child: ReuseableCard(
                       //First way
-                      //myColor: femaleCardColor,
+                      myColor: femaleCardColor,
 
                       //Second way
-                      myColor: selectedGender == Gender.female
-                          ? activeCardColor
-                          : inactiveCardColor,
+                      // myColor: selectedGender == Gender.female
+                      //     ? activeCardColor
+                      //     : inactiveCardColor,
 
                       reusableCardChild: MyIcon(
                         icon: FontAwesomeIcons.venus,
