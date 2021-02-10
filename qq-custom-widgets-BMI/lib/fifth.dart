@@ -53,7 +53,7 @@ class _MyFifthPageState extends State<MyFifthPage> {
                     },
                     child: ReuseableCard(
                       //First way updating color via
-                      //variable that was changed in method.
+                      //variable that was changed in updateColor method.
                       myColor: maleCardColor,
                       reusableCardChild: MyIcon(
                         icon: FontAwesomeIcons.mars,
