@@ -106,7 +106,7 @@ class _MySeventhPageState extends State<MySeventhPage> {
                       thumbColor: Color(0xFFEB1555),
                       overlayColor: Color(0x15EB11555),
                       thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15),
-                      overlayShape: RoundSliderOverlayShape(overlayRadius: 30),
+                      overlayShape: RoundSliderOverlayShape(overlayRadius: 25),
                     ),
                     child: Slider(
                       value: height.toDouble(),
