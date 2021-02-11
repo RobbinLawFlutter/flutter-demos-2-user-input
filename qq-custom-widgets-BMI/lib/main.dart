@@ -77,10 +77,10 @@ class MyApp extends StatelessWidget {
       //home: MySecondPage(),
       //home: MyThirdPage(),
       //home: MyFourthPage(),
-      home: MyFifthPage(),
+      //home: MyFifthPage(),
       //home: MySixthPage(),
       //home: MySeventhPage(),
-      //home: MyEighthPage(),
+      home: MyEighthPage(),
     );
   }
 }
