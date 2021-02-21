@@ -1,31 +1,32 @@
-//This MySeventhPage demonstrates passing functions as args
-//as the ReuseableCard class has been enhanced to include
-//the GestureDetector and its onpressed property as a parm.
-//Also the use of a slider.
-//Also all constants are modularized into their own file.
-
-//Flutter Slider Widget of the Week
-//https://www.youtube.com/watch?v=ufb4gIPDmEs&list=PLjxrf2q8roU23XGwz3Km7sQZFTdB996iG&index=58
+//This MyEighthPage demonstrates yet another custom
+//widget called RoundIconButton which makes use
+//of RawMaterialButton.
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'reusable-card-enhanced.dart';
-import 'my-icon.dart';
-import 'constants.dart';
+import 'package:robbinlaw/widgets/reusable-card-enhanced.dart';
+import 'package:robbinlaw/widgets/my-icon.dart';
+import 'package:robbinlaw/widgets/round-icon-button.dart';
+import 'package:robbinlaw/constants.dart';
 
 enum Gender {
   male,
   female,
 }
 
-class MySeventhPage extends StatefulWidget {
+class MyEighthPage extends StatefulWidget {
   @override
-  _MySeventhPageState createState() => _MySeventhPageState();
+  MyEighthPageState createState() => MyEighthPageState();
 }
 
-class _MySeventhPageState extends State<MySeventhPage> {
+class MyEighthPageState extends State<MyEighthPage> {
   Gender selectedGender;
   int height = 180;
+  int weight = 60;
+  int age = 20;
+
+  Color maleCardColor = kInactiveCardColor;
+  Color femaleCardColor = kInactiveCardColor;
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +107,7 @@ class _MySeventhPageState extends State<MySeventhPage> {
                       thumbColor: Color(0xFFEB1555),
                       overlayColor: Color(0x15EB11555),
                       thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15),
-                      overlayShape: RoundSliderOverlayShape(overlayRadius: 25),
+                      overlayShape: RoundSliderOverlayShape(overlayRadius: 30),
                     ),
                     child: Slider(
                       value: height.toDouble(),
@@ -130,11 +131,85 @@ class _MySeventhPageState extends State<MySeventhPage> {
                 Expanded(
                   child: ReuseableCard(
                     myColor: kActiveCardColor,
+                    reusableCardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'WEIGHT',
+                          style: kLabelTextStyle,
+                        ),
+                        Text(
+                          weight.toString(),
+                          style: kNumberTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            RoundIconButton(
+                              onPressed: () {
+                                setState(() {
+                                  weight--;
+                                });
+                              },
+                              icon: FontAwesomeIcons.minus,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            RoundIconButton(
+                              onPressed: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
+                              icon: FontAwesomeIcons.plus,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Expanded(
                   child: ReuseableCard(
                     myColor: kActiveCardColor,
+                    reusableCardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'AGE',
+                          style: kLabelTextStyle,
+                        ),
+                        Text(
+                          age.toString(),
+                          style: kNumberTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            RoundIconButton(
+                              onPressed: () {
+                                setState(() {
+                                  age--;
+                                });
+                              },
+                              icon: FontAwesomeIcons.minus,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            RoundIconButton(
+                              onPressed: () {
+                                setState(() {
+                                  age++;
+                                });
+                              },
+                              icon: FontAwesomeIcons.plus,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],

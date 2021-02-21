@@ -7,8 +7,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'reusable-card.dart';
-import 'my-icon.dart';
+import 'package:robbinlaw/widgets/reusable-card.dart';
+import 'package:robbinlaw/widgets/my-icon.dart';
 
 const bottomContainerHeight = 80.0;
 const activeCardColor = Color(0xFF1D1E33);
