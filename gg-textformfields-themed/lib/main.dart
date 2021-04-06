@@ -58,7 +58,7 @@ class _AppState extends State<App> {
                     print('onSaved email = $input');
                     _email = input;
                   },
-                  cursorColor: Theme.of(context).cursorColor,
+                  cursorColor: colorScheme.onPrimary,
                   maxLength: 30,
                   decoration: InputDecoration(
                     //The border property is what makes a outlined
@@ -92,7 +92,7 @@ class _AppState extends State<App> {
                     print('onSaved password = $input');
                   },
                   obscureText: true,
-                  cursorColor: Theme.of(context).cursorColor,
+                  cursorColor: colorScheme.onPrimary,
                   maxLength: 20,
                   decoration: InputDecoration(
                     icon: Icon(Icons.emoji_emotions),

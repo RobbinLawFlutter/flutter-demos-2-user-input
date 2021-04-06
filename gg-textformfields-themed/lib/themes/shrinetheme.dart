@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 ThemeData buildShrineTheme() {
   final ThemeData base = ThemeData.light();
   return base.copyWith(
-    colorScheme: _shrineColorScheme,
+    colorScheme: colorScheme,
     toggleableActiveColor: shrinePink400,
     accentColor: shrineBrown900,
     primaryColor: shrinePink100,
@@ -13,7 +13,7 @@ ThemeData buildShrineTheme() {
     textSelectionColor: shrinePink100,
     errorColor: shrineErrorRed,
     buttonTheme: const ButtonThemeData(
-      colorScheme: _shrineColorScheme,
+      colorScheme: colorScheme,
       textTheme: ButtonTextTheme.normal,
     ),
     primaryIconTheme: _customIconTheme(base.iconTheme),
@@ -49,7 +49,7 @@ TextTheme _buildShrineTextTheme(TextTheme base) {
       );
 }
 
-const ColorScheme _shrineColorScheme = ColorScheme(
+const ColorScheme colorScheme = ColorScheme(
   primary: shrinePink100,
   primaryVariant: shrineBrown900,
   secondary: shrinePink50,
