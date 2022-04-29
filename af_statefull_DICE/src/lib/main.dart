@@ -70,7 +70,7 @@ class _DiceState extends State<Dice> {
                   //to reflect changes from any field labeled DIRTY.
                 });
               },
-              child: Image.asset('images/dice$_leftDiceNumber.png'),
+              child: Image.asset('assets/images/dice$_leftDiceNumber.png'),
             ),
           ),
           Expanded(
@@ -81,7 +81,7 @@ class _DiceState extends State<Dice> {
                 print('rightDiceNumber = $_rightDiceNumber');
                 changeBothDiceFace();
               },
-              child: Image.asset('images/dice$_rightDiceNumber.png'),
+              child: Image.asset('assets/images/dice$_rightDiceNumber.png'),
             ),
           ),
         ],

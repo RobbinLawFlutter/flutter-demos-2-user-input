@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
 //restart the program with new variable values.
 class Dice extends StatelessWidget {
   //We cannot put class instance fields here (unless we mark them final)
-  //because a stateless widget is imutable (can't change).
+  //because a stateless widget is immutable (can't change).
   //int myInt1 = 1;
   //If we do mark a class instance field as final it must be initialized.
   //final int myInt2;
@@ -49,8 +49,8 @@ class Dice extends StatelessWidget {
 
   //We also cannot mark a class field as const unless
   //we also mark it as static and then it will become
-  //a field that all objects instanciated from this class
-  //will share and not get thier own copy of it.
+  //a field that all objects instantiated from this class
+  //will share and not get their own copy of it.
   //const int myInt4 = 2;
   //The key word static must go in front of the key word const.
   static const int myInt5 = 2;
@@ -78,7 +78,7 @@ class Dice extends StatelessWidget {
               //to run.
               onPressed: reactToButtonPress1(),
 
-              //This will work as expeced because it is a pointer
+              //This will work as expected because it is a pointer
               //to the named method.
               //This method must return type dynamic (nothing) and cannot take args.
               //onPressed: reactToButtonPress1,
@@ -103,7 +103,7 @@ class Dice extends StatelessWidget {
               // },
 
               //string interpolation with $
-              child: Image.asset('images/dice$leftDiceNumber.png'),
+              child: Image.asset('assets/images/dice$leftDiceNumber.png'),
             ),
           ),
           Expanded(
@@ -113,7 +113,7 @@ class Dice extends StatelessWidget {
                 print('Right button got pressed');
                 print('rightDiceNumber = $rightDiceNumber');
               },
-              child: Image.asset('images/dice$rightDiceNumber.png'),
+              child: Image.asset('assets/images/dice$rightDiceNumber.png'),
             ),
           ),
         ],

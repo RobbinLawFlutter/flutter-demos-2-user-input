@@ -1,89 +1,95 @@
+//Proper use of the Scaffold.of
+//https://medium.com/@ksheremet/flutter-showing-snackbar-within-the-widget-that-builds-a-scaffold-3a817635aeb2
+
 import 'package:flutter/material.dart';
+import 'package:robbinlaw/themes/shrinetheme.dart';
 
-//using the Icon Widget
-//go to http://www.materialpalette.com
-
-//Icons from Material
-//https://material.io/resources/icons/?style=baseline
-
-//SizedBox Widget of the Week
-//https://www.youtube.com/watch?v=EHPu_DzRfqA
-void main() {
-  runApp(
-    MyApp(),
-  );
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.blueGrey,
-        appBar: AppBar(
-          title: Text("Icon Widget and SizedBox Widget"),
-          backgroundColor: Colors.blueGrey[900],
-        ),
-        body: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: CircleAvatar(
-                radius: 150,
-                backgroundColor: Colors.blue,
-                backgroundImage: AssetImage('images/bottle.jpg'),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'bottle pic',
-                style: TextStyle(
-                  fontFamily: 'Chilanka-Regular',
-                  fontSize: 40,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 2.5,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black, width: 8),
-                  color: Colors.white,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Row(
-                    children: <Widget>[
-                      Icon(
-                        //Icons.add_shopping_cart,
-                        Icons.add_shopping_cart,
-                        size: 50,
-                        color: Colors.blue.shade500,
-                      ),
-                      SizedBox(
-                        width: 50,
-                        height: 10,
-                      ),
-                      Text(
-                        'go to this place',
-                        style: TextStyle(
-                          fontSize: 25,
-                          color: Colors.blue.shade300,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
+      title: 'AppBar Button Demo',
+      debugShowCheckedModeBanner: false,
+      home: MyPage(),
+      theme: buildShrineTheme(),
+    );
+  }
+}
+
+class MyPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('AppBar Button Demo'),
+        actions: [
+          // ElevatedButton(
+          //   onPressed: () {
+          //     final snackBar = SnackBar(
+          //       behavior: SnackBarBehavior.floating,
+          //       content: Row(
+          //         children: [
+          //           Icon(Icons.favorite),
+          //           SizedBox(
+          //             width: 10,
+          //           ),
+          //           Text('Hey There'),
+          //         ],
+          //       ),
+          //       action: SnackBarAction(
+          //         label: 'Click Me',
+          //         onPressed: () {
+          //           print('hey you clicked on the snackbar Action');
+          //         },
+          //       ),
+          //     );
+
+          //     // Find the Scaffold in the widget tree and use
+          //     // it to show a SnackBar.
+          //     Scaffold.of(context).showSnackBar(snackBar);
+          //   },
+          //   //child: Text('Show SnackBar'),
+          //   child: Icon(Icons.favorite),
+          // ),
+          SnackbarButton(),
+        ],
       ),
+      body: Center(),
+    );
+  }
+}
+
+class SnackbarButton extends StatelessWidget {
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        final snackBar = SnackBar(
+          behavior: SnackBarBehavior.floating,
+          content: Row(
+            children: [
+              Icon(Icons.favorite),
+              SizedBox(
+                width: 10,
+              ),
+              Text('Hey There'),
+            ],
+          ),
+          action: SnackBarAction(
+            label: 'Click Me',
+            onPressed: () {
+              print('hey you clicked on the snackbar Action');
+            },
+          ),
+        );
+
+        // Find the Scaffold in the widget tree and use
+        // it to show a SnackBar.
+        Scaffold.of(context).showSnackBar(snackBar);
+      },
+      //child: Text('Show SnackBar'),
+      child: Icon(Icons.favorite),
     );
   }
 }
