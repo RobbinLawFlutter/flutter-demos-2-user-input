@@ -14,7 +14,7 @@ import 'dart:math';
 //myDynamic = 123;
 //myDynamic = 'Hello';
 //var myDynamic2;
-//This produces a dynamic type as no initiaizaiton has occured.
+//This produces a dynamic type as no initialization has occurred.
 //This would not be possible in C#.
 
 void main() => runApp(MyApp());
@@ -84,7 +84,7 @@ class Dice extends StatelessWidget {
               //onPressed: reactToButtonPress1,
 
               //The structure below is the signature
-              //for a voidcallback also called in some
+              //for a void-callback also called in some
               //languages an anonymous function (no name).
               //A function with no name and in this case no parms.
               //It is the only way to call a function that may

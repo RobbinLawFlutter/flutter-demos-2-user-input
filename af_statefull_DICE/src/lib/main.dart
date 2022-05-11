@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
 
 //The inheritance of this StatefulWidget is immutable.
 //Unlike a stateless widget it does allow for the call to the
-//createState method which instanciates a class that inherits from the
+//createState method which instantiates a class that inherits from the
 //State<> widget which is the mutable part.
 class Dice extends StatefulWidget {
   final int myInt = 2;
@@ -41,7 +41,7 @@ class _DiceState extends State<Dice> {
   //inside of the build method.
   //These class instance fields are available only to any method
   //inside this class if they are private as here. The _ means that they are private.
-  //They would be accessable outside of this class if they were public with
+  //They would be accessible outside of this class if they were public with
   //no _ as the first letter of name.
   int _leftDiceNumber = 1;
   int _rightDiceNumber = 1;
