@@ -12,11 +12,15 @@ void main() {
   //function. Notice no () after slowdrive so it does not run.
   Car myCar1 = Car(drive: slowdrive);
   print('myCar1 is ${myCar1.drive}');
-
   myCar1.wheels();
-  myCar1.drive();
+  //The ! is a null check
+  //because the drive property could be null.
+  myCar1.drive!();
   myCar1.drive = fastdrive;
-  myCar1.drive();
+  myCar1.drive!();
+  Car myCar2 = Car(drive: null);
+  //This will throw an unhandled exception.
+  myCar2.drive!();
 }
 
 //Top level function not inside a class
@@ -45,10 +49,10 @@ Function calculator2 = (int n1, int n2, Function calculation) {
 class Car {
   //Class constructor with named parm that must be a function name
   //and thus will contain the address of the function.
-  Car({required this.drive});
+  Car({this.drive});
 
   //Class member property that contains the address of a function.
-  Function drive;
+  void Function()? drive;
 
   //Class member method.
   void wheels() {
@@ -60,6 +64,7 @@ class Car {
 //if pointed to by class Car's drive property.
 void slowdrive() {
   print('driving slow');
+  //return null;
 }
 
 //Top level function.
