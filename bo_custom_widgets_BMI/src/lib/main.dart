@@ -1,89 +1,83 @@
+//This app shows themes in this main file.
+//By default flutter uses a light blue theme.
+
+//Themes documentation from flutter
+//https://flutter.dev/docs/cookbook/design/themes
+
 import 'package:flutter/material.dart';
 
-//using the Icon Widget
-//go to http://www.materialpalette.com
+//This MyFirstPage demonstrates the tree
+//without any "custom widgets".
+import 'package:robbinlaw/views/first.dart';
 
-//Icons from Material
-//https://material.io/resources/icons/?style=baseline
+//This MySecondPage demonstrates the use
+//of "custom widgets" to reuse code.
+//It displays the same as the MyFirstPage.
+//It also shows the diff between const vs final.
+import 'package:robbinlaw/views/second.dart';
 
-//SizedBox Widget of the Week
-//https://www.youtube.com/watch?v=EHPu_DzRfqA
-void main() {
-  runApp(
-    MyApp(),
-  );
-}
+//This MyThirdPage demonstrates the use of Icons from pub.dev.
+import 'package:robbinlaw/views/third.dart';
+
+//This MyFourthPage demonstrates the use of the icons
+//but as another "custom widget"
+//inside the ReuseableCard custom widget.
+//No functionality yet.
+import 'package:robbinlaw/views/fourth.dart';
+
+//This MyFifthPage demonstrates the use of both custom widgets
+//but now they are both modularized into their own
+//my-icon.dart and reusable-card.dart files.
+//Also shows the use of enums
+//and the Ternary Operator.
+//Also functionality with GestureDetector and setSate.
+import 'package:robbinlaw/views/fifth.dart';
+
+//This MySixthPage demonstrates the use of both custom widgets
+//but now they are both modularized into their own
+//my-icon.dart and reusable-card.dart files.
+//Also shows the use of enums
+//and the Ternary Operator.
+//Also functionality with GestureDetector and setSate.
+import 'package:robbinlaw/views/sixth.dart';
+
+//This MySeventhPage demonstrates passing functions as args
+//as the ReuseableCard class has been enhanced to include
+//the GestureDetector and its onpressed property as a parm.
+//Also the use of a slider.
+//Also all constants are modularized into their own file.
+import 'package:robbinlaw/views/seventh.dart';
+
+//This MyEighthPage demonstrates yet another custom
+//widget called RoundIconButton which makes use
+//of RawMaterialButton to compose a new widget from
+//basic components.
+import 'package:robbinlaw/views/eighth.dart';
+
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.blueGrey,
-        appBar: AppBar(
-          title: Text("Icon Widget and SizedBox Widget"),
-          backgroundColor: Colors.blueGrey[900],
-        ),
-        body: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: CircleAvatar(
-                radius: 150,
-                backgroundColor: Colors.blue,
-                backgroundImage: AssetImage('images/bottle.jpg'),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'bottle pic',
-                style: TextStyle(
-                  fontFamily: 'Chilanka-Regular',
-                  fontSize: 40,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 2.5,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black, width: 8),
-                  color: Colors.white,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Row(
-                    children: <Widget>[
-                      Icon(
-                        //Icons.add_shopping_cart,
-                        Icons.add_shopping_cart,
-                        size: 50,
-                        color: Colors.blue.shade500,
-                      ),
-                      SizedBox(
-                        width: 50,
-                        height: 10,
-                      ),
-                      Text(
-                        'go to this place',
-                        style: TextStyle(
-                          fontSize: 25,
-                          color: Colors.blue.shade300,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
+      debugShowCheckedModeBanner: false,
+      //.dark() gives the material app dark theme
+      //.copyWith() allows us to change only certain
+      //dark theme defaults.
+      theme: ThemeData.dark().copyWith(
+        //the 0xFF is the transparency (opaqe),
+        //then 0B Red, 10 Green, 34 Blue
+        primaryColor: Color(0xFF0B1034),
+        scaffoldBackgroundColor: Colors.blueGrey[800],
       ),
+      //home: MyFirstPage(),
+      //home: MySecondPage(),
+      //home: MyThirdPage(),
+      //home: MyFourthPage(),
+      //home: MyFifthPage(),
+      //home: MySixthPage(),
+      //home: MySeventhPage(),
+      home: MyEighthPage(),
     );
   }
 }

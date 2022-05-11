@@ -1,89 +1,68 @@
-import 'package:flutter/material.dart';
-
-//using the Icon Widget
-//go to http://www.materialpalette.com
-
-//Icons from Material
-//https://material.io/resources/icons/?style=baseline
-
-//SizedBox Widget of the Week
-//https://www.youtube.com/watch?v=EHPu_DzRfqA
 void main() {
-  runApp(
-    MyApp(),
-  );
+  int result1 = add(3, 5);
+  print('result1: $result1');
+  //add contains the address of the actual function.
+  int result2 = calculator1(4, 5, add);
+  print('result2: $result2');
+  //multiply contains the address of the actual function.
+  int result3 = calculator2(4, 5, multiply);
+  print('result3: $result3');
+
+  //Here drive is set to slowdrive pointer to the
+  //function. Notice no () after slowdrive so it does not run.
+  Car myCar1 = Car(drive: slowdrive);
+  print('myCar1 is ${myCar1.drive}');
+
+  myCar1.wheels();
+  myCar1.drive();
+  myCar1.drive = fastdrive;
+  myCar1.drive();
 }
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.blueGrey,
-        appBar: AppBar(
-          title: Text("Icon Widget and SizedBox Widget"),
-          backgroundColor: Colors.blueGrey[900],
-        ),
-        body: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: CircleAvatar(
-                radius: 150,
-                backgroundColor: Colors.blue,
-                backgroundImage: AssetImage('images/bottle.jpg'),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'bottle pic',
-                style: TextStyle(
-                  fontFamily: 'Chilanka-Regular',
-                  fontSize: 40,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 2.5,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black, width: 8),
-                  color: Colors.white,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Row(
-                    children: <Widget>[
-                      Icon(
-                        //Icons.add_shopping_cart,
-                        Icons.add_shopping_cart,
-                        size: 50,
-                        color: Colors.blue.shade500,
-                      ),
-                      SizedBox(
-                        width: 50,
-                        height: 10,
-                      ),
-                      Text(
-                        'go to this place',
-                        style: TextStyle(
-                          fontSize: 25,
-                          color: Colors.blue.shade300,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+//Top level function not inside a class
+int add(int n1, int n2) {
+  return (n1 + n2);
+}
+
+//Top level function not inside a class
+int multiply(int n1, int n2) {
+  return (n1 * n2);
+}
+
+//Top level function passing another function as a parm.
+//calculation will contain the address of the function passed as arg
+int calculator1(int n1, int n2, Function calculation) {
+  //When calculation has () then the function at the address
+  //it contains is called and run.
+  return calculation(n1, n2);
+}
+
+//Top level variable equivelent to above.
+Function calculator2 = (int n1, int n2, Function calculation) {
+  return calculation(n1, n2);
+};
+
+class Car {
+  //Class constructor with named parm that must be a function name
+  //and thus will contain the address of the function.
+  Car({required this.drive});
+
+  //Class member property that contains the address of a function.
+  Function drive;
+
+  //Class member method.
+  void wheels() {
+    print('nice wheels');
   }
+}
+
+//Top level function, must be here
+//if pointed to by class Car's drive property.
+void slowdrive() {
+  print('driving slow');
+}
+
+//Top level function.
+void fastdrive() {
+  print('driving fast');
 }

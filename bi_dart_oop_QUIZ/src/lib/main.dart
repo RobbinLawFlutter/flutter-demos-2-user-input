@@ -1,89 +1,161 @@
+// This app shows why it is good to modularize, abstract, and
+// encapsulate code.
+// four pillars of OOP
+// Abstraction by using classes and instantiating objects from the class template.
+// Encapsulation "_" make members private to the class.
+// Inheritance "extends" the base class template.
+// Polymorphism "@override" changes methods of the base class.
+
+//Challenge: Make the scoreKeeper list part of the quizMaster class.
+
 import 'package:flutter/material.dart';
+import 'package:robbinlaw/controllers/quizMaster.dart';
 
-//using the Icon Widget
-//go to http://www.materialpalette.com
+QuizMaster quizMaster = QuizMaster();
 
-//Icons from Material
-//https://material.io/resources/icons/?style=baseline
-
-//SizedBox Widget of the Week
-//https://www.youtube.com/watch?v=EHPu_DzRfqA
-void main() {
-  runApp(
-    MyApp(),
-  );
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      //theme: buildShrineTheme(),
       home: Scaffold(
-        backgroundColor: Colors.blueGrey,
-        appBar: AppBar(
-          title: Text("Icon Widget and SizedBox Widget"),
-          backgroundColor: Colors.blueGrey[900],
-        ),
-        body: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: CircleAvatar(
-                radius: 150,
-                backgroundColor: Colors.blue,
-                backgroundImage: AssetImage('images/bottle.jpg'),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'bottle pic',
-                style: TextStyle(
-                  fontFamily: 'Chilanka-Regular',
-                  fontSize: 40,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 2.5,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black, width: 8),
-                  color: Colors.white,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Row(
-                    children: <Widget>[
-                      Icon(
-                        //Icons.add_shopping_cart,
-                        Icons.add_shopping_cart,
-                        size: 50,
-                        color: Colors.blue.shade500,
-                      ),
-                      SizedBox(
-                        width: 50,
-                        height: 10,
-                      ),
-                      Text(
-                        'go to this place',
-                        style: TextStyle(
-                          fontSize: 25,
-                          color: Colors.blue.shade300,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ],
+        backgroundColor: Colors.blueGrey[900],
+        body: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.0),
+            child: MyFirstPage(),
+          ),
         ),
       ),
     );
+  }
+}
+
+class MyFirstPage extends StatefulWidget {
+  @override
+  _MyFirstPageState createState() => _MyFirstPageState();
+}
+
+class _MyFirstPageState extends State<MyFirstPage> {
+  List<Icon> scoreKeeper = [];
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        Expanded(
+          flex: 5,
+          child: Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Center(
+              child: Text(
+                quizMaster.getQuestionText(),
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 25.0,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+        ),
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.all(15.0),
+            child: FlatButton(
+              textColor: Colors.white,
+              color: Colors.green,
+              child: Text(
+                'True',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20.0,
+                ),
+              ),
+              onPressed: () {
+                checkAnswer(true);
+              },
+            ),
+          ),
+        ),
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.all(15.0),
+            child: FlatButton(
+              color: Colors.red,
+              child: Text(
+                'False',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  color: Colors.white,
+                ),
+              ),
+              onPressed: () {
+                checkAnswer(false);
+              },
+            ),
+          ),
+        ),
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.all(15.0),
+            child: FlatButton(
+              color: Colors.amber,
+              child: Text(
+                'Start Over',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  color: Colors.white,
+                ),
+              ),
+              onPressed: () {
+                startOver();
+              },
+            ),
+          ),
+        ),
+        Row(
+          children: scoreKeeper,
+        ),
+      ],
+    );
+  }
+
+  void checkAnswer(bool userAnswer) {
+    setState(() {
+      if (quizMaster.isNotFinished() == true) {
+        bool correctAnswer = quizMaster.getQuestionAnswer();
+        if (userAnswer == correctAnswer) {
+          print('got it right');
+          scoreKeeper.add(
+            Icon(
+              Icons.check,
+              color: Colors.green,
+            ),
+          );
+        } else {
+          print('got it wrong');
+          scoreKeeper.add(
+            Icon(
+              Icons.close,
+              color: Colors.red,
+            ),
+          );
+        }
+        quizMaster.nextQuestion();
+      }
+    });
+  }
+
+  void startOver() {
+    setState(() {
+      quizMaster.reset();
+      scoreKeeper = [];
+    });
   }
 }
