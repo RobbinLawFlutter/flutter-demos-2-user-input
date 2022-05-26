@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.blueGrey,
         appBar: AppBar(
-          title: Text("Statefull Widgets"),
+          title: const Text("Statefull Widgets"),
           backgroundColor: Colors.blueGrey[900],
         ),
         body: Dice(),
