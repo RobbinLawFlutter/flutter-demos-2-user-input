@@ -11,8 +11,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Button Enable Demo',
       debugShowCheckedModeBanner: false,
-      home: MyFirstPage(),
-      //home: MySecondPage(),
+      //home: MyFirstPage(),
+      home: MySecondPage(),
       theme: buildShrineTheme(),
     );
   }

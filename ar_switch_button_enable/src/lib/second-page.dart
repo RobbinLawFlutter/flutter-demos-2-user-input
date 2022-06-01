@@ -8,11 +8,12 @@ class MySecondPage extends StatefulWidget {
 
 class _MySecondPageState extends State<MySecondPage> {
   bool _enabled = false;
+  int _timesClicked = 0;
   String _msg1 = '';
 
   @override
   Widget build(BuildContext context) {
-    print('The build is being RUN');
+    print('The build method is being RUN');
     return Scaffold(
       appBar: AppBar(
         title: Text('Disapearing Button Demo'),
@@ -31,10 +32,13 @@ class _MySecondPageState extends State<MySecondPage> {
                       _enabled = onChangedValue;
                       setState(() {
                         if (_enabled) {
+                          //Here we DO reset the count.
+                          _timesClicked = 0;
                           _msg1 = 'Enabled';
                           print('_enabled is true');
                         } else {
-                          _msg1 = '';
+                          _msg1 = 'Disabled';
+                          //_msg1 = '';
                           print('_enabled is false');
                         }
                       });
@@ -44,6 +48,10 @@ class _MySecondPageState extends State<MySecondPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                //With an MaterialButton whose onPressed = null
+                //will make the button disappear.
+                //The text may still show but greyed out
+                //unless it is "".
                 MaterialButton(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8)),
@@ -52,7 +60,11 @@ class _MySecondPageState extends State<MySecondPage> {
                   padding: EdgeInsets.all(15.0),
                   onPressed: _enabled
                       ? () {
-                          print('Button Pressed');
+                          setState(() {
+                          _timesClicked++;
+                          _msg1 = 'Clicked $_timesClicked';
+                          print('clicked $_timesClicked');
+                        });
                         }
                       : null,
                   //The text of the button works separately from the button
