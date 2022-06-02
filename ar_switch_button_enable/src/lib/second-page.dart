@@ -37,8 +37,8 @@ class _MySecondPageState extends State<MySecondPage> {
                           _msg1 = 'Enabled';
                           print('_enabled is true');
                         } else {
-                          _msg1 = 'Disabled';
-                          //_msg1 = '';
+                          //_msg1 = 'Disabled';
+                          _msg1 = '';
                           print('_enabled is false');
                         }
                       });
