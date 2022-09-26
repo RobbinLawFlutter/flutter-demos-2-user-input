@@ -5,14 +5,12 @@ import 'package:flutter/material.dart';
 ThemeData buildShrineTheme() {
   final ThemeData base = ThemeData.light();
   return base.copyWith(
-    colorScheme: _shrineColorScheme,
+    inputDecorationTheme: _inputDecorationTheme(base.inputDecorationTheme),
+    textSelectionTheme: _textSelectionThemeData(),
     toggleableActiveColor: shrinePink400,
-    accentColor: shrineBrown900,
     primaryColor: shrinePink100,
-    buttonColor: shrinePink100,
     scaffoldBackgroundColor: shrineBackgroundWhite,
     cardColor: shrineBackgroundWhite,
-    textSelectionColor: shrinePink100,
     errorColor: shrineErrorRed,
     buttonTheme: const ButtonThemeData(
       colorScheme: _shrineColorScheme,
@@ -21,13 +19,61 @@ ThemeData buildShrineTheme() {
     primaryIconTheme: _customIconTheme(base.iconTheme),
     textTheme: _buildShrineTextTheme(base.textTheme),
     primaryTextTheme: _buildShrineTextTheme(base.primaryTextTheme),
-    accentTextTheme: _buildShrineTextTheme(base.accentTextTheme),
     iconTheme: _customIconTheme(base.iconTheme),
+    colorScheme: _shrineColorScheme.copyWith(secondary: shrineBrown900),
+  );
+}
+
+InputDecorationTheme _inputDecorationTheme(InputDecorationTheme original) {
+  return original.copyWith(
+    contentPadding: const EdgeInsets.all(16),
+    floatingLabelBehavior: FloatingLabelBehavior.always,
+    //floatingLabelBehavior: FloatingLabelBehavior.auto,
+    //constraints: BoxConstraints(maxWidth: 150),
+    // borders
+    enabledBorder: _buildBorderStyle(_shrineColorScheme.primary),
+    errorBorder: _buildBorderStyle(_shrineColorScheme.error),
+    focusedErrorBorder: _buildBorderStyle(_shrineColorScheme.error),
+    focusedBorder: _buildBorderStyle(_shrineColorScheme.primary),
+    disabledBorder: _buildBorderStyle(Colors.black26),
+    // text
+    suffixStyle: _buildTextStyle(_shrineColorScheme.onPrimary),
+    counterStyle: _buildTextStyle(_shrineColorScheme.onPrimary, size: 12.0),
+    floatingLabelStyle: _buildTextStyle(_shrineColorScheme.onPrimary),
+    errorStyle: _buildTextStyle(_shrineColorScheme.error),
+    hintStyle: _buildTextStyle(_shrineColorScheme.onPrimary),
+    helperStyle: _buildTextStyle(_shrineColorScheme.onPrimary),
+    labelStyle: _buildTextStyle(_shrineColorScheme.onPrimary),
+    prefixStyle: _buildTextStyle(_shrineColorScheme.onPrimary),
+    iconColor: _shrineColorScheme.onPrimary,
+  );
+}
+
+TextSelectionThemeData _textSelectionThemeData() {
+  return TextSelectionThemeData(
+    cursorColor: _shrineColorScheme.onPrimary,
+  );
+}
+
+OutlineInputBorder _buildBorderStyle(Color color) {
+  return OutlineInputBorder(
+    borderRadius: const BorderRadius.all(Radius.circular(10)),
+    borderSide: BorderSide(
+      color: color,
+      width: 2.0,
+    ),
+  );
+}
+
+TextStyle _buildTextStyle(Color color, {double size = 16.0}) {
+  return TextStyle(
+    color: color,
+    fontSize: size,
   );
 }
 
 IconThemeData _customIconTheme(IconThemeData original) {
-  return original.copyWith(color: shrineBrown900);
+  return original.copyWith(color: _shrineColorScheme.onPrimary);
 }
 
 TextTheme _buildShrineTextTheme(TextTheme base) {
@@ -35,7 +81,7 @@ TextTheme _buildShrineTextTheme(TextTheme base) {
       .copyWith(
         caption: base.caption!.copyWith(
           fontWeight: FontWeight.w400,
-          fontSize: 14,
+          fontSize: 16,
           letterSpacing: defaultLetterSpacing,
         ),
         button: base.button!.copyWith(
@@ -46,23 +92,21 @@ TextTheme _buildShrineTextTheme(TextTheme base) {
       )
       .apply(
         fontFamily: 'Rubik',
-        displayColor: shrineBrown900,
-        bodyColor: shrineBrown900,
+        displayColor: _shrineColorScheme.onPrimary,
+        bodyColor: _shrineColorScheme.onPrimary,
       );
 }
 
 const ColorScheme _shrineColorScheme = ColorScheme(
   primary: shrinePink100,
-  primaryVariant: shrineBrown900,
-  secondary: shrinePink50,
-  secondaryVariant: shrineBrown900,
-  surface: shrineSurfaceWhite,
-  background: shrineBackgroundWhite,
-  error: shrineErrorRed,
   onPrimary: shrineBrown900,
+  secondary: shrinePink50,
   onSecondary: shrineBrown900,
+  surface: shrineSurfaceWhite,
   onSurface: shrineBrown900,
+  background: shrineBackgroundWhite,
   onBackground: shrineBrown900,
+  error: shrineErrorRed,
   onError: shrineSurfaceWhite,
   brightness: Brightness.light,
 );
