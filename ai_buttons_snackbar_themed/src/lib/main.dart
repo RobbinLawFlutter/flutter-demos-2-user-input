@@ -4,25 +4,28 @@
 import 'package:flutter/material.dart';
 import 'package:robbinlaw/themes/shrinetheme.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Buttons Snackbar Demo',
       debugShowCheckedModeBanner: false,
-      home: MyPage(),
+      home: const MyPage(),
       theme: buildShrineTheme(),
     );
   }
 }
 
 class MyPage extends StatelessWidget {
+  const MyPage({Key? key}) : super(key: key);
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Buttons Snackbar Demo'),
+        title: const Text('Buttons Snackbar Demo'),
       ),
       body: Center(
         child: Column(
@@ -33,28 +36,28 @@ class MyPage extends StatelessWidget {
                 // Respond to button press
                 print('You Clicked the Text Button');
               },
-              child: Text(
+              child: const Text(
                 'TEXT BUTTON',
                 //style: TextStyle(color: Colors.green),
               ),
             ),
-            SizedBox(height: 8.0),
+            const SizedBox(height: 8.0),
             OutlinedButton(
               onPressed: () {
                 // Respond to button press
                 print('You Clicked the Outlined Button');
               },
-              child: Text("OUTLINED BUTTON"),
+              child: const Text("OUTLINED BUTTON"),
             ),
-            SizedBox(height: 8.0),
+            const SizedBox(height: 8.0),
             ElevatedButton(
               onPressed: () {
                 // Respond to button press
                 print('You Clicked the Contained Button');
               },
-              child: Text("CONTAINED BUTTON"),
+              child: const Text("CONTAINED BUTTON"),
             ),
-            SnackbarButton(),
+            const SnackbarButton(),
           ],
         ),
       ),
@@ -63,13 +66,15 @@ class MyPage extends StatelessWidget {
 }
 
 class SnackbarButton extends StatelessWidget {
+  const SnackbarButton({Key? key}) : super(key: key);
+  @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
         final snackBar = SnackBar(
           behavior: SnackBarBehavior.floating,
           content: Row(
-            children: [
+            children: const [
               Icon(Icons.favorite),
               SizedBox(
                 width: 10,
@@ -89,7 +94,7 @@ class SnackbarButton extends StatelessWidget {
         // it to show a SnackBar.
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
       },
-      child: Text('SHOW SNACKBAR'),
+      child: const Text('SHOW SNACKBAR'),
     );
   }
 }
