@@ -8,6 +8,8 @@
 
 //Challenge: Make the scoreKeeper list part of the quizMaster class.
 
+// ignore_for_file: use_key_in_widget_constructors, avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:robbinlaw/controllers/quizMaster.dart';
 
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
         backgroundColor: Colors.blueGrey[900],
         body: SafeArea(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.0),
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: MyFirstPage(),
           ),
         ),
@@ -51,12 +53,12 @@ class _MyFirstPageState extends State<MyFirstPage> {
         Expanded(
           flex: 5,
           child: Padding(
-            padding: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
             child: Center(
               child: Text(
                 quizMaster.getQuestionText(),
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 25.0,
                   color: Colors.white,
                 ),
@@ -66,11 +68,11 @@ class _MyFirstPageState extends State<MyFirstPage> {
         ),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.all(15.0),
-            child: FlatButton(
-              textColor: Colors.white,
-              color: Colors.green,
-              child: Text(
+            padding: const EdgeInsets.all(15.0),
+            child: TextButton(
+              //textColor: Colors.white,
+              //color: Colors.green,
+              child: const Text(
                 'True',
                 style: TextStyle(
                   color: Colors.white,
@@ -85,10 +87,10 @@ class _MyFirstPageState extends State<MyFirstPage> {
         ),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.all(15.0),
-            child: FlatButton(
-              color: Colors.red,
-              child: Text(
+            padding: const EdgeInsets.all(15.0),
+            child: TextButton(
+              //color: Colors.red,
+              child: const Text(
                 'False',
                 style: TextStyle(
                   fontSize: 20.0,
@@ -103,10 +105,10 @@ class _MyFirstPageState extends State<MyFirstPage> {
         ),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.all(15.0),
-            child: FlatButton(
-              color: Colors.amber,
-              child: Text(
+            padding: const EdgeInsets.all(15.0),
+            child: TextButton(
+              //color: Colors.amber,
+              child: const Text(
                 'Start Over',
                 style: TextStyle(
                   fontSize: 20.0,
@@ -133,7 +135,7 @@ class _MyFirstPageState extends State<MyFirstPage> {
         if (userAnswer == correctAnswer) {
           print('got it right');
           scoreKeeper.add(
-            Icon(
+            const Icon(
               Icons.check,
               color: Colors.green,
             ),
@@ -141,7 +143,7 @@ class _MyFirstPageState extends State<MyFirstPage> {
         } else {
           print('got it wrong');
           scoreKeeper.add(
-            Icon(
+            const Icon(
               Icons.close,
               color: Colors.red,
             ),
