@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-//Flutter 101: Statefull Widgets
+//Flutter 101: Stateful Widgets
 //https://www.youtube.com/watch?v=AqCMFXEmf3w
 
 void main() => runApp(MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.blueGrey,
         appBar: AppBar(
-          title: const Text("Statefull Widgets"),
+          title: const Text("Stateful Widgets"),
           backgroundColor: Colors.blueGrey[900],
         ),
         body: Dice(),
@@ -78,7 +78,8 @@ class _DiceState extends State<Dice> {
             child: TextButton(
               onPressed: () {
                 print('Right button got pressed');
-                print('rightDiceNumber = $_rightDiceNumber');
+                print('old leftDiceNumber = $_leftDiceNumber');
+                print('old rightDiceNumber = $_rightDiceNumber');
                 changeBothDiceFace();
               },
               child: Image.asset('assets/images/dice$_rightDiceNumber.png'),
@@ -105,7 +106,8 @@ class _DiceState extends State<Dice> {
       //inside the method before the call to setState as we have seen before.
       _leftDiceNumber = Random().nextInt(6) + 1;
       _rightDiceNumber = Random().nextInt(6) + 1;
-      print('rightDiceNumber = $_rightDiceNumber');
+      print('new leftDiceNumber = $_leftDiceNumber');
+      print('new rightDiceNumber = $_rightDiceNumber');
     });
   }
 }

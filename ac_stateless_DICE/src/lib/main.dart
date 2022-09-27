@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'dart:math';
 
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.blueGrey,
         appBar: AppBar(
-          title: Text("Stateless Widgets"),
+          title: const Text("Stateless Widgets"),
           backgroundColor: Colors.blueGrey[900],
         ),
         body: Dice(),
@@ -62,8 +64,8 @@ class Dice extends StatelessWidget {
     //If we change these numbers and hot restart the images on the phone will update.
     //We can hot restart by pressing ctrl+s
     //It will NOT work if we hot reload.
-    int leftDiceNumber = 3;
-    var rightDiceNumber = 4;
+    int leftDiceNumber = 2;
+    var rightDiceNumber = 3;
     return Center(
       child: Row(
         children: <Widget>[
@@ -76,7 +78,7 @@ class Dice extends StatelessWidget {
               //once when the build is called at program restart.
               //Pressing the TextButton will NOT cause the method
               //to run.
-              onPressed: reactToButtonPress1(),
+              //onPressed: reactToButtonPress1(),
 
               //This will work as expected because it is a pointer
               //to the named method.
@@ -95,12 +97,12 @@ class Dice extends StatelessWidget {
               //The code inside the anonymous function is run
               //only when the onPressed event is triggered.
 
-              // onPressed: () {
-              //   //Random number between 0 and 5 then add 1
-              //   leftDiceNumber = Random().nextInt(6) + 1;
-              //   var returnValue = reactToButtonPress2(leftDiceNumber);
-              //   print('ReturnValue = $returnValue');
-              // },
+              onPressed: () {
+                //Random number between 0 and 5 then add 1
+                leftDiceNumber = Random().nextInt(6) + 1;
+                var returnValue = reactToButtonPress2(leftDiceNumber);
+                print('ReturnValue = $returnValue');
+              },
 
               //string interpolation with $
               child: Image.asset('assets/images/dice$leftDiceNumber.png'),
