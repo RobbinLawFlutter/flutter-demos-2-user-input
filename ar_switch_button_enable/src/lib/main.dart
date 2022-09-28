@@ -1,7 +1,9 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 import 'package:robbinlaw/themes/shrinetheme.dart';
-import 'package:robbinlaw/first-page.dart';
-import 'package:robbinlaw/second-page.dart';
+import 'package:robbinlaw/first_page.dart';
+import 'package:robbinlaw/second_page.dart';
 
 void main() => runApp(MyApp());
 

@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
 //createState method which instantiates a class that inherits from the
 //State<> widget which is the mutable part.
 class Dice extends StatefulWidget {
+  // Because this part is immutable we must use final or const
   final int myInt = 2;
   @override
   _DiceState createState() => _DiceState();
@@ -42,13 +43,15 @@ class _DiceState extends State<Dice> {
   //inside of the build method and then their scope would only be
   //inside of the build method.
   //These class instance fields are available only to any method
-  //inside this class if they are private as here. The _ means that they are private.
+  //inside this class if they are private as here. 
+  //The _ means that they are private, no keyword private like in Csharp.
   //They would be accessible outside of this class if they were public with
   //no _ as the first letter of name.
   int _leftDiceNumber = 1;
   int _rightDiceNumber = 1;
   @override
   Widget build(BuildContext context) {
+    print('The build method is being RUN');
     return Center(
       child: Row(
         children: <Widget>[
@@ -69,9 +72,12 @@ class _DiceState extends State<Dice> {
                   //At the end of the setState anonymous function
                   //setState automatically triggers the nearest build method
                   //to rerun which in turn updates or rerenders the screen
-                  //to reflect changes from any field labeled DIRTY.
+                  //to reflect changes from any field/property 
+                  //labeled DIRTY.
                 });
               },
+              // If _LeftDiceNumber becomes DIRTY this child
+              // property of the TextButton will also be marked as DIRTY.
               child: Image.asset('assets/images/dice$_leftDiceNumber.png'),
             ),
           ),
@@ -105,7 +111,8 @@ class _DiceState extends State<Dice> {
       //Here we are changing the class fields inside
       //of the setState anonymous function.
       //We could have done this outside of setState but
-      //inside the method before the call to setState as we have seen before.
+      //inside the changeBothDiceFace method before the 
+      //call to setState as we have seen before.
       _leftDiceNumber = Random().nextInt(6) + 1;
       _rightDiceNumber = Random().nextInt(6) + 1;
       print('new leftDiceNumber = $_leftDiceNumber');

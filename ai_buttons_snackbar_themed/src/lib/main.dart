@@ -1,26 +1,26 @@
 //Proper use of the Scaffold.of
 //https://medium.com/@ksheremet/flutter-showing-snackbar-within-the-widget-that-builds-a-scaffold-3a817635aeb2
 
+// ignore_for_file: use_key_in_widget_constructors, avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:robbinlaw/themes/shrinetheme.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Buttons Snackbar Demo',
       debugShowCheckedModeBanner: false,
-      home: const MyPage(),
+      home: MyPage(),
       theme: buildShrineTheme(),
     );
   }
 }
 
 class MyPage extends StatelessWidget {
-  const MyPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +57,7 @@ class MyPage extends StatelessWidget {
               },
               child: const Text("CONTAINED BUTTON"),
             ),
-            const SnackbarButton(),
+            SnackbarButton(),
           ],
         ),
       ),
@@ -66,7 +66,6 @@ class MyPage extends StatelessWidget {
 }
 
 class SnackbarButton extends StatelessWidget {
-  const SnackbarButton({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(

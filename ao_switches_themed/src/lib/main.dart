@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors, prefer_final_fields, avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:robbinlaw/themes/shrinetheme.dart';
 
@@ -23,12 +25,13 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   List<bool> _values = [true, false, true, false, false];
 
+  @override
   Widget build(BuildContext context) {
-    final int count = 4;
+    int count = 4;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Switch Demo'),
+        title: const Text('Switch Demo'),
       ),
       body: Column(
         children: <Widget>[
