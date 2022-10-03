@@ -29,7 +29,7 @@ class MyPage extends StatelessWidget {
         actions: [
           ElevatedButton(
             onPressed: () {
-              final snackBar = SnackBar(
+              dynamic snackBar = SnackBar(
                 behavior: SnackBarBehavior.floating,
                 content: Row(
                   children: const [
@@ -47,14 +47,7 @@ class MyPage extends StatelessWidget {
                   },
                 ),
               );
-
-              // Find the Scaffold in the widget tree and use
-              // it to show a SnackBar.
-              // We cannot do this here, it has to be done
-              // by instantiating a class that extends stateless
-              // widget and in the build of that class creating 
-              // and displaying the snackbar.
-              //Scaffold.of(context).showSnackBar(snackBar);
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
             },
             //child: Text('Show SnackBar'),
             child: const Icon(Icons.shopping_bag),

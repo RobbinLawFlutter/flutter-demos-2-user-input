@@ -12,7 +12,7 @@ class _MySecondPageState extends State<MySecondPage> {
   bool _enabled = false;
   int _timesClicked = 0;
   String _msg1 = '';
-  
+
   @override
   Widget build(BuildContext context) {
     print('The build method is being RUN');

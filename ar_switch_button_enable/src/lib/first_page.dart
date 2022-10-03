@@ -30,9 +30,11 @@ class _MyFirstPageState extends State<MyFirstPage> {
                   value: _enabled,
                   onChanged: (bool onChangedValue) {
                     setState(() {
+                      // _enabled is now DIRTY after next statement.
                       _enabled = onChangedValue;
                       if (_enabled) {
                         //Here we DO NOT reset the count.
+                        // _msg1 is now also DIRTY.
                         _msg1 = 'Enabled';
                         print('_enabled is true');
                       } else {

@@ -42,7 +42,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               leading: Switch(
                 value: _values[i],
-                onChanged: i == count
+                // Making the onChanged property null disables the switch.
+                onChanged: i == count - 1
                     ? null
                     : (bool value) {
                         _values[i] = value;

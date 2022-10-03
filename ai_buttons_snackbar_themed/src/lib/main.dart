@@ -1,7 +1,7 @@
 //Proper use of the Scaffold.of
 //https://medium.com/@ksheremet/flutter-showing-snackbar-within-the-widget-that-builds-a-scaffold-3a817635aeb2
 
-// ignore_for_file: use_key_in_widget_constructors, avoid_print
+
 
 import 'package:flutter/material.dart';
 import 'package:robbinlaw/themes/shrinetheme.dart';
@@ -70,8 +70,10 @@ class SnackbarButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        final snackBar = SnackBar(
+        // building the snackBar
+        dynamic snackBar = SnackBar(
           behavior: SnackBarBehavior.floating,
+          //duration: const Duration(seconds: 10),
           content: Row(
             children: const [
               Icon(Icons.favorite),
@@ -88,7 +90,7 @@ class SnackbarButton extends StatelessWidget {
             },
           ),
         );
-
+        // Displaying the snackBar.
         // Find the Scaffold in the widget tree and use
         // it to show a SnackBar.
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
