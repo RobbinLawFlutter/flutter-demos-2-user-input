@@ -5,5 +5,9 @@
 		"questionnumber",
 		"robbinlaw",
 		"shrinetheme"
+	],
+	"cSpell.ignoreWords": [
+		"appbar",
+		"textformfields"
 	]
 }
