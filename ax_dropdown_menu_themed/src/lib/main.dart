@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors, avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:robbinlaw/themes/shrinetheme.dart';
 
@@ -29,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         leading: PopupMenuButton(
-          icon: Icon(Icons.menu),
+          icon: const Icon(Icons.menu),
           itemBuilder: (BuildContext context) => <PopupMenuEntry>[
             const PopupMenuItem(
               value: 1,
@@ -59,18 +61,18 @@ class _MyHomePageState extends State<MyHomePage> {
             print("You have canceled the menu.");
           },
           onSelected: (value) {
-            print("top left value:$value");
+            print("top left value: $value");
           },
         ),
-        title: Text('Top AppBar'),
+        title: const Text('Top AppBar'),
         actions: [
-          Icon(Icons.favorite),
-          Padding(
+          const Icon(Icons.favorite),
+          const Padding(
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: Icon(Icons.search),
           ),
           PopupMenuButton(
-            icon: Icon(Icons.more_vert),
+            icon: const Icon(Icons.more_vert),
             itemBuilder: (BuildContext context) => <PopupMenuEntry>[
               const PopupMenuItem(
                 value: 1,
@@ -98,16 +100,17 @@ class _MyHomePageState extends State<MyHomePage> {
               const PopupMenuItem(value: 5, child: Text('Item B')),
             ],
             onCanceled: () {
-              print("You have canceled the menu.");
+              print("You have canceled the right menu.");
             },
             onSelected: (value) {
-              print("top right value:$value");
+              print("top right value = $value");
             },
           ),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
+        //type: BottomNavigationBarType.shifting,
         currentIndex: _currentIndex,
         //backgroundColor: colorScheme.surface,
         backgroundColor: colorScheme.primary,
@@ -120,7 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // Respond to item press.
           setState(() => _currentIndex = value);
         },
-        items: [
+        items: const [
           BottomNavigationBarItem(
             label: 'Favorites',
             icon: Icon(Icons.favorite),
@@ -139,7 +142,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      body: Center(),
+      body: const Center(),
     );
   }
 }
