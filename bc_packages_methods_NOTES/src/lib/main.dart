@@ -9,6 +9,8 @@
 // methods that return something like basic types or objects.
 //Also this shows the importance of code REUSE by using methods.
 
+// ignore_for_file: use_key_in_widget_constructors, avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:robbinlaw/themes/shrinetheme.dart';
 import 'package:english_words/english_words.dart';
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.blueGrey,
         appBar: AppBar(
-          title: Text("Using Packages Widget"),
+          title: const Text("Using Packages Widget"),
           backgroundColor: Colors.blueGrey[900],
         ),
         body: MyFirstPage(),
@@ -53,8 +55,8 @@ class _MyFirstPageState extends State<MyFirstPage> {
               child: Text(
                 //To see all the nouns view nouns.dart
                 //in the dependencies for this project
-                nouns.first,
-                style: TextStyle(
+                nouns[3],
+                style: const TextStyle(
                   fontFamily: 'Chilanka-Regular',
                   fontSize: 40,
                   color: Colors.white,
@@ -71,7 +73,7 @@ class _MyFirstPageState extends State<MyFirstPage> {
               },
               child: Text(
                 nouns.last,
-                style: TextStyle(
+                style: const TextStyle(
                   fontFamily: 'Chilanka-Regular',
                   fontSize: 40,
                   color: Colors.white,
@@ -86,9 +88,9 @@ class _MyFirstPageState extends State<MyFirstPage> {
             textToShow: 'Click Me 1',
           ),
           makeKey(
-            textToShow: 'Click Me 2',
-            soundToPlay: 4,
-          ),
+              //textToShow: 'Click Me 2',
+              //soundToPlay: 4,
+              ),
           makeKey(
             textToShow: 'Click Me 3',
             soundToPlay: 5,
@@ -103,7 +105,7 @@ class _MyFirstPageState extends State<MyFirstPage> {
 
   void playSound1() {
     //simplest function that has
-    //no input parmameters and returns nothing
+    //no input parameters and returns nothing
     final player = AudioCache();
     player.play('note$soundNumber.wav');
     if (soundNumber >= 1 && soundNumber <= 6 && direction == 1) {
@@ -117,7 +119,7 @@ class _MyFirstPageState extends State<MyFirstPage> {
 
   void playSound2(int sound, String myString) {
     //medium function that has
-    //one positional input parmeter and returns nothing
+    //one positional input parameter and returns nothing
     final player = AudioCache();
     player.play('note$sound.wav');
     print(myString);
@@ -126,7 +128,7 @@ class _MyFirstPageState extends State<MyFirstPage> {
   Expanded makeKey({String textToShow = 'yes man', int soundToPlay = 1}) {
     //most complicated function that has named
     //input parameters {}, and returns
-    //an object of type Exapanded
+    //an object of type Expanded
     //Note that all named parameters are optional.
     return Expanded(
       child: TextButton(
@@ -135,7 +137,7 @@ class _MyFirstPageState extends State<MyFirstPage> {
         },
         child: Text(
           textToShow,
-          style: TextStyle(
+          style: const TextStyle(
             fontFamily: 'Chilanka-Regular',
             fontSize: 40,
             color: Colors.white,
