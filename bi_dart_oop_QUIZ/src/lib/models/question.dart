@@ -1,4 +1,6 @@
-import 'package:flutter/material.dart';
+//import 'package:flutter/material.dart';
+
+// ignore_for_file: prefer_initializing_formals
 
 //This class demonstrates the use of different
 //constructors as well as preferred ways of
@@ -36,10 +38,8 @@ class Question {
 
 //We could also use named parameters.
 //This is the preferred way if lots of parms.
-//Also notice @required decorator means that these args have to
+//Also notice required decorator means that these args have to
 //be included in the constructor.
-//required is a flutter decorator NOT dart, so we need
-//to import the flutter package here.
 
   Question.namedParamters({required this.qText, required this.qAnswer});
 }

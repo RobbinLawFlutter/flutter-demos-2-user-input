@@ -7,8 +7,11 @@
 		"shrinetheme"
 	],
 	"cSpell.ignoreWords": [
+		"Paramters",
 		"appbar",
+		"contructors",
 		"ctxt",
+		"gready",
 		"textformfield",
 		"textformfields"
 	]
