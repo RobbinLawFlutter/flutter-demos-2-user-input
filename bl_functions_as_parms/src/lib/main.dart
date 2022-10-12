@@ -1,12 +1,16 @@
+// ignore_for_file: avoid_print
+
 void main() {
   int result1 = add(3, 5);
   print('result1: $result1');
   //add contains the address of the actual function.
   int result2 = calculator1(4, 5, add);
   print('result2: $result2');
-  //multiply contains the address of the actual function.
-  int result3 = calculator2(4, 5, multiply);
+  int result3 = calculator1(4, 5, multiply);
   print('result3: $result3');
+  //multiply contains the address of the actual function.
+  //int result3 = calculator2(4, 5, multiply);
+  //print('result3: $result3');
 
   //Here drive is set to slowdrive pointer to the
   //function. Notice no () after slowdrive so it does not run.
@@ -51,7 +55,7 @@ class Car {
   //and thus will contain the address of the function.
   Car({this.drive});
 
-  //Class member property that contains the address of a function.
+  //Class member field/property that contains the address of a function.
   void Function()? drive;
 
   //Class member method.

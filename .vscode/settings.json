@@ -1,10 +1,13 @@
 {
 	"cSpell.words": [
+		"equivelent",
+		"fastdrive",
 		"loopnumber",
 		"parms",
 		"questionnumber",
 		"robbinlaw",
-		"shrinetheme"
+		"shrinetheme",
+		"slowdrive"
 	],
 	"cSpell.ignoreWords": [
 		"Paramters",
@@ -12,6 +15,7 @@
 		"contructors",
 		"ctxt",
 		"gready",
+		"pubspec",
 		"textformfield",
 		"textformfields"
 	]

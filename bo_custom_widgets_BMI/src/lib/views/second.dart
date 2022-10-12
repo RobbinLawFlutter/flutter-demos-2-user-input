@@ -3,6 +3,8 @@
 //It displays the same as the MyFirstPage.
 //It also shows the diff between const vs final.
 
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 
 const bottomContainerHeight = 80.0;
@@ -19,13 +21,13 @@ class _MySecondPageState extends State<MySecondPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI Calculator'),
+        title: const Text('BMI Calculator'),
       ),
       body: Column(
         children: <Widget>[
           Expanded(
             child: Row(
-              children: <Widget>[
+              children: const <Widget>[
                 Expanded(
                   child: ReuseableCard(
                     myColor: activeCardColor,
@@ -39,14 +41,14 @@ class _MySecondPageState extends State<MySecondPage> {
               ],
             ),
           ),
-          Expanded(
+          const Expanded(
             child: ReuseableCard(
               myColor: activeCardColor,
             ),
           ),
           Expanded(
             child: Row(
-              children: <Widget>[
+              children: const <Widget>[
                 Expanded(
                   child: ReuseableCard(
                     myColor: activeCardColor,
@@ -62,7 +64,7 @@ class _MySecondPageState extends State<MySecondPage> {
           ),
           Container(
             color: bottomContainerColor,
-            margin: EdgeInsets.only(top: 10),
+            margin: const EdgeInsets.only(top: 10),
             width: double.infinity,
             height: bottomContainerHeight,
           ),
@@ -77,7 +79,7 @@ class _MySecondPageState extends State<MySecondPage> {
 class ReuseableCard extends StatelessWidget {
   // constructor that requires a Color parameter,
   // and optionally a reusableCardChild widget
-  ReuseableCard({required this.myColor, this.reusableCardChild});
+  const ReuseableCard({required this.myColor, this.reusableCardChild});
 
   //final makes this property called myColor
   //of type Color immutable, cannot change once set.
@@ -94,7 +96,7 @@ class ReuseableCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: reusableCardChild,
-      margin: EdgeInsets.all(15),
+      margin: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: myColor,
         borderRadius: BorderRadius.circular(10),

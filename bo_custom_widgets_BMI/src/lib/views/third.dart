@@ -2,6 +2,8 @@
 //Go to pub.dev and search for font_awesome_flutter
 //package and download and configure pubspec.yaml.
 
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -19,7 +21,7 @@ class _MyThirdPageState extends State<MyThirdPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI Calculator'),
+        title: const Text('BMI Calculator'),
       ),
       body: Column(
         children: <Widget>[
@@ -31,7 +33,7 @@ class _MyThirdPageState extends State<MyThirdPage> {
                     myColor: activeCardColor,
                     reusableCardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
+                      children: const <Widget>[
                         Icon(
                           FontAwesomeIcons.mars,
                           size: 80,
@@ -55,7 +57,7 @@ class _MyThirdPageState extends State<MyThirdPage> {
                     myColor: activeCardColor,
                     reusableCardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
+                      children: const <Widget>[
                         Icon(
                           FontAwesomeIcons.venus,
                           size: 80,
@@ -77,14 +79,14 @@ class _MyThirdPageState extends State<MyThirdPage> {
               ],
             ),
           ),
-          Expanded(
+          const Expanded(
             child: ReuseableCard(
               myColor: activeCardColor,
             ),
           ),
           Expanded(
             child: Row(
-              children: <Widget>[
+              children: const <Widget>[
                 Expanded(
                   child: ReuseableCard(
                     myColor: activeCardColor,
@@ -100,7 +102,7 @@ class _MyThirdPageState extends State<MyThirdPage> {
           ),
           Container(
             color: bottomContainerColor,
-            margin: EdgeInsets.only(top: 10),
+            margin: const EdgeInsets.only(top: 10),
             width: double.infinity,
             height: bottomContainerHeight,
           ),
@@ -111,7 +113,7 @@ class _MyThirdPageState extends State<MyThirdPage> {
 }
 
 class ReuseableCard extends StatelessWidget {
-  ReuseableCard({required this.myColor, this.reusableCardChild});
+  const ReuseableCard({required this.myColor, this.reusableCardChild});
 
   final Color myColor;
   final Widget? reusableCardChild;
@@ -120,7 +122,7 @@ class ReuseableCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: reusableCardChild,
-      margin: EdgeInsets.all(15),
+      margin: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: myColor,
         borderRadius: BorderRadius.circular(10),
