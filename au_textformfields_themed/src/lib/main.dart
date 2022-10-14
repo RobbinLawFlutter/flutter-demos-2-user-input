@@ -51,11 +51,12 @@ class _AppState extends State<App> {
                 },
                 onFieldSubmitted: (text) {
                   print('Submitted Email Text = $text');
+                  if (formKey.currentState!.validate()) {
+                    print('the input is now valid');
+                  }
                 },
                 validator: (input) {
-                  return input!.contains('@')
-                      ? null
-                      : 'must include @ you dummy';
+                  return input!.contains('@') ? null : 'must include @ please';
                 },
                 onSaved: (input) {
                   print('onSaved email = $input');
@@ -84,10 +85,13 @@ class _AppState extends State<App> {
                 },
                 onFieldSubmitted: (text) {
                   print('Submitted Password Text = $text');
-                  setState(() {});
+                  if (formKey.currentState!.validate()) {
+                    print('the input is now valid');
+                  }
+                  //setState(() {});
                 },
                 validator: (input) {
-                  return input!.length < 8 ? 'min 8 chars' : null;
+                  return input!.length < 8 ? 'min 8 chars please' : null;
                 },
                 onSaved: (input) {
                   _password = input;
