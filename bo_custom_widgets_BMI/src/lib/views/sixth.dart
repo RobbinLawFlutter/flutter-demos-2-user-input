@@ -1,9 +1,8 @@
-//This MySixthPage demonstrates the use of both custom widgets
-//but now they are both modularized into their own
-//my-icon.dart and reusable-card.dart files.
-//Also shows the use of enums
-//and the Ternary Operator.
-//Also functionality with GestureDetector and setSate.
+//This MySixthPage demonstrates the
+//use of a Ternary Operator instead of the
+//updateColor() method.
+
+// ignore_for_file: use_key_in_widget_constructors, avoid_print
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -36,7 +35,7 @@ class _MySixthPageState extends State<MySixthPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI Calculator'),
+        title: const Text('BMI Calculator'),
       ),
       body: Column(
         children: <Widget>[
@@ -113,7 +112,7 @@ class _MySixthPageState extends State<MySixthPage> {
           ),
           Container(
             color: bottomContainerColor,
-            margin: EdgeInsets.only(top: 10),
+            margin: const EdgeInsets.only(top: 10),
             width: double.infinity,
             height: bottomContainerHeight,
           ),

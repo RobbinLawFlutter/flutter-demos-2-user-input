@@ -7,6 +7,8 @@
 //Flutter Slider Widget of the Week
 //https://www.youtube.com/watch?v=ufb4gIPDmEs&list=PLjxrf2q8roU23XGwz3Km7sQZFTdB996iG&index=58
 
+// ignore_for_file: use_key_in_widget_constructors, avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:robbinlaw/widgets/reusable-card-enhanced.dart';
@@ -32,6 +34,7 @@ class _MySeventhPageState extends State<MySeventhPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        // ignore: prefer_const_constructors
         title: Text('BMI Calculator'),
       ),
       body: Column(
@@ -81,7 +84,7 @@ class _MySeventhPageState extends State<MySeventhPage> {
               reusableCardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text(
+                  const Text(
                     'HEIGHT',
                     style: kLabelTextStyle,
                   ),
@@ -94,7 +97,7 @@ class _MySeventhPageState extends State<MySeventhPage> {
                         height.toString(),
                         style: kNumberTextStyle,
                       ),
-                      Text(
+                      const Text(
                         'cm',
                         style: kLabelTextStyle,
                       ),
@@ -103,11 +106,13 @@ class _MySeventhPageState extends State<MySeventhPage> {
                   SliderTheme(
                     data: SliderTheme.of(context).copyWith(
                       activeTrackColor: Colors.white,
-                      inactiveTrackColor: Color(0xFF8D8E98),
-                      thumbColor: Color(0xFFEB1555),
-                      overlayColor: Color(0x15EB11555),
-                      thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15),
-                      overlayShape: RoundSliderOverlayShape(overlayRadius: 25),
+                      inactiveTrackColor: const Color(0xFF8D8E98),
+                      thumbColor: const Color(0xFFEB1555),
+                      overlayColor: const Color(0x15EB11555),
+                      thumbShape:
+                          const RoundSliderThumbShape(enabledThumbRadius: 15),
+                      overlayShape:
+                          const RoundSliderOverlayShape(overlayRadius: 25),
                     ),
                     child: Slider(
                       value: height.toDouble(),
@@ -118,6 +123,7 @@ class _MySeventhPageState extends State<MySeventhPage> {
                           height = newValue.round();
                         });
                         print(newValue);
+                        print(height);
                       },
                     ),
                   ),
@@ -143,7 +149,7 @@ class _MySeventhPageState extends State<MySeventhPage> {
           ),
           Container(
             color: kBottomContainerColor,
-            margin: EdgeInsets.only(top: 10),
+            margin: const EdgeInsets.only(top: 10),
             width: double.infinity,
             height: kBottomContainerHeight,
           ),

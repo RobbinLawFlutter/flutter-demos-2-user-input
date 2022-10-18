@@ -3,6 +3,8 @@
 //inside the ReuseableCard custom widget.
 //No functionality yet.
 
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -20,13 +22,13 @@ class _MyFourthPageState extends State<MyFourthPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI Calculator'),
+        title: const Text('BMI Calculator'),
       ),
       body: Column(
         children: <Widget>[
           Expanded(
             child: Row(
-              children: <Widget>[
+              children: const <Widget>[
                 Expanded(
                   child: ReuseableCard(
                     myColor: activeCardColor,
@@ -48,14 +50,14 @@ class _MyFourthPageState extends State<MyFourthPage> {
               ],
             ),
           ),
-          Expanded(
+          const Expanded(
             child: ReuseableCard(
               myColor: activeCardColor,
             ),
           ),
           Expanded(
             child: Row(
-              children: <Widget>[
+              children: const <Widget>[
                 Expanded(
                   child: ReuseableCard(
                     myColor: activeCardColor,
@@ -71,7 +73,7 @@ class _MyFourthPageState extends State<MyFourthPage> {
           ),
           Container(
             color: bottomContainerColor,
-            margin: EdgeInsets.only(top: 10),
+            margin: const EdgeInsets.only(top: 10),
             width: double.infinity,
             height: bottomContainerHeight,
           ),
@@ -82,7 +84,7 @@ class _MyFourthPageState extends State<MyFourthPage> {
 }
 
 class MyIcon extends StatelessWidget {
-  MyIcon({required this.icon, required this.label});
+  const MyIcon({required this.icon, required this.label});
 
   final IconData icon;
   final String label;
@@ -96,12 +98,12 @@ class MyIcon extends StatelessWidget {
           icon,
           size: 80,
         ),
-        SizedBox(
+        const SizedBox(
           height: 15,
         ),
         Text(
           label,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 18,
             color: Color(0xFF8D8E98),
           ),
@@ -112,7 +114,7 @@ class MyIcon extends StatelessWidget {
 }
 
 class ReuseableCard extends StatelessWidget {
-  ReuseableCard({required this.myColor, this.reusableCardChild});
+  const ReuseableCard({required this.myColor, this.reusableCardChild});
 
   final Color myColor;
 
@@ -122,7 +124,7 @@ class ReuseableCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: reusableCardChild,
-      margin: EdgeInsets.all(15),
+      margin: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: myColor,
         borderRadius: BorderRadius.circular(10),

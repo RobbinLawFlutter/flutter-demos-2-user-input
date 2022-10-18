@@ -3,6 +3,7 @@
 		"equivelent",
 		"fastdrive",
 		"loopnumber",
+		"onpressed",
 		"parms",
 		"questionnumber",
 		"robbinlaw",
@@ -15,7 +16,9 @@
 		"contructors",
 		"ctxt",
 		"gready",
+		"notdeterminedyet",
 		"pubspec",
+		"terinary",
 		"textformfield",
 		"textformfields"
 	]

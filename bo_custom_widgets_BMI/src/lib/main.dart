@@ -73,11 +73,11 @@ class MyApp extends StatelessWidget {
       //home: MyFirstPage(),
       //home: MySecondPage(),
       //home: MyThirdPage(),
-      home: MyFourthPage(),
+      //home: MyFourthPage(),
       //home: MyFifthPage(),
       //home: MySixthPage(),
       //home: MySeventhPage(),
-      //home: MyEighthPage(),
+      home: MyEighthPage(),
     );
   }
 }

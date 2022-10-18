@@ -4,6 +4,8 @@
 //Also shows the use of enums
 //Also functionality with GestureDetector and setSate.
 
+// ignore_for_file: use_key_in_widget_constructors, avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:robbinlaw/widgets/reusable-card.dart';
@@ -27,7 +29,7 @@ class MyFifthPage extends StatefulWidget {
 }
 
 class _MyFifthPageState extends State<MyFifthPage> {
-  Gender selectedGender = Gender.notdeterminedyet;
+  //Gender selectedGender = Gender.notdeterminedyet;
   Color maleCardColor = inactiveCardColor;
   Color femaleCardColor = inactiveCardColor;
 
@@ -35,7 +37,7 @@ class _MyFifthPageState extends State<MyFifthPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI Calculator'),
+        title: const Text('BMI Calculator'),
       ),
       body: Column(
         children: <Widget>[
@@ -108,7 +110,7 @@ class _MyFifthPageState extends State<MyFifthPage> {
           ),
           Container(
             color: bottomContainerColor,
-            margin: EdgeInsets.only(top: 10),
+            margin: const EdgeInsets.only(top: 10),
             width: double.infinity,
             height: bottomContainerHeight,
           ),
