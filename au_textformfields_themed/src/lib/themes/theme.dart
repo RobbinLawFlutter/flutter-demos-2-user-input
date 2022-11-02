@@ -29,7 +29,10 @@ ThemeData buildTheme() {
 AppBarTheme _buildAppBarTheme(AppBarTheme original) {
   return original.copyWith(
     color: _colorScheme.primary,
-    titleTextStyle: _buildTextStyle(_colorScheme.onPrimary, size: 18),
+    titleTextStyle: _buildTextStyle(
+      _colorScheme.onPrimary,
+      //size: 18,
+    ),
     centerTitle: true,
   );
 }
@@ -235,4 +238,4 @@ const Color errorRed = Color(0xFFC5032B);
 const Color surfaceWhite = Color(0xFFFFFBFA);
 const Color backgroundWhite = Colors.white;
 
-const defaultLetterSpacing = 0.03;
+const defaultLetterSpacing = 0.09;
