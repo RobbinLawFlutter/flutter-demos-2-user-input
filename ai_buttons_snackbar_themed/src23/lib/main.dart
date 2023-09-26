@@ -1,11 +1,11 @@
 //Proper use of the Scaffold.of
 //https://medium.com/@ksheremet/flutter-showing-snackbar-within-the-widget-that-builds-a-scaffold-3a817635aeb2
 
-
 // ignore_for_file: use_key_in_widget_constructors, avoid_print
 
 import 'package:flutter/material.dart';
 import 'package:robbinlaw/themes/shrinetheme.dart';
+import 'package:robbinlaw/themes/theme.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget {
       title: 'Buttons Snackbar Demo',
       debugShowCheckedModeBanner: false,
       home: MyPage(),
-      theme: buildShrineTheme(),
+      //theme: buildShrineTheme(),
+      theme: buildTheme(),
     );
   }
 }
@@ -54,9 +55,9 @@ class MyPage extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 // Respond to button press
-                print('You Clicked the Contained Button');
+                print('You Clicked the Elevated Button');
               },
-              child: const Text("CONTAINED BUTTON"),
+              child: const Text("ELEVATED BUTTON"),
             ),
             SnackbarButton(),
           ],
@@ -75,8 +76,8 @@ class SnackbarButton extends StatelessWidget {
         dynamic snackBar = SnackBar(
           behavior: SnackBarBehavior.floating,
           //duration: const Duration(seconds: 10),
-          content: Row(
-            children: const [
+          content: const Row(
+            children: [
               Icon(Icons.favorite),
               SizedBox(
                 width: 10,
