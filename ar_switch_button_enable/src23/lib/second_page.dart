@@ -1,7 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors, avoid_print
 
 import 'package:flutter/material.dart';
-import 'package:robbinlaw/themes/shrinetheme.dart';
+import 'package:robbinlaw/themes/theme.dart';
 
 class MySecondPage extends StatefulWidget {
   @override
@@ -58,7 +58,7 @@ class _MySecondPageState extends State<MySecondPage> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8)),
                 elevation: 8,
-                color: shrinePink100,
+                //color: Color(),
                 padding: const EdgeInsets.all(15.0),
                 onPressed: _enabled
                     ? () {

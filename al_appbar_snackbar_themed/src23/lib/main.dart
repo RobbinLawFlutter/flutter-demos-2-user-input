@@ -4,7 +4,7 @@
 // ignore_for_file: avoid_print, use_key_in_widget_constructors, unused_local_variable
 
 import 'package:flutter/material.dart';
-import 'package:robbinlaw/themes/shrinetheme.dart';
+import 'package:robbinlaw/themes/theme.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'AppBar Button Demo',
       debugShowCheckedModeBanner: false,
       home: MyPage(),
-      theme: buildShrineTheme(),
+      theme: buildTheme(),
     );
   }
 }

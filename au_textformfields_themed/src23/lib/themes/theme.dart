@@ -17,6 +17,7 @@ ThemeData buildTheme() {
     iconTheme: _buildIconTheme(base.iconTheme),
     appBarTheme: _buildAppBarTheme(base.appBarTheme),
     textButtonTheme: _buildTextButtonThemeData(base.textButtonTheme),
+    outlinedButtonTheme: _buildOutlinedButtonThemeData(base.outlinedButtonTheme),
     elevatedButtonTheme:
         _buildElevatedButtonThemeData(base.elevatedButtonTheme),
     dialogTheme: _buildDialogTheme(base.dialogTheme),
@@ -40,7 +41,23 @@ AppBarTheme _buildAppBarTheme(AppBarTheme original) {
 TextButtonThemeData _buildTextButtonThemeData(TextButtonThemeData original) {
   return TextButtonThemeData(
     style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(_colorScheme.background),
+        backgroundColor: MaterialStateProperty.all(_colorScheme.primary),
+        foregroundColor: MaterialStateProperty.all(_colorScheme.onPrimary),
+        textStyle: MaterialStateProperty.all(
+          const TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 20,
+            letterSpacing: defaultLetterSpacing,
+          ),
+        )),
+  );
+}
+
+OutlinedButtonThemeData _buildOutlinedButtonThemeData(OutlinedButtonThemeData original) {
+  return OutlinedButtonThemeData(
+    style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(_colorScheme.primary),
+        //backgroundColor: MaterialStateProperty.all(_colorScheme.background),
         foregroundColor: MaterialStateProperty.all(_colorScheme.onPrimary),
         textStyle: MaterialStateProperty.all(
           const TextStyle(
