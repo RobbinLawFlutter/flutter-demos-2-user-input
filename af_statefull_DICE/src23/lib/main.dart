@@ -47,8 +47,8 @@ class _DiceState extends State<Dice> {
   //The _ means that they are private, no keyword private like in Csharp.
   //They would be accessible outside of this class if they were public with
   //no _ as the first letter of name.
-  int _leftDiceNumber = 1;
-  int _rightDiceNumber = 1;
+  int _leftDiceNumber = 2;
+  int _rightDiceNumber = 4;
   @override
   Widget build(BuildContext context) {
     print('The build method is being RUN');
@@ -60,9 +60,9 @@ class _DiceState extends State<Dice> {
             child: TextButton(
               onPressed: () {
                 //When a field changes it is marked DIRTY.
-                _leftDiceNumber = Random().nextInt(6) + 1;
-                var returnValue = reactToButtonPress2(_leftDiceNumber);
-                print('ReturnValue = $returnValue');
+                int returnValue = reactToButtonPress2('left', _leftDiceNumber);
+                _leftDiceNumber = returnValue;
+                
                 //We can only use the setState method if the parent class
                 //is inherited from a STATE<> widget.
                 //setState takes as a parm an anonymous function.
@@ -85,10 +85,8 @@ class _DiceState extends State<Dice> {
             flex: 1,
             child: TextButton(
               onPressed: () {
-                print('Right button got pressed');
-                print('old leftDiceNumber = $_leftDiceNumber');
-                print('old rightDiceNumber = $_rightDiceNumber');
-                changeBothDiceFace();
+                int returnValue = reactToButtonPress2('right', _rightDiceNumber);
+                _rightDiceNumber = returnValue;
               },
               child: Image.asset('assets/images/dice$_rightDiceNumber.png'),
             ),
@@ -98,11 +96,13 @@ class _DiceState extends State<Dice> {
     );
   }
 
-  bool reactToButtonPress2(int dice) {
-    print('Left button got pressed');
-    print('leftDiceNumber = $dice');
-    return true;
+  int reactToButtonPress2(String whichDie, int dieNum) {
+    //Random number between 0 and 5 then add 1
+    int newDieNum = Random().nextInt(6) + 1;
+    print('$whichDie pressed. OLD ${whichDie}DieNum=$dieNum NEW ${whichDie}DieNum=$newDieNum');
+    return newDieNum;
   }
+  
 
   void changeBothDiceFace() {
     //_leftDiceNumber = Random().nextInt(6) + 1;
