@@ -60,15 +60,13 @@ class _DiceState extends State<Dice> {
             child: TextButton(
               onPressed: () {
                 //When a field changes it is marked DIRTY.
-                int returnValue = reactToButtonPress2('left', _leftDiceNumber);
+                int returnValue = reactToButtonPress('left', _leftDiceNumber);
                 _leftDiceNumber = returnValue;
                 
                 //We can only use the setState method if the parent class
                 //is inherited from a STATE<> widget.
                 //setState takes as a parm an anonymous function.
                 setState(() {
-                  //You can run statements inside this anonymous
-                  //function as we have seen before, but in this case we have not.
                   //At the end of the setState anonymous function
                   //setState automatically triggers the nearest build method
                   //to rerun which in turn updates or rerenders the screen
@@ -85,8 +83,17 @@ class _DiceState extends State<Dice> {
             flex: 1,
             child: TextButton(
               onPressed: () {
-                int returnValue = reactToButtonPress2('right', _rightDiceNumber);
+                setState(() {
+                  //You can run statements inside this anonymous
+                  //function as we have seen before, but in this case we have not.
+                  //At the end of the setState anonymous function
+                  //setState automatically triggers the nearest build method
+                  //to rerun which in turn updates or rerenders the screen
+                  //to reflect changes from any field/property 
+                  //labeled DIRTY.
+                  int returnValue = reactToButtonPress('right', _rightDiceNumber);
                 _rightDiceNumber = returnValue;
+                });
               },
               child: Image.asset('assets/images/dice$_rightDiceNumber.png'),
             ),
@@ -96,27 +103,11 @@ class _DiceState extends State<Dice> {
     );
   }
 
-  int reactToButtonPress2(String whichDie, int dieNum) {
+  int reactToButtonPress(String whichDie, int dieNum) {
     //Random number between 0 and 5 then add 1
     int newDieNum = Random().nextInt(6) + 1;
     print('$whichDie pressed. OLD ${whichDie}DieNum=$dieNum NEW ${whichDie}DieNum=$newDieNum');
     return newDieNum;
   }
   
-
-  void changeBothDiceFace() {
-    //_leftDiceNumber = Random().nextInt(6) + 1;
-    //_rightDiceNumber = Random().nextInt(6) + 1;
-    setState(() {
-      //Here we are changing the class fields inside
-      //of the setState anonymous function.
-      //We could have done this outside of setState but
-      //inside the changeBothDiceFace method before the 
-      //call to setState as we have seen before.
-      _leftDiceNumber = Random().nextInt(6) + 1;
-      _rightDiceNumber = Random().nextInt(6) + 1;
-      print('new leftDiceNumber = $_leftDiceNumber');
-      print('new rightDiceNumber = $_rightDiceNumber');
-    });
-  }
 }
