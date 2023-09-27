@@ -226,8 +226,10 @@ Color _getForegroundColor(Set<MaterialState> states) {
 }
 
 const ColorScheme _colorScheme = ColorScheme(
-  //primary: blue200,
-  primary: pink100,
+  //primary: yellow,
+  //primary: green,
+  primary: blue200,
+  //primary: pink100,
   onPrimary: brown900,
   secondary: pink50,
   onSecondary: brown900,
@@ -240,6 +242,8 @@ const ColorScheme _colorScheme = ColorScheme(
   brightness: Brightness.light,
 );
 
+const Color yellow = Color.fromARGB(255, 232, 195, 7);
+const Color green = Color.fromARGB(255, 20, 209, 20);
 const Color blue200 = Color(0xFF80DEEA);
 
 const Color pink50 = Color(0xFFFEEAE6);

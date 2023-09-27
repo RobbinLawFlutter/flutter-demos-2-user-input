@@ -1,10 +1,17 @@
-//Proper use of the Scaffold.of
-//https://medium.com/@ksheremet/flutter-showing-snackbar-within-the-widget-that-builds-a-scaffold-3a817635aeb2
 
 // ignore_for_file: use_key_in_widget_constructors, avoid_print
 
 import 'package:flutter/material.dart';
 import 'package:robbinlaw/themes/theme.dart';
+
+// SnackBar
+//https://api.flutter.dev/flutter/material/SnackBar-class.html
+
+// ScaffoldMessenger Widget of the Week
+//https://youtu.be/lytQi-slT5Y
+
+//Proper use of the ScaffoldMessenger.of
+//https://docs.flutter.dev/release/breaking-changes/scaffold-messenger
 
 void main() => runApp(MyApp());
 
@@ -15,7 +22,6 @@ class MyApp extends StatelessWidget {
       title: 'Buttons Snackbar Demo',
       debugShowCheckedModeBanner: false,
       home: MyPage(),
-      //theme: buildShrineTheme(),
       theme: buildTheme(),
     );
   }
@@ -74,6 +80,7 @@ class SnackbarButton extends StatelessWidget {
         // building the snackBar
         dynamic snackBar = SnackBar(
           behavior: SnackBarBehavior.floating,
+          //behavior: SnackBarBehavior.fixed,
           //duration: const Duration(seconds: 10),
           content: const Row(
             children: [
