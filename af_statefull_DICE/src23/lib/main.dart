@@ -33,10 +33,10 @@ class Dice extends StatefulWidget {
   // Because this part is immutable we must use final or const
   final int myInt = 2;
   @override
-  _DiceState createState() => _DiceState();
+  State<Dice> createState() => DiceState();
 }
 
-class _DiceState extends State<Dice> {
+class DiceState extends State<Dice> {
   //Here we can declare mutable class instance fields that can
   //be changed. With a stateless widget we could
   //only declare changeable fields (not marked final or const)
@@ -44,7 +44,7 @@ class _DiceState extends State<Dice> {
   //inside of the build method.
   //These class instance fields are available only to any method
   //inside this class if they are private as here. 
-  //The _ means that they are private, no keyword private like in Csharp.
+  //The _ means that they are private, no keyword 'private' like in Csharp.
   //They would be accessible outside of this class if they were public with
   //no _ as the first letter of name.
   int _leftDiceNumber = 2;
@@ -59,11 +59,12 @@ class _DiceState extends State<Dice> {
             flex: 1,
             child: TextButton(
               onPressed: () {
-                //When a field changes it is marked DIRTY.
+                
                 int returnValue = reactToButtonPress('left', _leftDiceNumber);
+                //When a field changes as here it is marked DIRTY.
                 _leftDiceNumber = returnValue;
                 
-                //We can only use the setState method if the parent class
+                //We can only use the 'setState' method if the parent class
                 //is inherited from a STATE<> widget.
                 //setState takes as a parm an anonymous function.
                 setState(() {
@@ -84,8 +85,8 @@ class _DiceState extends State<Dice> {
             child: TextButton(
               onPressed: () {
                 setState(() {
-                  //You can run statements inside this anonymous
-                  //function as we have seen before, but in this case we have not.
+                  //You can run statements inside of the 'setState
+                  //anonymous function.
                   //At the end of the setState anonymous function
                   //setState automatically triggers the nearest build method
                   //to rerun which in turn updates or rerenders the screen
@@ -111,3 +112,4 @@ class _DiceState extends State<Dice> {
   }
   
 }
+
