@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 
 class MyFirstPage extends StatefulWidget {
   @override
-  _MyFirstPageState createState() => _MyFirstPageState();
+  MyFirstPageState createState() => MyFirstPageState();
 }
 
-class _MyFirstPageState extends State<MyFirstPage> {
+class MyFirstPageState extends State<MyFirstPage> {
   bool _enabled = false;
   int _timesClicked = 0;
   String _msg1 = 'Disabled';
@@ -71,9 +71,9 @@ class _MyFirstPageState extends State<MyFirstPage> {
           const SizedBox(
             height: 20,
           ),
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Text('Hey This Is Fun'),
             ],
           )

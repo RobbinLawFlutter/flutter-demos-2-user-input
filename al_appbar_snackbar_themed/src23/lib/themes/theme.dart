@@ -32,7 +32,7 @@ AppBarTheme _buildAppBarTheme(AppBarTheme original) {
     color: _colorScheme.primary,
     titleTextStyle: _buildTextStyle(
       _colorScheme.onPrimary,
-      //size: 18,
+      size: 18,
     ),
     centerTitle: true,
   );

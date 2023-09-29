@@ -1,6 +1,3 @@
-//Proper use of the Scaffold.of
-//https://medium.com/@ksheremet/flutter-showing-snackbar-within-the-widget-that-builds-a-scaffold-3a817635aeb2
-
 // ignore_for_file: avoid_print, use_key_in_widget_constructors, unused_local_variable
 
 import 'package:flutter/material.dart';
@@ -31,13 +28,13 @@ class MyPage extends StatelessWidget {
             onPressed: () {
               dynamic snackBar = SnackBar(
                 behavior: SnackBarBehavior.floating,
-                content: Row(
-                  children: const [
-                    Icon(Icons.favorite),
+                content: const Row(
+                  children: [
+                    Icon(Icons.accessibility_new_rounded),
                     SizedBox(
                       width: 10,
                     ),
-                    Text('Hey There'),
+                    Text('Hey There Robbin'),
                   ],
                 ),
                 action: SnackBarAction(
@@ -67,9 +64,9 @@ class SnackbarButton extends StatelessWidget {
       onPressed: () {
         final snackBar = SnackBar(
           behavior: SnackBarBehavior.floating,
-          content: Row(
-            children: const [
-              Icon(Icons.favorite),
+          content: const Row(
+            children: [
+              Icon(Icons.access_alarm),
               SizedBox(
                 width: 10,
               ),

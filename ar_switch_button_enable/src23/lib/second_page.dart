@@ -78,9 +78,9 @@ class _MySecondPageState extends State<MySecondPage> {
           const SizedBox(
             height: 20,
           ),
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Text('Hey This Is Fun'),
             ],
           )
