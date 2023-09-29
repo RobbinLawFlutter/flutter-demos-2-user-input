@@ -29,9 +29,10 @@ class MyFirstPageState extends State<MyFirstPage> {
               Switch(
                   value: _enabled,
                   onChanged: (bool onChangedValue) {
-                    setState(() {
-                      // _enabled is now DIRTY after next statement.
+                    print('onChangedValue is $onChangedValue');
+                    // _enabled is now DIRTY after next statement.
                       _enabled = onChangedValue;
+                    setState(() {
                       if (_enabled) {
                         //Here we DO NOT reset the count.
                         // _msg1 is now also DIRTY.

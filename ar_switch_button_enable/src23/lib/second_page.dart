@@ -33,13 +33,13 @@ class _MySecondPageState extends State<MySecondPage> {
                     _enabled = onChangedValue;
                     setState(() {
                       if (_enabled) {
-                        //Here we DO reset the count unlike previous demo.
+                        // Here we DO reset the count 
+                        // unlike the previous demo.
                         _timesClicked = 0;
                         _msg1 = 'Enabled';
                         print('_enabled is true');
                       } else {
-                        //_msg1 = 'Disabled';
-                        _msg1 = '';
+                        _msg1 = 'Disabled';
                         print('_enabled is false');
                       }
                     });
@@ -49,29 +49,21 @@ class _MySecondPageState extends State<MySecondPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              //A MaterialButton is more primitive than the others.
-              //With an MaterialButton whose onPressed = null
-              //will make the button disappear.
-              //The text may still show but greyed out
-              //unless it is "".
-              MaterialButton(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8)),
-                elevation: 8,
-                //color: Color(),
-                padding: const EdgeInsets.all(15.0),
-                onPressed: _enabled
-                    ? () {
-                        setState(() {
-                          _timesClicked++;
-                          _msg1 = 'Clicked $_timesClicked';
-                          print('clicked $_timesClicked');
-                        });
-                      }
-                    : null,
-                //The text of the button works separately from the button
-                //itself so we must update it when the switch is changed.
-                child: Text(_msg1),
+              // Here we use a Visibility Widget to
+              // show or hide the button based on
+              // the value of the switch.
+              Visibility(
+                visible: _enabled,
+                child: ElevatedButton(
+                  onPressed: () {
+                          setState(() {
+                            _timesClicked++;
+                            _msg1 = 'Clicked $_timesClicked';
+                            print('clicked $_timesClicked');
+                          });
+                        },
+                  child: Text(_msg1),
+                ),
               ),
             ],
           ),
