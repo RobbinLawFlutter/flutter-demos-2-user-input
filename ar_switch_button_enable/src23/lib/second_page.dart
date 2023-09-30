@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:robbinlaw/themes/theme.dart';
 
+// Visibility Widget by Al with Flutter
+// https://www.youtube.com/watch?v=FS5JQpp2gks
 class MySecondPage extends StatefulWidget {
   @override
   _MySecondPageState createState() => _MySecondPageState();
