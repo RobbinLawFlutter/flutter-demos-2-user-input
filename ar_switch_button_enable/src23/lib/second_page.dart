@@ -1,16 +1,16 @@
 // ignore_for_file: use_key_in_widget_constructors, avoid_print
 
 import 'package:flutter/material.dart';
-import 'package:robbinlaw/themes/theme.dart';
 
 // Visibility Widget by Al with Flutter
 // https://www.youtube.com/watch?v=FS5JQpp2gks
+
 class MySecondPage extends StatefulWidget {
   @override
-  _MySecondPageState createState() => _MySecondPageState();
+  MySecondPageState createState() => MySecondPageState();
 }
 
-class _MySecondPageState extends State<MySecondPage> {
+class MySecondPageState extends State<MySecondPage> {
   bool _enabled = false;
   int _timesClicked = 0;
   String _msg1 = '';
