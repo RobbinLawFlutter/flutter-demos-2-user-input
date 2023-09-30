@@ -4,14 +4,21 @@
 import 'package:flutter/material.dart';
 import 'package:robbinlaw/themes/theme.dart';
 
+// https://api.flutter.dev/flutter/material/material-library.html
+
+// Snackbar Widget of the Week.
+// https://www.youtube.com/watch?v=zpO6n_oZWw0
+
 // SnackBar
-//https://api.flutter.dev/flutter/material/SnackBar-class.html
+// https://api.flutter.dev/flutter/material/SnackBar-class.html
 
 // ScaffoldMessenger Widget of the Week
-//https://youtu.be/lytQi-slT5Y
+// https://youtu.be/lytQi-slT5Y
 
-//Proper use of the ScaffoldMessenger.of
-//https://docs.flutter.dev/release/breaking-changes/scaffold-messenger
+// Proper use of the ScaffoldMessenger.of
+// https://docs.flutter.dev/release/breaking-changes/scaffold-messenger
+
+// https://flutterdesk.com/how-to-show-custom-snackbar-in-flutter/
 
 void main() => runApp(MyApp());
 
@@ -99,7 +106,8 @@ class SnackbarButton extends StatelessWidget {
           ),
         );
         // Displaying the snackBar.
-        // Find the Scaffold in the widget tree and use
+        // Find the Scaffold in the 
+        // widget tree and use
         // it to show a SnackBar.
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
       },
