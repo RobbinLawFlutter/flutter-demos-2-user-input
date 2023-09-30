@@ -107,7 +107,7 @@ class _MyFirstPageState extends State<MyFirstPage> {
     //simplest function that has
     //no input parameters and returns nothing
     final player = AudioCache();
-    player.play('note$soundNumber.wav');
+    //player.play('note$soundNumber.wav');
     if (soundNumber >= 1 && soundNumber <= 6 && direction == 1) {
       soundNumber++;
       if (soundNumber == 7) direction = -1;
@@ -121,7 +121,7 @@ class _MyFirstPageState extends State<MyFirstPage> {
     //medium function that has
     //one positional input parameter and returns nothing
     final player = AudioCache();
-    player.play('note$sound.wav');
+    //player.play('note$sound.wav');
     print(myString);
   }
 
