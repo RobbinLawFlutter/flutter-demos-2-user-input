@@ -20,10 +20,10 @@ final TextEditingController textEditingController1 = TextEditingController();
 
 class App extends StatefulWidget {
   @override
-  _AppState createState() => _AppState();
+  AppState createState() => AppState();
 }
 
-class _AppState extends State<App> {
+class AppState extends State<App> {
   late String? _email, _password;
   List<String> listItems = [];
 
@@ -51,14 +51,21 @@ class _AppState extends State<App> {
                 },
                 onFieldSubmitted: (text) {
                   print('Submitted Email Text = $text');
+                  // This if statement will only be true when
+                  // both TextFormFields are valid.
                   if (formKey.currentState!.validate()) {
-                    print('the input is now valid');
+                    print('the email input is now valid');
                   }
                 },
                 validator: (input) {
+                  // The ! tells the compiler that input could
+                  // be null, and not to throw an error.
                   return input!.contains('@') ? null : 'must include @ please';
                 },
                 onSaved: (input) {
+                  // The onSaved event will only be triggered
+                  // when the elevated button is pressed and both
+                  // TextFormFields are valid.
                   print('onSaved email = $input');
                   _email = input;
                 },
@@ -66,7 +73,7 @@ class _AppState extends State<App> {
                 decoration: const InputDecoration(
                   //The border property is what makes a outlined
                   //textformfield instead of a filled one.
-                  border: OutlineInputBorder(),
+                  //border: OutlineInputBorder(),
                   icon: Icon(Icons.email),
                   labelText: 'email',
                   helperText: 'must include @',
@@ -86,7 +93,7 @@ class _AppState extends State<App> {
                 onFieldSubmitted: (text) {
                   print('Submitted Password Text = $text');
                   if (formKey.currentState!.validate()) {
-                    print('the input is now valid');
+                    print('the password input is now valid');
                   }
                   //setState(() {});
                 },
@@ -94,8 +101,8 @@ class _AppState extends State<App> {
                   return input!.length < 8 ? 'min 8 chars please' : null;
                 },
                 onSaved: (input) {
-                  _password = input;
                   print('onSaved password = $input');
+                  _password = input;
                 },
                 obscureText: true,
                 maxLength: 20,

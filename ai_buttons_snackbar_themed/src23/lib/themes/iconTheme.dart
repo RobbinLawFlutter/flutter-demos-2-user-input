@@ -6,5 +6,8 @@ import 'package:robbinlaw/themes/colorScheme.dart';
 // https://api.flutter.dev/flutter/widgets/IconThemeData-class.html
 
 IconThemeData buildIconTheme(IconThemeData original) {
-  return original.copyWith(color: colorScheme.onPrimary);
+  return original.copyWith(
+    color: colorScheme.onPrimary
+    //color: Colors.red
+  );
 }

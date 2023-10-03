@@ -7,8 +7,12 @@ import 'package:robbinlaw/themes/textTheme.dart';
 TextButtonThemeData buildTextButtonThemeData(TextButtonThemeData original) {
   return TextButtonThemeData(
     style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(colorScheme.primary),
-        foregroundColor: MaterialStateProperty.all(colorScheme.onPrimary),
+        backgroundColor: MaterialStateProperty.all
+        //(Colors.green),
+        (colorScheme.primary),
+        foregroundColor: MaterialStateProperty.all
+        //(Colors.purple),
+        (colorScheme.onPrimary),
         textStyle: MaterialStateProperty.all(
           const TextStyle(
             fontWeight: FontWeight.w500,

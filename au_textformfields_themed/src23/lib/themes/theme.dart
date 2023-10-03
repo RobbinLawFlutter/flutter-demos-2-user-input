@@ -34,8 +34,9 @@ ThemeData buildTheme() {
     snackBarTheme: buildSnackBarTheme(base.snackBarTheme),
     switchTheme: buildSwitchTheme(base.switchTheme),
     dialogTheme: buildDialogTheme(base.dialogTheme),
-    //inputDecorationTheme applies to TextField Widget.
+    //inputDecorationTheme applies to TextField Widgets.
     inputDecorationTheme: buildInputDecorationTheme(base.inputDecorationTheme),
+    //textSelectionTheme applies to the cursor of TextField Widgets.
     textSelectionTheme: textSelectionThemeData(),
   );
 }

@@ -13,6 +13,8 @@ import 'package:robbinlaw/themes/textTheme.dart';
 
 // https://api.flutter.dev/flutter/material/TextSelectionThemeData-class.html
 
+// https://www.flutterbeads.com/change-textfield-cursor-color-in-flutter/
+
 InputDecorationTheme buildInputDecorationTheme(InputDecorationTheme original) {
   return original.copyWith(
     //filled: true,
@@ -21,7 +23,7 @@ InputDecorationTheme buildInputDecorationTheme(InputDecorationTheme original) {
     contentPadding: const EdgeInsets.all(16),
     floatingLabelBehavior: FloatingLabelBehavior.always,
     //floatingLabelBehavior: FloatingLabelBehavior.auto,
-    //constraints: BoxConstraints(maxWidth: 150),
+    //constraints: const BoxConstraints(maxWidth: 200),
     // borders
     enabledBorder: _buildBorderStyle(colorScheme.primary),
     errorBorder: _buildBorderStyle(colorScheme.error),
