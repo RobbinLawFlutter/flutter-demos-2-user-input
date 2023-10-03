@@ -3,10 +3,13 @@ import 'package:robbinlaw/themes/colorScheme.dart';
 import 'package:robbinlaw/themes/textTheme.dart';
 import 'package:robbinlaw/themes/iconTheme.dart';
 import 'package:robbinlaw/themes/appbarTheme.dart';
+import 'package:robbinlaw/themes/snackbarTheme.dart';
 import 'package:robbinlaw/themes/buttonTheme.dart';
 import 'package:robbinlaw/themes/switchTheme.dart';
 import 'package:robbinlaw/themes/dialogTheme.dart';
 import 'package:robbinlaw/themes/inputdecorationTheme.dart';
+
+// https://api.flutter.dev/flutter/material/material-library.html
 
 // https://docs.flutter.dev/cookbook/design/themes
 
@@ -28,6 +31,7 @@ ThemeData buildTheme() {
     textButtonTheme: buildTextButtonThemeData(base.textButtonTheme),
     outlinedButtonTheme: buildOutlinedButtonThemeData(base.outlinedButtonTheme),
     elevatedButtonTheme: buildElevatedButtonThemeData(base.elevatedButtonTheme),
+    snackBarTheme: buildSnackBarTheme(base.snackBarTheme),
     switchTheme: buildSwitchTheme(base.switchTheme),
     dialogTheme: buildDialogTheme(base.dialogTheme),
     //inputDecorationTheme applies to TextField Widget.
