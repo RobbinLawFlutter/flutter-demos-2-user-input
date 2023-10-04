@@ -28,7 +28,8 @@ class AppState extends State<App> {
   List<String> listItems = [];
 
   @override
-  Widget build(BuildContext ctxt) {
+  Widget build(BuildContext context) {
+    print('build method is running');
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: buildTheme(),
@@ -139,7 +140,7 @@ class AppState extends State<App> {
               Expanded(
                 child: ListView.builder(
                   itemCount: listItems.length,
-                  itemBuilder: (BuildContext ctxt, int index) {
+                  itemBuilder: (BuildContext context, int index) {
                     print('index = $index');
                     return Text(
                       listItems[index],

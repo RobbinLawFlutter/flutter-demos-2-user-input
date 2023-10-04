@@ -35,6 +35,7 @@ InputDecorationTheme buildInputDecorationTheme(InputDecorationTheme original) {
     counterStyle: buildTextStyle(colorScheme.onPrimary, size: 12.0),
     floatingLabelStyle: buildTextStyle(colorScheme.onPrimary),
     errorStyle: buildTextStyle(colorScheme.error),
+    //errorStyle: buildTextStyle(Colors.green),
     hintStyle: buildTextStyle(colorScheme.onPrimary),
     helperStyle: buildTextStyle(colorScheme.onPrimary),
     labelStyle: buildTextStyle(colorScheme.onPrimary),

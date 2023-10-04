@@ -116,8 +116,8 @@ class MyHomePageState extends State<MyHomePage> {
         backgroundColor: colorScheme.primary,
         selectedItemColor: colorScheme.onSurface,
         unselectedItemColor: colorScheme.onSurface.withOpacity(.60),
-        selectedLabelStyle: textTheme.caption,
-        unselectedLabelStyle: textTheme.caption,
+        selectedLabelStyle: textTheme.bodySmall,
+        unselectedLabelStyle: textTheme.bodySmall,
         onTap: (value) {
           print('bottom value = $value');
           // Respond to item press.
