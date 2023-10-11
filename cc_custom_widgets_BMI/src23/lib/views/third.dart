@@ -13,10 +13,10 @@ const bottomContainerColor = Color(0xFFEB1555);
 
 class MyThirdPage extends StatefulWidget {
   @override
-  _MyThirdPageState createState() => _MyThirdPageState();
+  MyThirdPageState createState() => MyThirdPageState();
 }
 
-class _MyThirdPageState extends State<MyThirdPage> {
+class MyThirdPageState extends State<MyThirdPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +25,7 @@ class _MyThirdPageState extends State<MyThirdPage> {
       ),
       body: Column(
         children: <Widget>[
-          Expanded(
+          const Expanded(
             child: Row(
               children: <Widget>[
                 Expanded(
@@ -33,7 +33,7 @@ class _MyThirdPageState extends State<MyThirdPage> {
                     myColor: activeCardColor,
                     reusableCardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const <Widget>[
+                      children: <Widget>[
                         Icon(
                           FontAwesomeIcons.mars,
                           size: 80,
@@ -57,7 +57,7 @@ class _MyThirdPageState extends State<MyThirdPage> {
                     myColor: activeCardColor,
                     reusableCardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const <Widget>[
+                      children: <Widget>[
                         Icon(
                           FontAwesomeIcons.venus,
                           size: 80,
@@ -84,9 +84,9 @@ class _MyThirdPageState extends State<MyThirdPage> {
               myColor: activeCardColor,
             ),
           ),
-          Expanded(
+          const Expanded(
             child: Row(
-              children: const <Widget>[
+              children: <Widget>[
                 Expanded(
                   child: ReuseableCard(
                     myColor: activeCardColor,
@@ -121,12 +121,12 @@ class ReuseableCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: reusableCardChild,
       margin: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: myColor,
         borderRadius: BorderRadius.circular(10),
       ),
+      child: reusableCardChild,
     );
   }
 }

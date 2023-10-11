@@ -4,6 +4,8 @@
 //Themes documentation from flutter
 //https://flutter.dev/docs/cookbook/design/themes
 
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 
 //This MyFirstPage demonstrates the tree
@@ -75,9 +77,9 @@ class MyApp extends StatelessWidget {
       //home: MyThirdPage(),
       //home: MyFourthPage(),
       //home: MyFifthPage(),
-      //home: MySixthPage(),
+      home: MySixthPage(),
       //home: MySeventhPage(),
-      home: MyEighthPage(),
+      //home: MyEighthPage(),
     );
   }
 }

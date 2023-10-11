@@ -11,10 +11,10 @@ const bottomContainerColor = Color(0xFFEB1555);
 
 class MyFirstPage extends StatefulWidget {
   @override
-  _MyFirstPageState createState() => _MyFirstPageState();
+  MyFirstPageState createState() => MyFirstPageState();
 }
 
-class _MyFirstPageState extends State<MyFirstPage> {
+class MyFirstPageState extends State<MyFirstPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

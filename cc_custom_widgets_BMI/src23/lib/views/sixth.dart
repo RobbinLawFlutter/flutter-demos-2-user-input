@@ -23,10 +23,10 @@ enum Gender {
 
 class MySixthPage extends StatefulWidget {
   @override
-  _MySixthPageState createState() => _MySixthPageState();
+  MySixthPageState createState() => MySixthPageState();
 }
 
-class _MySixthPageState extends State<MySixthPage> {
+class MySixthPageState extends State<MySixthPage> {
   Gender selectedGender = Gender.notdeterminedyet;
   Color maleCardColor = inactiveCardColor;
   Color femaleCardColor = inactiveCardColor;
@@ -89,12 +89,12 @@ class _MySixthPageState extends State<MySixthPage> {
               ],
             ),
           ),
-          Expanded(
+          const Expanded(
             child: ReuseableCard(
               myColor: activeCardColor,
             ),
           ),
-          Expanded(
+          const Expanded(
             child: Row(
               children: <Widget>[
                 Expanded(

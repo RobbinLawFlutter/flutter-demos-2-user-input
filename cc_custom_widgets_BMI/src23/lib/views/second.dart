@@ -13,10 +13,10 @@ const bottomContainerColor = Color(0xFFEB1555);
 
 class MySecondPage extends StatefulWidget {
   @override
-  _MySecondPageState createState() => _MySecondPageState();
+  MySecondPageState createState() => MySecondPageState();
 }
 
-class _MySecondPageState extends State<MySecondPage> {
+class MySecondPageState extends State<MySecondPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,9 +25,9 @@ class _MySecondPageState extends State<MySecondPage> {
       ),
       body: Column(
         children: <Widget>[
-          Expanded(
+          const Expanded(
             child: Row(
-              children: const <Widget>[
+              children: <Widget>[
                 Expanded(
                   child: ReuseableCard(
                     myColor: activeCardColor,
@@ -46,9 +46,9 @@ class _MySecondPageState extends State<MySecondPage> {
               myColor: activeCardColor,
             ),
           ),
-          Expanded(
+          const Expanded(
             child: Row(
-              children: const <Widget>[
+              children: <Widget>[
                 Expanded(
                   child: ReuseableCard(
                     myColor: activeCardColor,
@@ -95,12 +95,12 @@ class ReuseableCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: reusableCardChild,
       margin: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: myColor,
         borderRadius: BorderRadius.circular(10),
       ),
+      child: reusableCardChild,
     );
   }
 }

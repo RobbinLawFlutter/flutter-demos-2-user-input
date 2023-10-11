@@ -14,10 +14,10 @@ const bottomContainerColor = Color(0xFFEB1555);
 
 class MyFourthPage extends StatefulWidget {
   @override
-  _MyFourthPageState createState() => _MyFourthPageState();
+  MyFourthPageState createState() => MyFourthPageState();
 }
 
-class _MyFourthPageState extends State<MyFourthPage> {
+class MyFourthPageState extends State<MyFourthPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,9 +26,9 @@ class _MyFourthPageState extends State<MyFourthPage> {
       ),
       body: Column(
         children: <Widget>[
-          Expanded(
+          const Expanded(
             child: Row(
-              children: const <Widget>[
+              children: <Widget>[
                 Expanded(
                   child: ReuseableCard(
                     myColor: activeCardColor,
@@ -55,9 +55,9 @@ class _MyFourthPageState extends State<MyFourthPage> {
               myColor: activeCardColor,
             ),
           ),
-          Expanded(
+          const Expanded(
             child: Row(
-              children: const <Widget>[
+              children: <Widget>[
                 Expanded(
                   child: ReuseableCard(
                     myColor: activeCardColor,

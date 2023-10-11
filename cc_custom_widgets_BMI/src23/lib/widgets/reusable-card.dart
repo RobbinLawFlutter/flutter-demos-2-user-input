@@ -1,7 +1,9 @@
+// ignore_for_file: file_names, use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 
 class ReuseableCard extends StatelessWidget {
-  ReuseableCard({required this.myColor, this.reusableCardChild});
+  const ReuseableCard({required this.myColor, this.reusableCardChild});
 
   final Color myColor;
 
@@ -10,12 +12,12 @@ class ReuseableCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: reusableCardChild,
       margin: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: myColor,
         borderRadius: BorderRadius.circular(10),
       ),
+      child: reusableCardChild,
     );
   }
 }
