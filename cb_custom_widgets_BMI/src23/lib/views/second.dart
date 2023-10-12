@@ -21,7 +21,7 @@ class MySecondPageState extends State<MySecondPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BMI Calculator'),
+        title: const Text('Dietary Stats & BMI Calculator'),
       ),
       body: Column(
         children: <Widget>[

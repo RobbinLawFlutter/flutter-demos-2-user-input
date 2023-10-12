@@ -15,10 +15,10 @@ const activeCardColor = Color(0xFF1D1E33);
 const inactiveCardColor = Color(0xff424242);
 const bottomContainerColor = Color(0xFFEB1555);
 
-enum Gender {
+enum DietClass {
   notdeterminedyet,
-  male,
-  female,
+  omnivore,
+  vegetarian,
 }
 
 class MySixthPage extends StatefulWidget {
@@ -27,15 +27,13 @@ class MySixthPage extends StatefulWidget {
 }
 
 class MySixthPageState extends State<MySixthPage> {
-  Gender selectedGender = Gender.notdeterminedyet;
-  Color maleCardColor = inactiveCardColor;
-  Color femaleCardColor = inactiveCardColor;
+  DietClass selectedDietClass = DietClass.notdeterminedyet;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BMI Calculator'),
+        title: const Text('Dietary Stats & BMI Calculator'),
       ),
       body: Column(
         children: <Widget>[
@@ -47,19 +45,19 @@ class MySixthPageState extends State<MySixthPage> {
                     onTap: () {
                       setState(() {
                         //Second way directly selecting gender.
-                        selectedGender = Gender.male;
+                        selectedDietClass = DietClass.omnivore;
                       });
-                      print('Male card was pressed');
+                      print('Omnivore card was pressed');
                     },
                     child: ReuseableCard(
                       //Second way using terinary operator.
-                      myColor: selectedGender == Gender.male
+                      myColor: selectedDietClass == DietClass.omnivore
                           ? activeCardColor
                           : inactiveCardColor,
 
                       reusableCardChild: MyIcon(
-                        icon: FontAwesomeIcons.mars,
-                        label: 'MALE',
+                        icon: FontAwesomeIcons.burger,
+                        label: 'OMNIVORE',
                       ),
                     ),
                   ),
@@ -69,19 +67,19 @@ class MySixthPageState extends State<MySixthPage> {
                     onTap: () {
                       setState(() {
                         //Second way
-                        selectedGender = Gender.female;
+                        selectedDietClass = DietClass.vegetarian;
                       });
-                      print('Female card was pressed');
+                      print('Vegetarian card was pressed');
                     },
                     child: ReuseableCard(
                       //Second way
-                      myColor: selectedGender == Gender.female
+                      myColor: selectedDietClass == DietClass.vegetarian
                           ? activeCardColor
                           : inactiveCardColor,
 
                       reusableCardChild: MyIcon(
-                        icon: FontAwesomeIcons.venus,
-                        label: 'FEMALE',
+                        icon: FontAwesomeIcons.carrot,
+                        label: 'VEGETARIAN',
                       ),
                     ),
                   ),

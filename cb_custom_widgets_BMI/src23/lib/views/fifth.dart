@@ -17,10 +17,10 @@ const activeCardColor = Color(0xFF1D1E33);
 const inactiveCardColor = Color(0xff424242);
 const bottomContainerColor = Color(0xFFEB1555);
 
-enum Gender {
+enum DietClass {
   notdeterminedyet,
-  male,
-  female,
+  omnivore,
+  vegetarian,
 }
 
 class MyFifthPage extends StatefulWidget {
@@ -30,14 +30,14 @@ class MyFifthPage extends StatefulWidget {
 
 class MyFifthPageState extends State<MyFifthPage> {
   //Gender selectedGender = Gender.notdeterminedyet;
-  Color maleCardColor = inactiveCardColor;
-  Color femaleCardColor = inactiveCardColor;
+  Color omnivoreCardColor = inactiveCardColor;
+  Color vegetarianCardColor = inactiveCardColor;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BMI Calculator'),
+        title: const Text('Dietary Stats & BMI Calculator'),
       ),
       body: Column(
         children: <Widget>[
@@ -50,17 +50,17 @@ class MyFifthPageState extends State<MyFifthPage> {
                       setState(() {
                         //First way using a method to
                         //update the card color.
-                        updateColor(Gender.male);
+                        updateColor(DietClass.omnivore);
                       });
-                      print('Male card was pressed');
+                      print('Omnivore card was pressed');
                     },
                     child: ReuseableCard(
                       //First way updating color via
                       //variable that was changed in updateColor method.
-                      myColor: maleCardColor,
+                      myColor: omnivoreCardColor,
                       reusableCardChild: MyIcon(
-                        icon: FontAwesomeIcons.mars,
-                        label: 'MALE',
+                        icon: FontAwesomeIcons.burger,
+                        label: 'OMNIVORE',
                       ),
                     ),
                   ),
@@ -70,16 +70,16 @@ class MyFifthPageState extends State<MyFifthPage> {
                     onTap: () {
                       setState(() {
                         //First way
-                        updateColor(Gender.female);
+                        updateColor(DietClass.vegetarian);
                       });
-                      print('Female card was pressed');
+                      print('Vegetarian card was pressed');
                     },
                     child: ReuseableCard(
                       //First way
-                      myColor: femaleCardColor,
+                      myColor: vegetarianCardColor,
                       reusableCardChild: MyIcon(
-                        icon: FontAwesomeIcons.venus,
-                        label: 'FEMALE',
+                        icon: FontAwesomeIcons.carrot,
+                        label: 'VEGETARIAN',
                       ),
                     ),
                   ),
@@ -119,17 +119,17 @@ class MyFifthPageState extends State<MyFifthPage> {
     );
   }
 
-  void updateColor(Gender selectedGender) {
-    if (selectedGender == Gender.male) {
-      if (maleCardColor == inactiveCardColor) {
-        maleCardColor = activeCardColor;
-        femaleCardColor = inactiveCardColor;
+  void updateColor(DietClass selectedDietClass) {
+    if (selectedDietClass == DietClass.omnivore) {
+      if (omnivoreCardColor == inactiveCardColor) {
+        omnivoreCardColor = activeCardColor;
+        vegetarianCardColor = inactiveCardColor;
       }
     }
-    if (selectedGender == Gender.female) {
-      if (femaleCardColor == inactiveCardColor) {
-        femaleCardColor = activeCardColor;
-        maleCardColor = inactiveCardColor;
+    if (selectedDietClass == DietClass.vegetarian) {
+      if (vegetarianCardColor == inactiveCardColor) {
+        vegetarianCardColor = activeCardColor;
+        omnivoreCardColor = inactiveCardColor;
       }
     }
   }

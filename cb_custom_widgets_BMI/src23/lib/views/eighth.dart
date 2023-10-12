@@ -11,10 +11,10 @@ import 'package:robbinlaw/widgets/my-icon.dart';
 import 'package:robbinlaw/widgets/round-icon-button.dart';
 import 'package:robbinlaw/constants.dart';
 
-enum Gender {
+enum DietClass {
   notdeterminedyet,
-  male,
-  female,
+  omnivore,
+  vegetarian,
 }
 
 class MyEighthPage extends StatefulWidget {
@@ -23,19 +23,16 @@ class MyEighthPage extends StatefulWidget {
 }
 
 class MyEighthPageState extends State<MyEighthPage> {
-  Gender selectedGender = Gender.notdeterminedyet;
+  DietClass selectedDietClass = DietClass.notdeterminedyet;
   int height = 180;
   int weight = 60;
   int age = 20;
-
-  Color maleCardColor = kInactiveCardColor;
-  Color femaleCardColor = kInactiveCardColor;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BMI Calculator'),
+        title: const Text('Dietary Stats & BMI Calculator'),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -47,15 +44,15 @@ class MyEighthPageState extends State<MyEighthPage> {
                   child: ReuseableCard(
                     onPress: () {
                       setState(() {
-                        selectedGender = Gender.male;
+                        selectedDietClass = DietClass.omnivore;
                       });
                     },
-                    myColor: selectedGender == Gender.male
+                    myColor: selectedDietClass == DietClass.omnivore
                         ? kActiveCardColor
                         : kInactiveCardColor,
                     reusableCardChild: MyIcon(
-                      icon: FontAwesomeIcons.mars,
-                      label: 'MALE',
+                      icon: FontAwesomeIcons.burger,
+                      label: 'OMNIVORE',
                     ),
                   ),
                 ),
@@ -63,15 +60,15 @@ class MyEighthPageState extends State<MyEighthPage> {
                   child: ReuseableCard(
                     onPress: () {
                       setState(() {
-                        selectedGender = Gender.female;
+                        selectedDietClass = DietClass.vegetarian;
                       });
                     },
-                    myColor: selectedGender == Gender.female
+                    myColor: selectedDietClass == DietClass.vegetarian
                         ? kActiveCardColor
                         : kInactiveCardColor,
                     reusableCardChild: MyIcon(
-                      icon: FontAwesomeIcons.venus,
-                      label: 'FEMALE',
+                      icon: FontAwesomeIcons.carrot,
+                      label: 'VEGETARIAN',
                     ),
                   ),
                 ),

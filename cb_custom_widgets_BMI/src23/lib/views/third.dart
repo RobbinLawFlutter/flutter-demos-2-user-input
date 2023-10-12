@@ -21,7 +21,7 @@ class MyThirdPageState extends State<MyThirdPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BMI Calculator'),
+        title: const Text('Dietary Stats & BMI Calculator'),
       ),
       body: Column(
         children: <Widget>[
@@ -35,14 +35,14 @@ class MyThirdPageState extends State<MyThirdPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Icon(
-                          FontAwesomeIcons.mars,
+                          FontAwesomeIcons.burger,
                           size: 80,
                         ),
                         SizedBox(
                           height: 15,
                         ),
                         Text(
-                          'MALE',
+                          'OMNIVORE',
                           style: TextStyle(
                             fontSize: 18,
                             color: Color(0xFF8D8E98),
@@ -59,14 +59,14 @@ class MyThirdPageState extends State<MyThirdPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Icon(
-                          FontAwesomeIcons.venus,
+                          FontAwesomeIcons.carrot,
                           size: 80,
                         ),
                         SizedBox(
                           height: 15,
                         ),
                         Text(
-                          'FEMALE',
+                          'VEGETARIAN',
                           style: TextStyle(
                             fontSize: 18,
                             color: Color(0xFF8D8E98),

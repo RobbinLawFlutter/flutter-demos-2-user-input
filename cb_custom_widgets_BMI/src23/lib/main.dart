@@ -77,9 +77,9 @@ class MyApp extends StatelessWidget {
       //home: MyThirdPage(),
       //home: MyFourthPage(),
       //home: MyFifthPage(),
-      home: MySixthPage(),
+      //home: MySixthPage(),
       //home: MySeventhPage(),
-      //home: MyEighthPage(),
+      home: MyEighthPage(),
     );
   }
 }

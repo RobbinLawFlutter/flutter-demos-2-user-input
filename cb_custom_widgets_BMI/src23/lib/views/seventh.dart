@@ -15,19 +15,19 @@ import 'package:robbinlaw/widgets/reusable-card-enhanced.dart';
 import 'package:robbinlaw/widgets/my-icon.dart';
 import 'package:robbinlaw/constants.dart';
 
-enum Gender {
+enum DietClass {
   notdeterminedyet,
-  male,
-  female,
+  omnivore,
+  vegetarian,
 }
 
 class MySeventhPage extends StatefulWidget {
   @override
-  _MySeventhPageState createState() => _MySeventhPageState();
+  MySeventhPageState createState() => MySeventhPageState();
 }
 
-class _MySeventhPageState extends State<MySeventhPage> {
-  Gender selectedGender = Gender.notdeterminedyet;
+class MySeventhPageState extends State<MySeventhPage> {
+  DietClass selectedDietClass = DietClass.notdeterminedyet;
   int height = 180;
 
   @override
@@ -35,7 +35,7 @@ class _MySeventhPageState extends State<MySeventhPage> {
     return Scaffold(
       appBar: AppBar(
         // ignore: prefer_const_constructors
-        title: Text('BMI Calculator'),
+        title: Text('Dietary Stats & BMI Calculator'),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -47,15 +47,15 @@ class _MySeventhPageState extends State<MySeventhPage> {
                   child: ReuseableCard(
                     onPress: () {
                       setState(() {
-                        selectedGender = Gender.male;
+                        selectedDietClass = DietClass.omnivore;
                       });
                     },
-                    myColor: selectedGender == Gender.male
+                    myColor: selectedDietClass == DietClass.omnivore
                         ? kActiveCardColor
                         : kInactiveCardColor,
                     reusableCardChild: MyIcon(
-                      icon: FontAwesomeIcons.mars,
-                      label: 'MALE',
+                      icon: FontAwesomeIcons.burger,
+                      label: 'OMNIVORE',
                     ),
                   ),
                 ),
@@ -63,15 +63,15 @@ class _MySeventhPageState extends State<MySeventhPage> {
                   child: ReuseableCard(
                     onPress: () {
                       setState(() {
-                        selectedGender = Gender.female;
+                        selectedDietClass = DietClass.vegetarian;
                       });
                     },
-                    myColor: selectedGender == Gender.female
+                    myColor: selectedDietClass == DietClass.vegetarian
                         ? kActiveCardColor
                         : kInactiveCardColor,
                     reusableCardChild: MyIcon(
-                      icon: FontAwesomeIcons.venus,
-                      label: 'FEMALE',
+                      icon: FontAwesomeIcons.carrot,
+                      label: 'VEGETARIAN',
                     ),
                   ),
                 ),

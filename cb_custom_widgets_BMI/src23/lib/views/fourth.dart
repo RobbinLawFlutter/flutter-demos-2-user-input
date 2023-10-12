@@ -22,7 +22,7 @@ class MyFourthPageState extends State<MyFourthPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BMI Calculator'),
+        title: const Text('Dietary Stats & BMI Calculator'),
       ),
       body: Column(
         children: <Widget>[
@@ -33,8 +33,8 @@ class MyFourthPageState extends State<MyFourthPage> {
                   child: ReuseableCard(
                     myColor: activeCardColor,
                     reusableCardChild: MyIcon(
-                      icon: FontAwesomeIcons.mars,
-                      label: 'MALE',
+                      icon: FontAwesomeIcons.burger,
+                      label: 'OMNIVORE',
                     ),
                   ),
                 ),
@@ -42,8 +42,8 @@ class MyFourthPageState extends State<MyFourthPage> {
                   child: ReuseableCard(
                     myColor: activeCardColor,
                     reusableCardChild: MyIcon(
-                      icon: FontAwesomeIcons.venus,
-                      label: 'FEMALE',
+                      icon: FontAwesomeIcons.carrot,
+                      label: 'VEGETARIAN',
                     ),
                   ),
                 ),
@@ -123,12 +123,12 @@ class ReuseableCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: reusableCardChild,
       margin: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: myColor,
         borderRadius: BorderRadius.circular(10),
       ),
+      child: reusableCardChild,
     );
   }
 }
