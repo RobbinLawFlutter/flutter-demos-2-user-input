@@ -57,7 +57,7 @@ class MySixthPageState extends State<MySixthPage> {
                           ? activeCardColor
                           : inactiveCardColor,
 
-                      reusableCardChild: MyIcon(
+                      reusableCardChild: const MyIcon(
                         icon: FontAwesomeIcons.mars,
                         label: 'MALE',
                       ),

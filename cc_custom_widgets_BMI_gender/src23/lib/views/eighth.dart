@@ -53,7 +53,7 @@ class MyEighthPageState extends State<MyEighthPage> {
                     myColor: selectedGender == Gender.male
                         ? kActiveCardColor
                         : kInactiveCardColor,
-                    reusableCardChild: MyIcon(
+                    reusableCardChild: const MyIcon(
                       icon: FontAwesomeIcons.mars,
                       label: 'MALE',
                     ),
@@ -69,7 +69,7 @@ class MyEighthPageState extends State<MyEighthPage> {
                     myColor: selectedGender == Gender.female
                         ? kActiveCardColor
                         : kInactiveCardColor,
-                    reusableCardChild: MyIcon(
+                    reusableCardChild: const MyIcon(
                       icon: FontAwesomeIcons.venus,
                       label: 'FEMALE',
                     ),

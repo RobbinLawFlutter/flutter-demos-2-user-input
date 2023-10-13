@@ -52,7 +52,7 @@ class MySeventhPageState extends State<MySeventhPage> {
                     myColor: selectedGender == Gender.male
                         ? kActiveCardColor
                         : kInactiveCardColor,
-                    reusableCardChild: MyIcon(
+                    reusableCardChild: const MyIcon(
                       icon: FontAwesomeIcons.mars,
                       label: 'MALE',
                     ),
@@ -68,7 +68,7 @@ class MySeventhPageState extends State<MySeventhPage> {
                     myColor: selectedGender == Gender.female
                         ? kActiveCardColor
                         : kInactiveCardColor,
-                    reusableCardChild: MyIcon(
+                    reusableCardChild: const MyIcon(
                       icon: FontAwesomeIcons.venus,
                       label: 'FEMALE',
                     ),
@@ -130,7 +130,7 @@ class MySeventhPageState extends State<MySeventhPage> {
               ),
             ),
           ),
-          Expanded(
+          const Expanded(
             child: Row(
               children: <Widget>[
                 Expanded(
