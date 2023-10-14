@@ -1,7 +1,9 @@
+// ignore_for_file: file_names, use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 
 class ReuseableCard extends StatelessWidget {
-  ReuseableCard({required this.myColor, this.reusableCardChild, this.onPress});
+  const ReuseableCard({required this.myColor, this.reusableCardChild, this.onPress});
   // constructor that requires a Color parameter,
   // and an optional reusableCardChild widget and onPress Function.
 
@@ -19,12 +21,12 @@ class ReuseableCard extends StatelessWidget {
     return GestureDetector(
       onTap: onPress,
       child: Container(
-        child: reusableCardChild,
-        margin: EdgeInsets.all(15),
+        margin: const EdgeInsets.all(15),
         decoration: BoxDecoration(
           color: myColor,
           borderRadius: BorderRadius.circular(10),
         ),
+        child: reusableCardChild,
       ),
     );
   }

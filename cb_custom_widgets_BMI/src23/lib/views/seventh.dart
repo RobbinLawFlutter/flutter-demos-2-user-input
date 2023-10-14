@@ -86,7 +86,7 @@ class MySeventhPageState extends State<MySeventhPage> {
                 children: <Widget>[
                   const Text(
                     'HEIGHT',
-                    style: kLabelTextStyle,
+                    //style: kLabelTextStyle,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -99,7 +99,7 @@ class MySeventhPageState extends State<MySeventhPage> {
                       ),
                       const Text(
                         'cm',
-                        style: kLabelTextStyle,
+                        //style: kLabelTextStyle,
                       ),
                     ],
                   ),

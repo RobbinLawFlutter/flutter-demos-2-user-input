@@ -7,6 +7,7 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
+import 'package:robbinlaw/themes/theme.dart';
 
 //This MyFirstPage demonstrates the tree
 //without any "custom widgets".
@@ -66,12 +67,13 @@ class MyApp extends StatelessWidget {
       //.dark() gives the material app dark theme
       //.copyWith() allows us to change only certain
       //dark theme defaults.
-      theme: ThemeData.dark().copyWith(
-        //the 0xFF is the transparency (opaqe),
-        //then 0B Red, 10 Green, 34 Blue
-        primaryColor: Color(0xFF0B1034),
-        scaffoldBackgroundColor: Colors.blueGrey[800],
-      ),
+      theme: buildTheme(),
+      // theme: ThemeData.dark().copyWith(
+      //   //the 0xFF is the transparency (opaqe),
+      //   //then 0B Red, 10 Green, 34 Blue
+      //   primaryColor: Color(0xFF0B1034),
+      //   scaffoldBackgroundColor: Colors.blueGrey[800],
+      // ),
       //home: MyFirstPage(),
       //home: MySecondPage(),
       //home: MyThirdPage(),

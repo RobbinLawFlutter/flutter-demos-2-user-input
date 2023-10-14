@@ -1,6 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
+import 'package:robbinlaw/constants.dart';
 
 class RoundIconButton extends StatelessWidget {
   const RoundIconButton({required this.icon, this.onPressed});
@@ -11,7 +12,6 @@ class RoundIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
-      child: Icon(icon),
       onPressed: onPressed,
       elevation: 6,
       constraints: const BoxConstraints.tightFor(
@@ -19,7 +19,8 @@ class RoundIconButton extends StatelessWidget {
         height: 56.0,
       ),
       shape: const CircleBorder(),
-      fillColor: const Color(0xFF4C4F5E),
+      fillColor: kInactiveCardColor,
+      child: Icon(icon),
     );
   }
 }

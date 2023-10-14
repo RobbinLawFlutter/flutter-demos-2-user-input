@@ -81,7 +81,7 @@ class MyEighthPageState extends State<MyEighthPage> {
               reusableCardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  const Text(
+                  Text(
                     'HEIGHT',
                     style: kLabelTextStyle,
                   ),
@@ -94,34 +94,23 @@ class MyEighthPageState extends State<MyEighthPage> {
                         height.toString(),
                         style: kNumberTextStyle,
                       ),
-                      const Text(
+                      Text(
                         'cm',
                         style: kLabelTextStyle,
                       ),
                     ],
                   ),
-                  SliderTheme(
-                    data: SliderTheme.of(context).copyWith(
-                      activeTrackColor: Colors.white,
-                      inactiveTrackColor: const Color(0xFF8D8E98),
-                      thumbColor: const Color(0xFFEB1555),
-                      overlayColor: const Color(0x15EB11555),
-                      thumbShape:
-                          const RoundSliderThumbShape(enabledThumbRadius: 15),
-                      overlayShape:
-                          const RoundSliderOverlayShape(overlayRadius: 30),
-                    ),
-                    child: Slider(
-                      value: height.toDouble(),
-                      min: 120,
-                      max: 220,
-                      onChanged: (double newValue) {
-                        setState(() {
-                          height = newValue.round();
-                        });
-                        print(newValue);
-                      },
-                    ),
+                  Slider(
+                    value: height.toDouble(),
+                    min: 120,
+                    max: 220,
+                    onChanged: (double newValue) {
+                      setState(() {
+                        height = newValue.round();
+                      });
+                      print(newValue);
+                      print(height);
+                    },
                   ),
                 ],
               ),
@@ -136,7 +125,7 @@ class MyEighthPageState extends State<MyEighthPage> {
                     reusableCardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        const Text(
+                        Text(
                           'WEIGHT',
                           style: kLabelTextStyle,
                         ),
@@ -177,7 +166,7 @@ class MyEighthPageState extends State<MyEighthPage> {
                     reusableCardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        const Text(
+                        Text(
                           'AGE',
                           style: kLabelTextStyle,
                         ),
