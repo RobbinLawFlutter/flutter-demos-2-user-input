@@ -1,15 +1,12 @@
-//This MySecondPage demonstrates the use
-//of "custom widgets" to reuse code.
-//It displays the same as the MyFirstPage.
-//It also shows the diff between const vs final.
-
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
+import 'package:robbinlaw/constants.dart';
 
-const bottomContainerHeight = 80.0;
-const activeCardColor = Color(0xFF1D1E33);
-const bottomContainerColor = Color(0xFFEB1555);
+// This MySecondPage demonstrates the use
+// of "custom widgets" to reuse code.
+// It displays the same as the MyFirstPage.
+// It also shows the diff between const vs final.
 
 class MySecondPage extends StatefulWidget {
   @override
@@ -25,48 +22,48 @@ class MySecondPageState extends State<MySecondPage> {
       ),
       body: Column(
         children: <Widget>[
-          const Expanded(
+          Expanded(
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: ReuseableCard(
-                    myColor: activeCardColor,
+                  child: ReuseableCardSimple(
+                    myColor: kActiveCardColor,
                   ),
                 ),
                 Expanded(
-                  child: ReuseableCard(
-                    myColor: activeCardColor,
+                  child: ReuseableCardSimple(
+                    myColor: kActiveCardColor,
                   ),
                 ),
               ],
             ),
           ),
-          const Expanded(
-            child: ReuseableCard(
-              myColor: activeCardColor,
+          Expanded(
+            child: ReuseableCardSimple(
+              myColor: kActiveCardColor,
             ),
           ),
-          const Expanded(
+          Expanded(
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: ReuseableCard(
-                    myColor: activeCardColor,
+                  child: ReuseableCardSimple(
+                    myColor: kActiveCardColor,
                   ),
                 ),
                 Expanded(
-                  child: ReuseableCard(
-                    myColor: activeCardColor,
+                  child: ReuseableCardSimple(
+                    myColor: kActiveCardColor,
                   ),
                 ),
               ],
             ),
           ),
           Container(
-            color: bottomContainerColor,
+            color: kBottomContainerColor,
             margin: const EdgeInsets.only(top: 10),
             width: double.infinity,
-            height: bottomContainerHeight,
+            height: kBottomContainerHeight,
           ),
         ],
       ),
@@ -74,20 +71,20 @@ class MySecondPageState extends State<MySecondPage> {
   }
 }
 
-//This is a custom widget made from other widgets
-//but customized for our needs.
-class ReuseableCard extends StatelessWidget {
+// This is a custom widget made from other widgets
+// but customized for our needs.
+class ReuseableCardSimple extends StatelessWidget {
   // constructor that requires a Color parameter,
   // and optionally a reusableCardChild widget
-  const ReuseableCard({required this.myColor, this.reusableCardChild});
+  const ReuseableCardSimple({required this.myColor, this.reusableCardChild});
 
-  //final makes this property called myColor
-  //of type Color immutable, cannot change once set.
-  //const is a compile time constant
-  //final is a run time constant but both can only
-  //be set ONCE.
-  //Here we cannot use a const because myColor
-  //can be set at run time but only once.
+  // final makes this property called myColor
+  // of type Color immutable, cannot change once set.
+  // const is a compile time constant
+  // final is a run time constant but both can only
+  // be set ONCE.
+  // Here we cannot use a const because myColor
+  // can be set at run time but only once.
   //const Color myConstColor;
   final Color myColor;
   final Widget? reusableCardChild;

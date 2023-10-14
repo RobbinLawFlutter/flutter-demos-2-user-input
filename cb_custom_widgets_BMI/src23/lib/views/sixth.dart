@@ -1,24 +1,22 @@
-//This MySixthPage demonstrates the
-//use of a Ternary Operator instead of the
-//updateColor() method.
-
 // ignore_for_file: use_key_in_widget_constructors, avoid_print
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:robbinlaw/widgets/reusable-card.dart';
+import 'package:robbinlaw/widgets/reusable-card-simple.dart';
 import 'package:robbinlaw/widgets/my-icon.dart';
+import 'package:robbinlaw/constants.dart';
 
-const bottomContainerHeight = 80.0;
-const activeCardColor = Color(0xFF1D1E33);
-//const inactiveCardColor = Color(0xFF111328);
-const inactiveCardColor = Color(0xff424242);
-const bottomContainerColor = Color(0xFFEB1555);
+// This MySixthPage demonstrates the
+// use of a Ternary Operator instead of the
+// updateColor() method.
 
 enum DietClass {
-  notdeterminedyet,
-  omnivore,
-  vegetarian,
+  notdeterminedyet('Not Determined'),
+  omnivore('Omnivore'),
+  vegetarian('Vegetarian');
+
+const DietClass(this.dietClassString);
+final String dietClassString;
 }
 
 class MySixthPage extends StatefulWidget {
@@ -49,11 +47,11 @@ class MySixthPageState extends State<MySixthPage> {
                       });
                       print('Omnivore card was pressed');
                     },
-                    child: ReuseableCard(
+                    child: ReuseableCardSimple(
                       //Second way using terinary operator.
                       myColor: selectedDietClass == DietClass.omnivore
-                          ? activeCardColor
-                          : inactiveCardColor,
+                          ? kActiveCardColor
+                          : kInactiveCardColor,
 
                       reusableCardChild: MyIcon(
                         icon: FontAwesomeIcons.burger,
@@ -71,11 +69,11 @@ class MySixthPageState extends State<MySixthPage> {
                       });
                       print('Vegetarian card was pressed');
                     },
-                    child: ReuseableCard(
+                    child: ReuseableCardSimple(
                       //Second way
                       myColor: selectedDietClass == DietClass.vegetarian
-                          ? activeCardColor
-                          : inactiveCardColor,
+                          ? kActiveCardColor
+                          : kInactiveCardColor,
 
                       reusableCardChild: MyIcon(
                         icon: FontAwesomeIcons.carrot,
@@ -87,32 +85,32 @@ class MySixthPageState extends State<MySixthPage> {
               ],
             ),
           ),
-          const Expanded(
-            child: ReuseableCard(
-              myColor: activeCardColor,
+          Expanded(
+            child: ReuseableCardSimple(
+              myColor: kActiveCardColor,
             ),
           ),
-          const Expanded(
+          Expanded(
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: ReuseableCard(
-                    myColor: activeCardColor,
+                  child: ReuseableCardSimple(
+                    myColor: kActiveCardColor,
                   ),
                 ),
                 Expanded(
-                  child: ReuseableCard(
-                    myColor: activeCardColor,
+                  child: ReuseableCardSimple(
+                    myColor: kActiveCardColor,
                   ),
                 ),
               ],
             ),
           ),
           Container(
-            color: bottomContainerColor,
+            color: kBottomContainerColor,
             margin: const EdgeInsets.only(top: 10),
             width: double.infinity,
-            height: bottomContainerHeight,
+            height: kBottomContainerHeight,
           ),
         ],
       ),

@@ -1,16 +1,13 @@
-//This MyFourthPage demonstrates the use of the icons
-//but as another "custom widget"
-//inside the ReuseableCard custom widget.
-//No functionality yet.
-
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:robbinlaw/constants.dart';
 
-const bottomContainerHeight = 80.0;
-const activeCardColor = Color(0xFF1D1E33);
-const bottomContainerColor = Color(0xFFEB1555);
+// This MyFourthPage demonstrates the use of 
+// the icons but as another "custom widget"
+// inside the ReuseableCardSimple custom widget.
+// No functionality yet.
 
 class MyFourthPage extends StatefulWidget {
   @override
@@ -26,22 +23,22 @@ class MyFourthPageState extends State<MyFourthPage> {
       ),
       body: Column(
         children: <Widget>[
-          const Expanded(
+          Expanded(
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: ReuseableCard(
-                    myColor: activeCardColor,
-                    reusableCardChild: MyIcon(
+                  child: ReuseableCardSimple(
+                    myColor: kActiveCardColor,
+                    reusableCardChild: const MyIcon(
                       icon: FontAwesomeIcons.burger,
                       label: 'OMNIVORE',
                     ),
                   ),
                 ),
                 Expanded(
-                  child: ReuseableCard(
-                    myColor: activeCardColor,
-                    reusableCardChild: MyIcon(
+                  child: ReuseableCardSimple(
+                    myColor: kActiveCardColor,
+                    reusableCardChild: const MyIcon(
                       icon: FontAwesomeIcons.carrot,
                       label: 'VEGETARIAN',
                     ),
@@ -50,32 +47,32 @@ class MyFourthPageState extends State<MyFourthPage> {
               ],
             ),
           ),
-          const Expanded(
-            child: ReuseableCard(
-              myColor: activeCardColor,
+          Expanded(
+            child: ReuseableCardSimple(
+              myColor: kActiveCardColor,
             ),
           ),
-          const Expanded(
+          Expanded(
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: ReuseableCard(
-                    myColor: activeCardColor,
+                  child: ReuseableCardSimple(
+                    myColor: kActiveCardColor,
                   ),
                 ),
                 Expanded(
-                  child: ReuseableCard(
-                    myColor: activeCardColor,
+                  child: ReuseableCardSimple(
+                    myColor: kActiveCardColor,
                   ),
                 ),
               ],
             ),
           ),
           Container(
-            color: bottomContainerColor,
+            color: kBottomContainerColor,
             margin: const EdgeInsets.only(top: 10),
             width: double.infinity,
-            height: bottomContainerHeight,
+            height: kBottomContainerHeight,
           ),
         ],
       ),
@@ -103,18 +100,15 @@ class MyIcon extends StatelessWidget {
         ),
         Text(
           label,
-          style: const TextStyle(
-            fontSize: 18,
-            color: Color(0xFF8D8E98),
-          ),
+          style: kLabelTextStyle
         ),
       ],
     );
   }
 }
 
-class ReuseableCard extends StatelessWidget {
-  const ReuseableCard({required this.myColor, this.reusableCardChild});
+class ReuseableCardSimple extends StatelessWidget {
+  const ReuseableCardSimple({required this.myColor, this.reusableCardChild});
 
   final Color myColor;
 

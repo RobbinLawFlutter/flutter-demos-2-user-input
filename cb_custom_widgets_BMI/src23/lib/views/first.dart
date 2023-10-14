@@ -1,14 +1,13 @@
-//This MyFirstPage demonstrates the tree without any "custom widgets".
-//Use the color picker again to pick the color for the activeCardColor.
-
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
+import 'package:robbinlaw/constants.dart';
 
-const bottomContainerHeight = 80.0;
-const activeCardColor = Color(0xFF1D1E33);
-const bottomContainerColor = Color(0xFFEB1555);
-
+// This MyFirstPage demonstrates the tree
+// without any "custom widgets".
+// We do use constants.dart for colors
+// and text styles.
+// This constants.dart taps into our themes.
 class MyFirstPage extends StatefulWidget {
   @override
   MyFirstPageState createState() => MyFirstPageState();
@@ -30,7 +29,7 @@ class MyFirstPageState extends State<MyFirstPage> {
                   child: Container(
                     margin: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
-                      color: activeCardColor,
+                      color: kActiveCardColor,
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
@@ -39,7 +38,7 @@ class MyFirstPageState extends State<MyFirstPage> {
                   child: Container(
                     margin: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
-                      color: activeCardColor,
+                      color: kActiveCardColor,
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
@@ -51,7 +50,7 @@ class MyFirstPageState extends State<MyFirstPage> {
             child: Container(
               margin: const EdgeInsets.all(15),
               decoration: BoxDecoration(
-                color: activeCardColor,
+                color: kActiveCardColor,
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
@@ -63,7 +62,7 @@ class MyFirstPageState extends State<MyFirstPage> {
                   child: Container(
                     margin: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
-                      color: activeCardColor,
+                      color: kActiveCardColor,
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
@@ -72,7 +71,7 @@ class MyFirstPageState extends State<MyFirstPage> {
                   child: Container(
                     margin: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
-                      color: activeCardColor,
+                      color: kActiveCardColor,
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
@@ -81,10 +80,10 @@ class MyFirstPageState extends State<MyFirstPage> {
             ),
           ),
           Container(
-            color: bottomContainerColor,
+            color: kBottomContainerColor,
             margin: const EdgeInsets.only(top: 10),
             width: double.infinity,
-            height: bottomContainerHeight,
+            height: kBottomContainerHeight,
           ),
         ],
       ),

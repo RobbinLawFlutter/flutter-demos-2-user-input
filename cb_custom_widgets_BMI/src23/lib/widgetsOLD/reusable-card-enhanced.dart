@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-class ReuseableCardEnhanced extends StatelessWidget {
-  const ReuseableCardEnhanced({required this.myColor, this.reusableCardChild, this.onPress});
+class ReuseableCard extends StatelessWidget {
+  const ReuseableCard({required this.myColor, this.reusableCardChild, this.onPress});
   // constructor that requires a Color parameter,
   // and an optional reusableCardChild widget and onPress Function.
 

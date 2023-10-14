@@ -1,7 +1,3 @@
-//This MyEighthPage demonstrates yet another custom
-//widget called RoundIconButton which makes use
-//of RawMaterialButton.
-
 // ignore_for_file: use_key_in_widget_constructors, avoid_print
 
 import 'package:flutter/material.dart';
@@ -9,12 +5,23 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:robbinlaw/widgets/reusable-card-enhanced.dart';
 import 'package:robbinlaw/widgets/my-icon.dart';
 import 'package:robbinlaw/widgets/round-icon-button.dart';
+import 'package:robbinlaw/widgets/bottom-button.dart';
 import 'package:robbinlaw/constants.dart';
 
+// This MyEighthPage demonstrates another custom
+// widget called RoundIconButton which makes use
+// of RawMaterialButton to compose a new widget from
+// basic components.
+// Also instead of the bottom container we have
+// created another custom widget called BottomButton.
+
 enum DietClass {
-  notdeterminedyet,
-  omnivore,
-  vegetarian,
+  notdeterminedyet('Not Determined'),
+  omnivore('Omnivore'),
+  vegetarian('Vegetarian');
+
+const DietClass(this.dietClassString);
+final String dietClassString;
 }
 
 class MyEighthPage extends StatefulWidget {
@@ -41,7 +48,7 @@ class MyEighthPageState extends State<MyEighthPage> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: ReuseableCard(
+                  child: ReuseableCardEnhanced(
                     onPress: () {
                       setState(() {
                         selectedDietClass = DietClass.omnivore;
@@ -57,7 +64,7 @@ class MyEighthPageState extends State<MyEighthPage> {
                   ),
                 ),
                 Expanded(
-                  child: ReuseableCard(
+                  child: ReuseableCardEnhanced(
                     onPress: () {
                       setState(() {
                         selectedDietClass = DietClass.vegetarian;
@@ -76,7 +83,7 @@ class MyEighthPageState extends State<MyEighthPage> {
             ),
           ),
           Expanded(
-            child: ReuseableCard(
+            child: ReuseableCardEnhanced(
               myColor: kActiveCardColor,
               reusableCardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -120,7 +127,7 @@ class MyEighthPageState extends State<MyEighthPage> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: ReuseableCard(
+                  child: ReuseableCardEnhanced(
                     myColor: kActiveCardColor,
                     reusableCardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -161,7 +168,7 @@ class MyEighthPageState extends State<MyEighthPage> {
                   ),
                 ),
                 Expanded(
-                  child: ReuseableCard(
+                  child: ReuseableCardEnhanced(
                     myColor: kActiveCardColor,
                     reusableCardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -205,11 +212,10 @@ class MyEighthPageState extends State<MyEighthPage> {
               ],
             ),
           ),
-          Container(
-            color: kBottomContainerColor,
-            margin: const EdgeInsets.only(top: 10),
-            width: double.infinity,
-            height: kBottomContainerHeight,
+          BottomButton(
+            myText: 'CALCULATE',
+            onTap: () {
+            },
           ),
         ],
       ),

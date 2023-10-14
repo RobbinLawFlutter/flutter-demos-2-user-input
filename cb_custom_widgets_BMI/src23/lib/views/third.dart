@@ -1,15 +1,13 @@
-//This MyThirdPage demonstrates the use of Icons from pub.dev.
-//Go to pub.dev and search for font_awesome_flutter
-//package and download and configure pubspec.yaml.
-
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:robbinlaw/constants.dart';
 
-const bottomContainerHeight = 80.0;
-const activeCardColor = Color(0xFF1D1E33);
-const bottomContainerColor = Color(0xFFEB1555);
+// This MyThirdPage demonstrates the use of 
+// font awesome Icons from pub.dev.
+// Go to pub.dev and search for font_awesome_flutter
+// package and download and configure pubspec.yaml.
 
 class MyThirdPage extends StatefulWidget {
   @override
@@ -25,52 +23,46 @@ class MyThirdPageState extends State<MyThirdPage> {
       ),
       body: Column(
         children: <Widget>[
-          const Expanded(
+          Expanded(
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: ReuseableCard(
-                    myColor: activeCardColor,
+                  child: ReuseableCardSimple(
+                    myColor: kActiveCardColor,
                     reusableCardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Icon(
+                        const Icon(
                           FontAwesomeIcons.burger,
                           size: 80,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 15,
                         ),
                         Text(
                           'OMNIVORE',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Color(0xFF8D8E98),
-                          ),
+                          style: kLabelTextStyle
                         ),
                       ],
                     ),
                   ),
                 ),
                 Expanded(
-                  child: ReuseableCard(
-                    myColor: activeCardColor,
+                  child: ReuseableCardSimple(
+                    myColor: kActiveCardColor,
                     reusableCardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Icon(
+                        const Icon(
                           FontAwesomeIcons.carrot,
                           size: 80,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 15,
                         ),
                         Text(
                           'VEGETARIAN',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Color(0xFF8D8E98),
-                          ),
+                          style: kLabelTextStyle
                         ),
                       ],
                     ),
@@ -79,32 +71,32 @@ class MyThirdPageState extends State<MyThirdPage> {
               ],
             ),
           ),
-          const Expanded(
-            child: ReuseableCard(
-              myColor: activeCardColor,
+          Expanded(
+            child: ReuseableCardSimple(
+              myColor: kActiveCardColor,
             ),
           ),
-          const Expanded(
+          Expanded(
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: ReuseableCard(
-                    myColor: activeCardColor,
+                  child: ReuseableCardSimple(
+                    myColor: kActiveCardColor,
                   ),
                 ),
                 Expanded(
-                  child: ReuseableCard(
-                    myColor: activeCardColor,
+                  child: ReuseableCardSimple(
+                    myColor: kActiveCardColor,
                   ),
                 ),
               ],
             ),
           ),
           Container(
-            color: bottomContainerColor,
+            color: kBottomContainerColor,
             margin: const EdgeInsets.only(top: 10),
             width: double.infinity,
-            height: bottomContainerHeight,
+            height: kBottomContainerHeight,
           ),
         ],
       ),
@@ -112,8 +104,8 @@ class MyThirdPageState extends State<MyThirdPage> {
   }
 }
 
-class ReuseableCard extends StatelessWidget {
-  const ReuseableCard({required this.myColor, this.reusableCardChild});
+class ReuseableCardSimple extends StatelessWidget {
+  const ReuseableCardSimple({required this.myColor, this.reusableCardChild});
 
   final Color myColor;
   final Widget? reusableCardChild;

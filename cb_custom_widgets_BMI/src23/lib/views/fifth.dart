@@ -1,26 +1,26 @@
-//This MyFifthPage demonstrates the use of both custom widgets
-//but now they are both modularized into their own
-//my-icon.dart and reusable-card.dart files.
-//Also shows the use of enums
-//Also functionality with GestureDetector and setSate.
-
 // ignore_for_file: use_key_in_widget_constructors, avoid_print
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:robbinlaw/widgets/reusable-card.dart';
+import 'package:robbinlaw/widgets/reusable-card-simple.dart';
 import 'package:robbinlaw/widgets/my-icon.dart';
+import 'package:robbinlaw/constants.dart';
 
-const bottomContainerHeight = 80.0;
-const activeCardColor = Color(0xFF1D1E33);
-//const inactiveCardColor = Color(0xFF111328);
-const inactiveCardColor = Color(0xff424242);
-const bottomContainerColor = Color(0xFFEB1555);
+// This MyFifthPage demonstrates the use of 
+// both custom widgets but now they are both 
+// modularized into their own my-icon.dart 
+// and reusable-card-simple.dart files.
+// Also shows the use of enums.
+// Also functionality with GestureDetector 
+// and setSate.
 
 enum DietClass {
-  notdeterminedyet,
-  omnivore,
-  vegetarian,
+  notdeterminedyet('Not Determined'),
+  omnivore('Omnivore'),
+  vegetarian('Vegetarian');
+
+const DietClass(this.dietClassString);
+final String dietClassString;
 }
 
 class MyFifthPage extends StatefulWidget {
@@ -29,9 +29,8 @@ class MyFifthPage extends StatefulWidget {
 }
 
 class MyFifthPageState extends State<MyFifthPage> {
-  //Gender selectedGender = Gender.notdeterminedyet;
-  Color omnivoreCardColor = inactiveCardColor;
-  Color vegetarianCardColor = inactiveCardColor;
+  Color omnivoreCardColor = kInactiveCardColor;
+  Color vegetarianCardColor = kInactiveCardColor;
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +53,7 @@ class MyFifthPageState extends State<MyFifthPage> {
                       });
                       print('Omnivore card was pressed');
                     },
-                    child: ReuseableCard(
+                    child: ReuseableCardSimple(
                       //First way updating color via
                       //variable that was changed in updateColor method.
                       myColor: omnivoreCardColor,
@@ -74,7 +73,7 @@ class MyFifthPageState extends State<MyFifthPage> {
                       });
                       print('Vegetarian card was pressed');
                     },
-                    child: ReuseableCard(
+                    child: ReuseableCardSimple(
                       //First way
                       myColor: vegetarianCardColor,
                       reusableCardChild: MyIcon(
@@ -87,32 +86,32 @@ class MyFifthPageState extends State<MyFifthPage> {
               ],
             ),
           ),
-          const Expanded(
-            child: ReuseableCard(
-              myColor: activeCardColor,
+          Expanded(
+            child: ReuseableCardSimple(
+              myColor: kActiveCardColor,
             ),
           ),
-          const Expanded(
+          Expanded(
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: ReuseableCard(
-                    myColor: activeCardColor,
+                  child: ReuseableCardSimple(
+                    myColor: kActiveCardColor,
                   ),
                 ),
                 Expanded(
-                  child: ReuseableCard(
-                    myColor: activeCardColor,
+                  child: ReuseableCardSimple(
+                    myColor: kActiveCardColor,
                   ),
                 ),
               ],
             ),
           ),
           Container(
-            color: bottomContainerColor,
+            color: kBottomContainerColor,
             margin: const EdgeInsets.only(top: 10),
             width: double.infinity,
-            height: bottomContainerHeight,
+            height: kBottomContainerHeight,
           ),
         ],
       ),
@@ -121,15 +120,15 @@ class MyFifthPageState extends State<MyFifthPage> {
 
   void updateColor(DietClass selectedDietClass) {
     if (selectedDietClass == DietClass.omnivore) {
-      if (omnivoreCardColor == inactiveCardColor) {
-        omnivoreCardColor = activeCardColor;
-        vegetarianCardColor = inactiveCardColor;
+      if (omnivoreCardColor == kInactiveCardColor) {
+        omnivoreCardColor = kActiveCardColor;
+        vegetarianCardColor = kInactiveCardColor;
       }
     }
     if (selectedDietClass == DietClass.vegetarian) {
-      if (vegetarianCardColor == inactiveCardColor) {
-        vegetarianCardColor = activeCardColor;
-        omnivoreCardColor = inactiveCardColor;
+      if (vegetarianCardColor == kInactiveCardColor) {
+        vegetarianCardColor = kActiveCardColor;
+        omnivoreCardColor = kInactiveCardColor;
       }
     }
   }

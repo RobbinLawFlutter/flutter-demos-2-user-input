@@ -1,12 +1,3 @@
-//This MySeventhPage demonstrates passing functions as args
-//as the ReuseableCard class has been enhanced to include
-//the GestureDetector and its onpressed property as a parm.
-//Also the use of a slider.
-//Also all constants are modularized into their own file.
-
-//Flutter Slider Widget of the Week
-//https://www.youtube.com/watch?v=ufb4gIPDmEs&list=PLjxrf2q8roU23XGwz3Km7sQZFTdB996iG&index=58
-
 // ignore_for_file: use_key_in_widget_constructors, avoid_print
 
 import 'package:flutter/material.dart';
@@ -15,10 +6,25 @@ import 'package:robbinlaw/widgets/reusable-card-enhanced.dart';
 import 'package:robbinlaw/widgets/my-icon.dart';
 import 'package:robbinlaw/constants.dart';
 
+// This MySeventhPage demonstrates passing 
+// functions as args as the ReuseableCardSimple 
+// class has been enhanced to include
+// the GestureDetector and its onpressed property 
+// as a parameter. It is called 
+// ReuseableCardEnhanced.
+// Also the use of a slider.
+// Also all constants are modularized into their own file.
+
+// Flutter Slider Widget of the Week
+// https://www.youtube.com/watch?v=ufb4gIPDmEs&list=PLjxrf2q8roU23XGwz3Km7sQZFTdB996iG&index=58
+
 enum DietClass {
-  notdeterminedyet,
-  omnivore,
-  vegetarian,
+  notdeterminedyet('Not Determined'),
+  omnivore('Omnivore'),
+  vegetarian('Vegetarian');
+
+const DietClass(this.dietClassString);
+final String dietClassString;
 }
 
 class MySeventhPage extends StatefulWidget {
@@ -44,7 +50,7 @@ class MySeventhPageState extends State<MySeventhPage> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: ReuseableCard(
+                  child: ReuseableCardEnhanced(
                     onPress: () {
                       setState(() {
                         selectedDietClass = DietClass.omnivore;
@@ -60,7 +66,7 @@ class MySeventhPageState extends State<MySeventhPage> {
                   ),
                 ),
                 Expanded(
-                  child: ReuseableCard(
+                  child: ReuseableCardEnhanced(
                     onPress: () {
                       setState(() {
                         selectedDietClass = DietClass.vegetarian;
@@ -79,7 +85,7 @@ class MySeventhPageState extends State<MySeventhPage> {
             ),
           ),
           Expanded(
-            child: ReuseableCard(
+            child: ReuseableCardEnhanced(
               myColor: kActiveCardColor,
               reusableCardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -103,29 +109,17 @@ class MySeventhPageState extends State<MySeventhPage> {
                       ),
                     ],
                   ),
-                  SliderTheme(
-                    data: SliderTheme.of(context).copyWith(
-                      activeTrackColor: Colors.white,
-                      inactiveTrackColor: const Color(0xFF8D8E98),
-                      thumbColor: const Color(0xFFEB1555),
-                      overlayColor: const Color(0x15EB11555),
-                      thumbShape:
-                          const RoundSliderThumbShape(enabledThumbRadius: 15),
-                      overlayShape:
-                          const RoundSliderOverlayShape(overlayRadius: 25),
-                    ),
-                    child: Slider(
-                      value: height.toDouble(),
-                      min: 120,
-                      max: 220,
-                      onChanged: (double newValue) {
-                        setState(() {
-                          height = newValue.round();
-                        });
-                        print(newValue);
-                        print(height);
-                      },
-                    ),
+                  Slider(
+                    value: height.toDouble(),
+                    min: 120,
+                    max: 220,
+                    onChanged: (double newValue) {
+                      setState(() {
+                        height = newValue.round();
+                      });
+                      print(newValue);
+                      print(height);
+                    },
                   ),
                 ],
               ),
@@ -135,12 +129,12 @@ class MySeventhPageState extends State<MySeventhPage> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: ReuseableCard(
+                  child: ReuseableCardEnhanced(
                     myColor: kActiveCardColor,
                   ),
                 ),
                 Expanded(
-                  child: ReuseableCard(
+                  child: ReuseableCardEnhanced(
                     myColor: kActiveCardColor,
                   ),
                 ),
