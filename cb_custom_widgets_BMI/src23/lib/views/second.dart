@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:robbinlaw/constants.dart';
 
 // This MySecondPage demonstrates the use
-// of "custom widgets" to reuse code.
+// of a "custom widget" to reuse code.
 // It displays the same as the MyFirstPage.
 // It also shows the diff between const vs final.
 

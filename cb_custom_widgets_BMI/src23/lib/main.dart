@@ -11,7 +11,7 @@ import 'package:robbinlaw/themes/theme.dart';
 import 'package:robbinlaw/views/first.dart';
 
 // This MySecondPage demonstrates the use
-// of "custom widgets" to reuse code.
+// of a "custom widget" to reuse code.
 // It displays the same as the MyFirstPage.
 // It also shows the diff between const vs final.
 import 'package:robbinlaw/views/second.dart';
@@ -54,7 +54,8 @@ import 'package:robbinlaw/views/seventh.dart';
 // of RawMaterialButton to compose a new widget from
 // basic components.
 // Also instead of the bottom container we have
-// created another custom widget called BottomButton.
+// created another custom widget called BottomButton,
+// but it does NOT do anything yet when pressed.
 import 'package:robbinlaw/views/eighth.dart';
 
 void main() => runApp(MyApp());
@@ -65,14 +66,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: buildTheme(),
-      home: MyFirstPage(),
+      //home: MyFirstPage(),
       //home: MySecondPage(),
       //home: MyThirdPage(),
       //home: MyFourthPage(),
       //home: MyFifthPage(),
       //home: MySixthPage(),
       //home: MySeventhPage(),
-      //home: MyEighthPage(),
+      home: MyEighthPage(),
     );
   }
 }
