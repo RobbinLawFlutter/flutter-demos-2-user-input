@@ -2,7 +2,6 @@
 // go to pub.dev/flutter and download
 // the "english_words" package
 // and the "audioPlayers" package.
-// This app also shows some of the sutilties of dart methods.
 // The app shows methods with no parameters and that return nothing,
 // methods with positional parameters,
 // methods with named parameters,
@@ -14,7 +13,7 @@
 import 'package:flutter/material.dart';
 import 'package:robbinlaw/themes/shrinetheme.dart';
 import 'package:english_words/english_words.dart';
-import 'package:audioplayers/audioplayers.dart';
+//import 'package:audioplayers/audioplayers.dart';
 
 void main() => runApp(MyApp());
 
@@ -106,7 +105,7 @@ class _MyFirstPageState extends State<MyFirstPage> {
   void playSound1() {
     //simplest function that has
     //no input parameters and returns nothing
-    final player = AudioCache();
+    //final player = AudioCache();
     //player.play('note$soundNumber.wav');
     if (soundNumber >= 1 && soundNumber <= 6 && direction == 1) {
       soundNumber++;
@@ -120,7 +119,7 @@ class _MyFirstPageState extends State<MyFirstPage> {
   void playSound2(int sound, String myString) {
     //medium function that has
     //one positional input parameter and returns nothing
-    final player = AudioCache();
+    //final player = AudioCache();
     //player.play('note$sound.wav');
     print(myString);
   }
