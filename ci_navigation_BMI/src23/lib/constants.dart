@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:robbinlaw/themes/colorScheme.dart';
 import 'package:robbinlaw/themes/textTheme.dart';
@@ -5,7 +7,7 @@ import 'package:robbinlaw/themes/textTheme.dart';
 const kBottomContainerHeight = 80.0;
 Color kActiveCardColor = colorScheme.primary;
 Color kInactiveCardColor = colorScheme.secondary;
-Color kBottomContainerColor = colorScheme.onPrimary;
+Color kBottomContainerColor = colorScheme.primary;
 Color kTextColor = colorScheme.onSecondary;
 
 
@@ -20,16 +22,11 @@ const TextStyle kNumberTextStyle = TextStyle(
 );
 
 const kLargeButtonTextStyle = TextStyle(
-  fontSize: 25,
+  fontSize: 40,
   fontWeight: FontWeight.bold,
 );
 
 const kTitleTextStyle = TextStyle(
-  fontSize: 50,
-  fontWeight: FontWeight.bold,
-);
-
-const kBMITextStyle = TextStyle(
-  fontSize: 75,
+  fontSize: 30,
   fontWeight: FontWeight.bold,
 );

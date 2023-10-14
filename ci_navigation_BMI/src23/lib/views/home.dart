@@ -11,9 +11,12 @@ import 'package:robbinlaw/views/results.dart';
 import 'package:robbinlaw/calculator.dart';
 
 enum DietClass {
-  notdeterminedyet,
-  omnivore,
-  vegetarian,
+  notdeterminedyet('Not Determined'),
+  omnivore('Omnivore'),
+  vegetarian('Vegetarian');
+
+const DietClass(this.dietClassString);
+final String dietClassString;
 }
 
 class Home extends StatefulWidget {
@@ -40,7 +43,7 @@ class HomeState extends State<Home> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: ReuseableCard(
+                  child: ReuseableCardEnhanced(
                     onPress: () {
                       setState(() {
                         selectedDietClass = DietClass.omnivore;
@@ -56,7 +59,7 @@ class HomeState extends State<Home> {
                   ),
                 ),
                 Expanded(
-                  child: ReuseableCard(
+                  child: ReuseableCardEnhanced(
                     onPress: () {
                       setState(() {
                         selectedDietClass = DietClass.vegetarian;
@@ -75,7 +78,7 @@ class HomeState extends State<Home> {
             ),
           ),
           Expanded(
-            child: ReuseableCard(
+            child: ReuseableCardEnhanced(
               myColor: kActiveCardColor,
               reusableCardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -119,7 +122,7 @@ class HomeState extends State<Home> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: ReuseableCard(
+                  child: ReuseableCardEnhanced(
                     myColor: kActiveCardColor,
                     reusableCardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -160,7 +163,7 @@ class HomeState extends State<Home> {
                   ),
                 ),
                 Expanded(
-                  child: ReuseableCard(
+                  child: ReuseableCardEnhanced(
                     myColor: kActiveCardColor,
                     reusableCardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -212,17 +215,15 @@ class HomeState extends State<Home> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => Results(
+                    dietClassString: selectedDietClass.dietClassString,
+                    height: height.toString(),
+                    weight: weight.toString(),
+                    age: age.toString(),
                     bmiResult: calc.calculateBMI(),
                   ),
                 ),
               );
             },
-          ),
-          Container(
-            color: kBottomContainerColor,
-            margin: const EdgeInsets.only(top: 10),
-            width: double.infinity,
-            height: kBottomContainerHeight,
           ),
         ],
       ),

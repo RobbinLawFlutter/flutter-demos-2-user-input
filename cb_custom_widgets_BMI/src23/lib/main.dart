@@ -4,7 +4,7 @@
 //Themes documentation from flutter
 //https://flutter.dev/docs/cookbook/design/themes
 
-// ignore_for_file: use_key_in_widget_constructors
+// ignore_for_file: use_key_in_widget_constructors, unused_import
 
 import 'package:flutter/material.dart';
 import 'package:robbinlaw/themes/theme.dart';
