@@ -7,10 +7,23 @@ ColorScheme buildColorTheme(ColorScheme original) {
       .copyWith();
 }
 
-const ColorScheme colorScheme = ColorScheme(
-  //primary: blue200,
+const ColorScheme colorScheme2 = ColorScheme(
   primary: pink100,
   onPrimary: brown900,
+  secondary: pink50,
+  onSecondary: brown600,
+  surface: surfaceWhite,
+  onSurface: brown900,
+  background: backgroundWhite,
+  onBackground: brown900,
+  error: errorRed,
+  onError: surfaceWhite,
+  brightness: Brightness.light,
+);
+
+const ColorScheme colorScheme = ColorScheme(
+  primary: basilGreen100,
+  onPrimary: basilGreen800,
   secondary: pink50,
   onSecondary: brown600,
   surface: surfaceWhite,
@@ -37,7 +50,13 @@ const Color errorRed = Color(0xFFC5032B);
 const Color surfaceWhite = Color(0xFFFFFBFA);
 const Color backgroundWhite = Colors.white;
 
-ColorScheme colorScheme2 = ColorScheme.fromSeed(
+const Color basilGreen800 = Color(0xFF356859);
+const Color basilGreen500 = Color(0xFF37966F);
+const Color basilGreen100 = Color(0xFFB9E4C9);
+const Color basilOrange800 = Color(0xFFFD5523);
+const Color basilNeutral = Color(0xFFFFFBE6);
+
+ColorScheme colorScheme3 = ColorScheme.fromSeed(
   brightness: Brightness.light,
   //brightness: Brightness.dark,
   seedColor: Colors.green,
