@@ -11,7 +11,7 @@ import 'package:robbinlaw/views/results.dart';
 import 'package:robbinlaw/calculator.dart';
 
 enum DietClass {
-  notdeterminedyet('Not Determined'),
+  notdeterminedyet('Not Det'),
   omnivore('Omnivore'),
   vegetarian('Vegetarian');
 
