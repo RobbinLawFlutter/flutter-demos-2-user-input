@@ -34,6 +34,15 @@ class View2 extends StatelessWidget {
                     builder: (context) => View1(),
                   ),
                 );
+                // Navigate to Screen 1
+                // replacing the previous
+                // page on the stack.
+                // Navigator.pushReplacement(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) => View1(),
+                //   ),
+                // );
               },
             ),
             const SizedBox(

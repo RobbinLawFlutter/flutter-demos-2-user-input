@@ -29,13 +29,22 @@ class View1 extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                //Navigate to Screen 2
+                // Navigate to Screen 2
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => View2(),
                   ),
                 );
+                // Navigate to Screen 2
+                // replacing the previous
+                // page on the stack.
+                // Navigator.pushReplacement(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) => View2(),
+                //   ),
+                // );
               },
             ),
             const SizedBox(
