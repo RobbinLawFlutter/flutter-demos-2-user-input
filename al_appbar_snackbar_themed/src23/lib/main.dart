@@ -26,24 +26,7 @@ class MyPage extends StatelessWidget {
         actions: [
           ElevatedButton(
             onPressed: () {
-              dynamic snackBar = SnackBar(
-                behavior: SnackBarBehavior.floating,
-                content: const Row(
-                  children: [
-                    Icon(Icons.accessibility_new_rounded),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text('Hey There Robbin'),
-                  ],
-                ),
-                action: SnackBarAction(
-                  label: 'Click Me',
-                  onPressed: () {
-                    print('hey you clicked on the snackbar Action');
-                  },
-                ),
-              );
+              dynamic snackBar = newMethod();
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
             },
             //child: Text('Show SnackBar'),
@@ -53,6 +36,27 @@ class MyPage extends StatelessWidget {
         ],
       ),
       body: const Center(),
+    );
+  }
+
+  SnackBar newMethod() {
+    return SnackBar(
+      behavior: SnackBarBehavior.floating,
+      content: const Row(
+        children: [
+          Icon(Icons.accessibility_new_rounded),
+          SizedBox(
+            width: 10,
+          ),
+          Text('Hey There Robbin'),
+        ],
+      ),
+      action: SnackBarAction(
+        label: 'Click Me',
+        onPressed: () {
+          print('hey you clicked on the snackbar Action');
+        },
+      ),
     );
   }
 }

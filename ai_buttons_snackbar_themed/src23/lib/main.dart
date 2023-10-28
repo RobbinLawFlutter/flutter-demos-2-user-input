@@ -1,4 +1,3 @@
-
 // ignore_for_file: use_key_in_widget_constructors, avoid_print
 
 import 'package:flutter/material.dart';
@@ -71,9 +70,39 @@ class MyPage extends StatelessWidget {
               },
               child: const Text("ELEVATED BUTTON"),
             ),
+            ElevatedButton(
+              onPressed: () {
+                dynamic snackBar = mySnackBar('hey man');
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                // Respond to button press
+                print('You Clicked the Elevated Button');
+              },
+              child: const Text("SHOW SNACKBAR"),
+            ),
             SnackbarButton(),
           ],
         ),
+      ),
+    );
+  }
+
+  SnackBar mySnackBar(String text) {
+    return SnackBar(
+      behavior: SnackBarBehavior.floating,
+      content: Row(
+        children: [
+          const Icon(Icons.accessibility_new_rounded),
+          const SizedBox(
+            width: 10,
+          ),
+          Text(text),
+        ],
+      ),
+      action: SnackBarAction(
+        label: 'Click Me',
+        onPressed: () {
+          print('hey you clicked on the snackbar Action');
+        },
       ),
     );
   }
@@ -106,7 +135,7 @@ class SnackbarButton extends StatelessWidget {
           ),
         );
         // Displaying the snackBar.
-        // Find the Scaffold in the 
+        // Find the Scaffold in the
         // widget tree and use
         // it to show a SnackBar.
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
